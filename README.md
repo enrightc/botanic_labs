@@ -1,54 +1,13 @@
 # BOTANIC LABS
-
-# INTRODUCTION
+# 1.0  OVERVIEW
+# 2.0  INTRODUCTION
 Botanic Labs is a flower website dedicated to helping people make the most of their garden space. Whether you're a seasoned gardener or a complete beginner, Botanic Labs offers a friendly interface to explore, purchase, and learn about a wide variety of plants. Our focus on seasonal blooms ensures that you can find the perfect plant for your garden, no matter the time of year.
 
-## Key Features
-1. User Authentication
-- User registration and login
-- Password reset functionality
-
-2. Product Catalog
-- Browse products by category 
-- Search functionality
-- Filtering options (e.g., sun exposure, difficulty level, season)
-
-3. Product Details
-- Detailed product information (description, planting instructions, care tips)
-- Customer reviews and ratings
-- Related products
-
-4. Shopping Cart
-- Add/remove items
-- Update quantities
-- Save cart for registered users
-
-5. Checkout Process
-- Guest checkout option
-- Address management for registered users
-- Integration with Stripe for secure payments
-
-6. User Profiles
-- Order history
-- Saved addresses
-- Wishlist/Favorites
-
-7. Admin Panel
-- Manage products, categories, and orders
-- View and respond to customer reviews
-- Generate reports (e.g., best-selling items, revenue)
-
-8. Additional Features
-- Blog with gardening tips and advice
-- Subscription service for seasonal seed/bulb boxes
-- Virtual garden planner (premium feature)
-- FAQ
-
-## USER EXPERIENCE
-## Strategy
+# 3.0  USER EXPERIENCE
+## 3.1 Strategy
 This section outlines the fundamental reasons behind the creation of **Botanic Labs** and how it aims to address specific needs within the gardening community. It delves into the rationale for the project, identifying the gaps and opportunities within existing platforms. This section also highlights the target audience, their goals, and the broader objectives of the website. By understanding these strategic elements, users can better appreciate the purpose and intended impact of **Botanic Labs**..
 
-### Project Rationale
+### 3.1.1 Project Rationale
 While many gardening websites offer plants and gardening products, few provide a comprehensive, engaging platform that caters to both seasoned gardeners and beginners. Botanic Labs was conceived to fill this gap, offering an inspiring and interactive space where users can explore, purchase, and learn about plants tailored to their specific needs and garden spaces.
 
 Botanic Labs aims to inspire customers to enhance their gardens by providing a wide range of plants suited for every season. The platform encourages user engagement through features such as product ratings, comments, and interactive blogs. These features create a community-driven environment where gardeners can share experiences, offer advice, and learn from one another.
@@ -70,10 +29,10 @@ Supporting Biodiversity: Offering a diverse range of plants supports biodiversit
 Cultivating a Passion for Gardening: By making gardening fun, educational, and interactive, Botanic Labs inspires more people to take up gardening, fostering a greater appreciation for nature and the environment.
 Through these strategic elements, Botanic Labs seeks to revolutionise the gardening experience, making it more interactive, educational, and enjoyable for all users.
 
-## Target Audience
+## 3.1.2 Target Audience
 **Botanic Labs** is designed to attract a diverse range of customers who are looking for a fresh, contemporary take on garden products. With its trendy appeal and user-friendly platform, Botanic Labs caters to both beginners and advanced gardeners, making gardening accessible and enjoyable for everyone.
 
-## Project Goals
+## 3.1.3 Project Goals
 ### Website Owner Goals
 **Increase Sales and Revenue:**
 The primary goal for Botanic Labs as a business is to increase sales of plants and gardening products. By offering a curated selection of high-quality, seasonal plants and providing a seamless shopping experience, the website aims to boost revenue through online sales.
@@ -102,7 +61,7 @@ Users may come to Botanic Labs for inspiration on how to design and beautify the
 **Support Sustainable and Ethical Choices:**
 Many users are conscious of their environmental impact and look for sustainable and ethical gardening options. Botanic Labs offers products and advice that support eco-friendly practices, helping users make choices that align with their values.
 
-## User Stories
+## 3.1.4 User Stories
 
 ### As a general visitor:
 
@@ -148,3 +107,72 @@ Many users are conscious of their environmental impact and look for sustainable 
 5. I want to create and edit blog posts, so that I can share gardening tips and news with users.
 6. I want to view reports on sales and popular products, so that I can make informed business decisions.
 7. I want to manage user accounts and permissions, so that I can provide appropriate access levels to different users.
+
+# 4.0   SCOPE
+To ensure **Botanic Labs** is able to meet the needs of its audience a variety of features designed to enhance user experience, engagement and functionality have been considered. At a minimum the following features have been deemed essential to emet the needs of different types of users and ensure the website is comprehensive and user friendly.
+
+## General:
+- Responsive design
+- Database to store products
+- Intuitive navigation
+
+## Other Key Features
+1. User Authentication
+- User registration and login
+- Password reset functionality
+
+2. Product Catalog
+- Browse products by category 
+- Search functionality
+- Filtering options (e.g., sun exposure, difficulty level, season)
+
+3. Product Details
+- Detailed product information (description, planting instructions, care tips)
+- Customer reviews and ratings
+- Related products
+
+4. Shopping Cart
+- Add/remove items
+- Update quantities
+- Save cart for registered users
+
+5. Checkout Process
+- Guest checkout option
+- Address management for registered users
+- Integration with Stripe for secure payments
+
+6. User Profiles
+- Order history
+- Saved addresses
+- Wishlist/Favorites
+
+7. Admin Panel
+- Manage products, categories, and orders
+- View and respond to customer reviews
+- Generate reports (e.g., best-selling items, revenue)
+
+8. Additional Features
+- Blog with gardening tips and advice
+- Subscription service for seasonal seed/bulb boxes
+- Virtual garden planner (premium feature)
+- FAQ
+
+# 5.0   STRUCTURE
+## 5.1 Frontend Framework
+Botanic Labs is built using **Bootstrap v4.188, ensuring a responsive and mobile-friendly design across all devices. 
+
+## 5.2 Database
+The backend application connects to a Postgres database hosted on [Amazon Web Service](https://aws.amazon.com/).
+
+## 5.3 Database Schema
+An essential step in the development of Botanic Lanbs was the careful planning and creation of the database schema. By planning the structure of the data from the beginning, the development process was more straightforward and allowed for efficient data management throughout the project. The database schema was informed by the user stories, scope definition, and initial flow diagrams.
+
+To create a clear visual representation of the database, I used **Lucid Chart** to build the schema. This visual guide was continuously referred to throughout development, allowing me to keep track of the relationships between the various components of the website, and it was updated as the project evolved.
+
+One key component of the schema was the integration of user profiles and the relationship with products, orders, and wishlist functionalities. Each user has a single profile and can manage a wishlist, while also interacting with the product catalog and order system. I also planned a blog system and a review feature for users to interact with plant products, sharing their experiences and ratings.
+
+While I initially considered including an FAQ section connected to the product database, I opted to leave this as a standalone table without direct relationships to other entities. This kept the database design clean and efficient, allowing for potential future expansion without complicating the current scope.
+
+![ER diagram](/workspace/botanic-labs/botanic_labs/media/docs/Database ER diagram.jpeg)
+
+The ER diagram above represents the relationships between the different entities in the Botanic Labs database:
