@@ -65,11 +65,15 @@ h1 {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background-color: #000 !important;
+}
+
 /* -------------------------------- Home page */
 .hero {
     background: url('/media/homepage_hero.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: 70vh;
+    height: 600px;
 }
 
 /* -------------------------------- Media Queries */
