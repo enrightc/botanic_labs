@@ -173,6 +173,38 @@ One key component of the schema was the integration of user profiles and the rel
 
 While I initially considered including an FAQ section connected to the product database, I opted to leave this as a standalone table without direct relationships to other entities. This kept the database design clean and efficient, allowing for potential future expansion without complicating the current scope.
 
-![ER diagram](/workspace/botanic-labs/botanic_labs/media/docs/Database ER diagram.jpeg)
+![Entity-relationship Diagram](botanic_labs/media/docs/entity-relationship-diagram.jpeg)
 
-The ER diagram above represents the relationships between the different entities in the Botanic Labs database:
+The ER diagram above represents the relationships between the different entities in the Botanic Labs database.
+
+## 6.0  SKELETON
+Prior to commencing the website coding process, wireframes were produced for each page using Figma - a design tool used for creating user interfaces, prototypes, and wireframes. These wireframes served as the initial blueprints, providing a visual roadmap for the website's layout and structure.
+
+It's important to note that while the final web pages evolved from these early plans, some deviations were intentionally made to enhance the user experience and align better with the project's goals.
+
+This iterative process allowed for flexibility in adapting to evolving project requirements, ultimately contributing to the development of a more refined and user-friendly website.
+
+<details>
+  <summary>Home</summary>
+  <img src="botanic_labs/media/docs/wireframes/home-page.png" alt="Home page">
+</details>
+
+<details>
+  <summary>Products List</summary>
+  <img src="botanic_labs/media/docs/wireframes/products-list.png" alt="Products list page">
+</details>
+
+<details>
+  <summary>Product Details</summary>
+  <img src="botanic_labs/media/docs/wireframes/product-datails.png" alt="Product details page">
+</details>
+
+<details>
+  <summary>Blog</summary>
+  <img src="botanic_labs/media/docs/wireframes/blog-page.png" alt="Blog page">
+</details>
+
+<details>
+  <summary>Checkout</summary>
+  <img src="botanic_labs/media/docs/wireframes/checkout.png" alt="Checkout page">
+</details>
