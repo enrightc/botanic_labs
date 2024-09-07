@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Product image and details -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
@@ -27,7 +28,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ product.name }}</p>
+                    <h1 class="product-title mb-0">{{ product.name }}</h1>
                     <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                     {% if product.rating %}
                         <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
@@ -37,6 +38,29 @@
                     <p class="mt-3">{{ product.description }}</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Recommended products -->
+    <div class="container-fluid">
+        <h3>Other shoppers also bought</h3>
+        <div class="row">
+            {% for recommended in recommended_products %}
+                <div class="col-4 col-md-3">
+                    <div class="card mb-4">
+                        <a href="{% url 'product_detail' recommended.id %}">
+                            {% if recommended.image %}
+                                <img class="card-img-top" src="{{ recommended.image.url }}" alt="{{ recommended.name }}">
+                            {% else %}
+                                <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ recommended.name }}">
+                            {% endif %}
+                        </a>
+                        <div class="card-body text-center">
+                            <p class="card-text">{{ recommended.name }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
         
