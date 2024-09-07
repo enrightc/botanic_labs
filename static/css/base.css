@@ -3,8 +3,8 @@ html {
 }
 
 body {
-    margin-top:64px;
-    background-color: #1A3B3D;
+    padding-top:172.8px;
+    background-color: #FAF7F2;
     font-family: 'inter', sans-serif;
 }
 
@@ -69,11 +69,18 @@ h1 {
     background-color: #000 !important;
 }
 
+
 /* -------------------------------- Home page */
 .hero {
     background: url('/media/homepage_hero.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 600px;
+}
+
+/* -------------------------------- Products */
+.card-img-top {
+    object-fit: cover;
+    aspect-ratio: 3/2;
 }
 
 /* -------------------------------- Media Queries */
