@@ -82,6 +82,59 @@ h1 {
     height: 600px;
 }
 
+.season-select-card {
+    height: 400px; 
+    object-fit: cover; 
+    width: 100%; 
+}
+
+.spring-card {
+    background: url('/media/spring.avif');
+    background-size: cover;
+    text-decoration: none;
+}
+
+.summer-card {
+    background: url('/media/summer.avif');
+    background-size: cover;
+    text-decoration: none;
+}
+
+.autumn-card {
+    background: url('/media/autumn.avif');
+    background-size: cover;
+    text-decoration: none;
+}
+
+.winter-card {
+    background: url('/media/winter.avif');
+    background-size: cover;
+    text-decoration: none;
+}
+
+.season-title {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)); /* Gradient background */
+    color: white;
+    text-align: center;
+    padding: 30px 30px; 
+    max-width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.scroll-indicator {
+    position: absolute;
+    right: 10px;
+    bottom: 250px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+}
+
 /* -------------------------------- Products */
 .card-img-top {
     object-fit: cover;
