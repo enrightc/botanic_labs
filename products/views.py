@@ -19,7 +19,8 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-
+            if sortkey == 'category':
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -30,7 +31,7 @@ def all_products(request):
         if 'season' in request.GET:
                 seasons = request.GET['season'].split(',')
                 products = products.filter(season__name__in=seasons)
-                seasons = Season.objects.filter(name__in=seasons).first()
+                seasons = Season.objects.filter(name__in=seasons)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -46,7 +47,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
-        'current_season': seasons,
+        'current_seasons': seasons,
         'current_sorting': current_sorting,
     }
 
