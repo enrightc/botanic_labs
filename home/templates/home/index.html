@@ -31,7 +31,8 @@
     <h2 class="px-3">Search by Category</h2>
     <div class="row flex-nowrap overflow-auto mx-0 pb-3 category-scroll">
         <div class="col-8 col-sm-6 col-md-4 col-lg-3">
-            <a class="card season-select-card border-0 spring-card justify-content-end text-center" href="" >
+            <a class="card season-select-card border-0 spring-card justify-content-end text-center" 
+                href="{% url 'products' %}?season=spring" >
                 <div class="season-title">
                     <h3 class="logo-font">spring</h3>
                 </div>
@@ -39,7 +40,8 @@
         </div>
 
         <div class="col-8 col-sm-6 col-md-4 col-lg-3">
-            <a class="card season-select-card border-0 summer-card justify-content-end text-center" href="" >
+            <a class="card season-select-card border-0 summer-card justify-content-end text-center" 
+                href="{% url 'products' %}?season=summer">
                 <div class="season-title">
                     <h3 class="logo-font">summer</h3>
                 </div>
@@ -47,7 +49,8 @@
         </div>
 
         <div class="col-8 col-sm-6 col-md-4 col-lg-3">
-            <a class="card season-select-card border-0 autumn-card justify-content-end text-center" href="" >
+            <a class="card season-select-card border-0 autumn-card justify-content-end text-center" 
+                href="{% url 'products' %}?season=autumn">
                 <div class="season-title">
                     <h3 class="logo-font">autumn</h3>
                 </div>
@@ -55,7 +58,8 @@
         </div>
 
         <div class="col-8 col-sm-6 col-md-4 col-lg-3">
-            <a class="card season-select-card border-0 winter-card justify-content-end text-center" href="" >
+            <a class="card season-select-card border-0 winter-card justify-content-end text-center" 
+                href="{% url 'products' %}?season=winter">
                 <div class="season-title">
                     <h3 class="logo-font">winter</h3>
                 </div>
@@ -64,6 +68,15 @@
     </div>
     <div class="scroll-indicator d-lg-none text-center">
         <i class="fas fa-chevron-right"></i>
+    </div>
+
+    <div class="my-5">
+        <h4>
+            <a href="{% url 'products' %}?category=sprint,summer,autumn,winter" 
+                class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
+                All Seasons
+            </a>
+        </h4>
     </div>
 </div>
 {% endblock %}
