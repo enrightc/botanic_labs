@@ -12,7 +12,7 @@
                 Flowers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'products' %}?season=spring,summer,autumn,winter" class="dropdown-item">All Flowers</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Flowers</a>
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item ">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}?sort=season&direction=asc" class="dropdown-item">By Season</a>

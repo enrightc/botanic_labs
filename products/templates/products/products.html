@@ -14,11 +14,26 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font page-title">Products</h2>
-                    {% for s in current_seasons %}
-                        <a class="category-badge text-decoration-none" href="{% url 'products' %}?season={{ s.name }}">
-                            <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ s.friendly_name }}</span>
-                        </a>
-                    {% endfor %}
+                <div class="seasons-navigation">
+                    
+                    <div>
+                        {% for s in all_seasons %}
+                            <a class="category-badge text-decoration-none 
+                                {% if current_seasons and s.name in current_seasons %} active-season {% endif %}" 
+                                href="{% url 'products' %}?season={{ s.name }}">
+                                
+
+                
+
+
+                                <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark
+                                    {% if current_seasons and s.name in current_seasons %} {% else %} border-dark {% endif %}">
+                                    {{ s.friendly_name }}
+                                </span>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
                 <hr class="w-50 mb-1">
             </div>
         </div>

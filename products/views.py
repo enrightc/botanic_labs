@@ -12,6 +12,9 @@ def all_products(request):
     sort = None
     direction = None
 
+    # Always fetch all seasons for navigation
+    all_seasons = Season.objects.all()
+
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -31,7 +34,7 @@ def all_products(request):
         if 'season' in request.GET:
                 seasons = request.GET['season'].split(',')
                 products = products.filter(season__name__in=seasons)
-                seasons = Season.objects.filter(name__in=seasons)
+                current_seasons = Season.objects.filter(name__in=seasons)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -48,6 +51,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_seasons': seasons,
+        'all_seasons': all_seasons,  # All seasons for navigation
         'current_sorting': current_sorting,
     }
 
