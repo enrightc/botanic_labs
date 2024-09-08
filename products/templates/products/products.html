@@ -17,6 +17,15 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
+
+        <!-- season Name -->
+        {% if current_season %}
+        <div class="row">
+            <div class="category-label font-body d-flex text-blue text-decoration-none mx-auto">
+                <p class="font-title weight-semibold section-title text-uppercase lh-1">{{ current_season }}</p>
+            </div>
+        </div>
+        {% endif %}
         <div class="product-container col-10 offset-1"></div>
         <div class="row mt-1 mb-2"></div>
         <div class="row">
