@@ -82,34 +82,45 @@ h1 {
     height: 600px;
 }
 
+/* Search by Category */
 .season-select-card {
     height: 400px; 
     object-fit: cover; 
     width: 100%; 
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.season-select-card:hover {
+    transform: scale(1.05); 
+    text-decoration: none;
 }
 
 .spring-card {
     background: url('/media/spring.avif');
     background-size: cover;
-    text-decoration: none;
+    
 }
 
 .summer-card {
     background: url('/media/summer.avif');
     background-size: cover;
     text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .autumn-card {
     background: url('/media/autumn.avif');
     background-size: cover;
     text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .winter-card {
     background: url('/media/winter.avif');
     background-size: cover;
     text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .season-title {
@@ -118,8 +129,12 @@ h1 {
     text-align: center;
     padding: 30px 30px; 
     max-width: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1s ease-in-out;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px;
+}
+
+.season-select-card:hover {
+    text-decoration: none;
 }
 
 .scroll-indicator {
