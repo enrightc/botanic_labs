@@ -236,6 +236,11 @@ h1 {
     border: 1px solid black;
 }
 
+/* -------------------------------- Product Details*/
+.product-details {
+    line-height: 0.75;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
