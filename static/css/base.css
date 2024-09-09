@@ -183,6 +183,53 @@ h1 {
     border-bottom: 3px solid;
 }
 
+/* Back to Top Button Styles */
+.btt-button {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #605e5e;  
+    border-radius: 50%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    z-index: 1000;
+}
+
+.btt-button:hover {
+    background-color: #ff4081; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);  
+    transform: translateY(-5px); 
+    opacity: 1;
+}
+
+.btt-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    font-size: 24px;  
+    transition: color 0.3s ease; 
+}
+
+.btt-link:hover {
+    color: white;
+}
+
+.btt-link i {
+    transition: transform 0.3s ease;
+}
+
+.btt-link:hover i {
+    transform: scale(1.2);  
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
