@@ -230,6 +230,12 @@ h1 {
     transform: scale(1.2);  
 }
 
+.btn-outline-black {
+    background: white;
+    color: black !important; 
+    border: 1px solid black;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
