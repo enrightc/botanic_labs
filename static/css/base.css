@@ -236,13 +236,16 @@ h1 {
     border: 1px solid black;
 }
 
+.update-link, .remove-item {
+    cursor: pointer;
+}
+
 /* -------------------------------- Product Details*/
 .product-details {
     line-height: 0.75;
 }
 
 .qty_input {
-    
     text-align: center; 
     padding: 5px;
     border: 1px solid #ccc;
@@ -254,14 +257,29 @@ h1 {
     padding: 0;
     margin: 2px 0; 
     font-size: 14px; 
-    
 }
 
-.input-group {
+.input-qty-group {
+    margin-left: 5px;
     flex-direction: column;
     align-items: center; 
     transform: translateY(-10px); /* Move buttons up a few pixels */
 }
+
+/* -------------------------------- Shopping Cart */
+.input-group-bag {
+    flex-direction: column;
+    align-items: center; 
+    margin-left: 5px;
+}
+
+.product-img-bag {
+    max-width: 280px;
+    width: 100%;
+}
+
+
+
 
 /* -------------------------------- Media Queries */
 
