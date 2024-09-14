@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+
+from products.models import Product
 
 # Create your views here.
 
@@ -11,15 +14,23 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
+    product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    # check the user’s session to see if there’s already a shopping bag stored.
     bag = request.session.get('bag', {})
 
+    # Check if the product (item_id) is already in the shopping bag.
     if item_id in list(bag.keys()):
+        # If the product is already in the bag increment the quantity of that product 
         bag[item_id] += quantity
     else:
+        # If the product is not in the bag add it with the specified quantity
         bag[item_id] = quantity
+        # Display success message to the user
+        messages.error(request, f'Added {product.name} to your bag')
 
+    # Save the shopping bag into the user's session
     request.session['bag'] = bag
     return redirect(redirect_url)
 
@@ -27,6 +38,7 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """ Adjust quantuty of an item to a specfied amount """
 
+    product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
@@ -43,6 +55,7 @@ def adjust_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
 
 def remove_from_bag(request, item_id):
     """ Remove the item from the shopping bag """
