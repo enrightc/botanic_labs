@@ -51,6 +51,8 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault(); // Prevent default action to post
     card.update({ 'disabled': true}); // Disable both the card element and submut button to prevent multiple submissions
     $('#submit-button').attr('disabled', true);
+    $('#payment-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
     // use stripe.confirm card payment method to send card info securely to strupe
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -65,6 +67,8 @@ form.addEventListener('submit', function(ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false); // reenable in case there is an error so user can resubmit
         } else {
