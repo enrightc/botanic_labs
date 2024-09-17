@@ -25,7 +25,6 @@
     color: #aab7c4;
 }
 
-
 .fieldset-label {
     position: relative;
     right: .5rem;
@@ -36,3 +35,45 @@
     color: #000;
     border: 1px solid #000;
 }
+
+
+/* -------------------------------- Order Confirmation */
+.order-confirmation-wrapper {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.section-header {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.section-header h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.order-confirmation-wrapper p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.text-highlight {
+  color: #28a745;
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+  .order-confirmation-wrapper {
+      padding: 15px;
+  }
+
+  .order-confirmation-wrapper p {
+      font-size: 0.9rem;
+  }
+}
+
