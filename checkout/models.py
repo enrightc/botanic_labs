@@ -22,6 +22,16 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    # There's a chance that the same customer might place the same order twice 
+    # (on different occasions). If that happens, we might accidentally find the 
+    # first order in the database when they place the second one, and the new order 
+    # might not get added.
+    # 
+    # To prevent this, we can add two new fields to the Order model:
+    # 1. A text field to store the original shopping bag content that created the order.
+    # 2. A character field to store the Stripe payment intent ID, which is always unique.
+    original_bag = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """

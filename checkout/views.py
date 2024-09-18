@@ -57,8 +57,11 @@ def checkout(request):
         # Check if the form is valid (no errors in the data)
         if order_form.is_valid():
             # Save the order to the database
-            order = order_form.save()
-
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
             # Loop through each item in the shopping bag
             for item_id, item_data in bag.items():
                 try:
