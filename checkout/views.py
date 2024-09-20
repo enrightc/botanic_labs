@@ -5,7 +5,10 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+
 from products.models import Product
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
 
 import stripe  # Stripe is used for handling payments
@@ -27,6 +30,7 @@ def cache_checkout_data(request):
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
+
 
 def checkout(request):
     # Get Stripe keys from settings
@@ -120,8 +124,25 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,  # Currency type 
         )
 
-        # Create an empty order form for the user to fill out
-        order_form = OrderForm()
+         # Attempt to prefill the form with any info the user maintains in their profile
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm() # Create an empty order form for the user to fill out
 
         # If Stripe public key is missing, warn the user
         if not stripe_public_key:
@@ -144,19 +165,37 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
-    save_info = request.session.get('save_info')  # Check if the user wanted to save info
-    order = get_object_or_404(Order, order_number=order_number)  # Get the order or show 404 if not found
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
 
-    # Show a success message to the user with their order number
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_county': order.county,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
-    # Remove the bag from the session after successful checkout
     if 'bag' in request.session:
         del request.session['bag']
 
-    # Render the checkout success page with the order details
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
