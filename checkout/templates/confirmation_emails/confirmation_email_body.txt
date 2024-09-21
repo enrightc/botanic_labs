@@ -1,0 +1,23 @@
+Hello {{ order.full_name }},
+
+Thank you for shopping with us at Botanic Lab! We’re thrilled to confirm that your order has been received and is now being processed. Below are your order details:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: £{{ order.order_total }}
+Delivery Fee: £{{ order.delivery_cost }}
+Grand Total: £{{ order.grand_total }}
+
+Your items will soon be on their way to:
+{{ order.street_address1 }}
+{{ order.town_or_city }}, {{ order.country }}
+
+We have your phone number listed as {{ order.phone_number }}. If anything needs updating, please let us know as soon as possible.
+
+If you have any questions or need further assistance, feel free to reach out to us at {{ contact_email }}.
+
+We truly appreciate your support and look forward to seeing you again soon!
+
+Warm regards,
+The Botanic Lab Team
