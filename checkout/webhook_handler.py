@@ -7,7 +7,9 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
 from bag.contexts import bag_contents
+from profiles.models import UserProfile
 
+import time
 import stripe
 import json
 
@@ -38,21 +40,36 @@ class StripeWH_Handler:
         bag = intent.metadata.bag  # The shopping bag data from Stripe's metadata
         save_info = intent.metadata.save_info  # Whether the user wants to save info for future purchases
 
-        # Retrieve additional charge details from Stripe
+        # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge  # Retrieves the latest charge from the payment intent
+            intent.latest_charge
         )
-
+        
         # Extract billing and shipping details
         billing_details = stripe_charge.billing_details  # Customer's billing details
         shipping_details = intent.shipping  # Customer's shipping details
         grand_total = round(stripe_charge.amount / 100, 2)  # Convert amount to the correct decimal format
 
-
         # Clean up the shipping address data (replace empty fields with None)
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+
+         # Update profile information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                profile.save()
+
 
         order_exists = False  # This flag tracks if the order is already in the database
         attempt = 1  # Start a loop to try checking for the order multiple times
@@ -90,6 +107,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,

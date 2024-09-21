@@ -209,7 +209,14 @@ This iterative process allowed for flexibility in adapting to evolving project r
   <img src="botanic_labs/media/docs/wireframes/checkout.png" alt="Checkout page">
 </details>
 
+# BUGS
+**User Profile Not Attached to Orders in Webhook Handling**
 
+Issue: When capturing a payment via Stripe webhooks (e.g., by commenting out the form submission process to simulate a user closing the page before submission), the user_profile was not being attached to the order, even though the payment was successfully processed. The issue was caused by placing user_profile=profile in the wrong location within the webhook handler code.
+
+Solution: The user_profile assignment was mistakenly placed within the section of the code that verifies if an order already exists, rather than in the section where a new order is created. Moving user_profile=profile to the correct location in the code, where the new order is created, ensured that user profiles are correctly attached to new orders processed through the webhook.
+
+Outcome: After correcting the code placement, the user_profile is now correctly attached to orders, whether processed via the form submission or handled directly through Stripe webhooks. This allows user order history and profile data to function as expected in both cases.
 
 # REFERENCES
 [CSS translateY() Function](https://www.quackit.com/css/functions/css_translatey_function.cfm). Accessed 12th Sept, 2024.
