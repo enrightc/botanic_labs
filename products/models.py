@@ -21,6 +21,30 @@ class Product(models.Model):
         (9, 'September'), (10, 'October'), (11, 'November'), (12, 'December')
     ]
 
+    SOIL_DRAINAGE_CHOICES = [
+        ('well_drained', 'Well-drained'),
+        ('poorly_drained', 'Poorly-drained'),
+        ('moist', 'Moist'),
+    ]
+
+    LIFESPAN_CHOICES = [
+        ('annual', 'Annual'),
+        ('biennial', 'Biennial'),
+        ('perennial', 'Perennial'),
+    ]
+
+    TYPE_CHOICES = [
+        ('seeds', 'Seeds'),
+        ('bulbs', 'Bulbs'),
+       
+    ]
+
+    LIGHT_EXPOSURE_CHOICES = [
+        ('full_sun', 'Full Sun'),
+        ('partial_shade', 'Partial Shade'),
+        ('shade', 'Shade'),
+    ]
+
     season = models.ForeignKey('Season', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
@@ -28,7 +52,6 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    soil_drainage = models.CharField(max_length=254)
     planting_start = models.IntegerField(choices=MONTH_CHOICES, 
                                         validators=[MinValueValidator(1), 
                                         MaxValueValidator(12)])
@@ -41,9 +64,10 @@ class Product(models.Model):
     flowering_end = models.IntegerField(choices=MONTH_CHOICES, 
                                        validators=[MinValueValidator(1), 
                                        MaxValueValidator(12)])
-    lifespan = models.CharField(max_length=50)
-    type = models.CharField(max_length=50)
-    light_exposure = models.CharField(max_length=50)
+    soil_drainage = models.CharField(max_length=50, choices=SOIL_DRAINAGE_CHOICES)
+    lifespan = models.CharField(max_length=50, choices=LIFESPAN_CHOICES)
+    type = models.CharField(max_length=50, choices=TYPE_CHOICES)
+    light_exposure = models.CharField(max_length=50, choices=LIGHT_EXPOSURE_CHOICES)
     recommendation_1 = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='first_recommendation')
     recommendation_2 = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='second_recommendation')
     recommendation_3 = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='third_recommendation')
