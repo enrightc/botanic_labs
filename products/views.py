@@ -68,9 +68,14 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id) # get only one product using the product id.
 
-    # Get the recommended products by IDs
-    recommended_ids = product.recommendations.split(",")  # Convert the string to a list
-    recommended_products = Product.objects.filter(id__in=recommended_ids)  # Get the recommended products
+    # Get the recommended products if they exist
+    recommended_products = []
+    if product.recommendation_1:
+        recommended_products.append(product.recommendation_1)
+    if product.recommendation_2:
+        recommended_products.append(product.recommendation_2)
+    if product.recommendation_3:
+        recommended_products.append(product.recommendation_3)
 
     context = {
         'product': product,
@@ -82,7 +87,17 @@ def product_detail(request, product_id):
 
 def add_product(request):
     """ Add a product to the store """
-    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+        
     template = 'products/add_product.html'
     context = {
         'form': form,

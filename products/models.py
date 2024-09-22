@@ -44,7 +44,9 @@ class Product(models.Model):
     lifespan = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
     light_exposure = models.CharField(max_length=50)
-    recommendations = models.JSONField(blank=True, null=True)
+    recommendation_1 = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='first_recommendation')
+    recommendation_2 = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='second_recommendation')
+    recommendation_3 = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='third_recommendation')
 
     def __str__(self):
         return self.name
@@ -57,10 +59,4 @@ class Product(models.Model):
         return f"{self.get_flowering_start_display()} to {
             self.get_flowering_end_display()}"
 
-    def get_recommendations(self):
-        if self.recommendations:
-            # Split the string into a list of IDs
-            recommended_ids = self.recommendations.split(',')
-            # Fetch the recommended products from the database
-            return Product.objects.filter(id__in=recommended_ids)
-        return []
+    

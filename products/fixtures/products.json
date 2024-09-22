@@ -13,12 +13,14 @@
             "type": "Bulbs",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "5,9,13",
             "planting_start": 9,
             "planting_end": 11,
             "flowering_start": 4,
             "flowering_end": 6,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "5",
+            "recommendation_2": "9",
+            "recommendation_3": "13"
         }
     },
     {
@@ -35,12 +37,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "6,10,14",
             "planting_start": 4,
             "planting_end": 6,
             "flowering_start": 7,
             "flowering_end": 9,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "6",
+            "recommendation_2": "10",
+            "recommendation_3": "14"
         }
     },
     {
@@ -57,12 +61,14 @@
             "type": "Seeds",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Well-drained",
-            "recommendations": "7,11,15",
             "planting_start": 5,
             "planting_end": 7,
             "flowering_start": 9,
             "flowering_end": 11,
-            "season": 3
+            "season": 3,
+            "recommendation_1": "7",
+            "recommendation_2": "11",
+            "recommendation_3": "15"
         }
     },
     {
@@ -79,12 +85,14 @@
             "type": "Seeds",
             "light_exposure": "Shade",
             "soil_drainage": "Moist",
-            "recommendations": "8,12,16",
             "planting_start": 10,
             "planting_end": 12,
             "flowering_start": 12,
             "flowering_end": 2,
-            "season": 4
+            "season": 4,
+            "recommendation_1": "8",
+            "recommendation_2": "12",
+            "recommendation_3": "16"
         }
     },
     {
@@ -101,12 +109,14 @@
             "type": "Bulbs",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "1,9,17",
             "planting_start": 2,
             "planting_end": 4,
             "flowering_start": 3,
             "flowering_end": 5,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "1",
+            "recommendation_2": "9",
+            "recommendation_3": "17"
         }
     },
     {
@@ -123,12 +133,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "2,10,18",
             "planting_start": 4,
             "planting_end": 6,
             "flowering_start": 6,
             "flowering_end": 8,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "2",
+            "recommendation_2": "10",
+            "recommendation_3": "18"
         }
     },
     {
@@ -145,12 +157,14 @@
             "type": "Bulbs",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Well-drained",
-            "recommendations": "3,11,19",
             "planting_start": 6,
             "planting_end": 8,
             "flowering_start": 8,
             "flowering_end": 10,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "3",
+            "recommendation_2": "11",
+            "recommendation_3": "19"
         }
     },
     {
@@ -167,12 +181,14 @@
             "type": "Seeds",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Moist",
-            "recommendations": "4,12,20",
             "planting_start": 9,
             "planting_end": 11,
             "flowering_start": 12,
             "flowering_end": 2,
-            "season": 4
+            "season": 4,
+            "recommendation_1": "4",
+            "recommendation_2": "12",
+            "recommendation_3": "20"
         }
     },
     {
@@ -189,12 +205,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "1,5,13",
             "planting_start": 3,
             "planting_end": 5,
             "flowering_start": 4,
             "flowering_end": 6,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "1",
+            "recommendation_2": "5",
+            "recommendation_3": "13"
         }
     },
     {
@@ -211,12 +229,14 @@
             "type": "Bulbs",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Moist",
-            "recommendations": "2,6,18",
             "planting_start": 5,
             "planting_end": 7,
             "flowering_start": 7,
             "flowering_end": 9,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "2",
+            "recommendation_2": "6",
+            "recommendation_3": "18"
         }
     },
     {
@@ -233,12 +253,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "3,7,15",
             "planting_start": 6,
             "planting_end": 8,
             "flowering_start": 9,
             "flowering_end": 11,
-            "season": 3
+            "season": 3,
+            "recommendation_1": "3",
+            "recommendation_2": "7",
+            "recommendation_3": "15"
         }
     },
     {
@@ -255,12 +277,14 @@
             "type": "Bulbs",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Moist",
-            "recommendations": "4,8,16",
             "planting_start": 10,
             "planting_end": 12,
             "flowering_start": 1,
             "flowering_end": 3,
-            "season": 4
+            "season": 4,
+            "recommendation_1": "4",
+            "recommendation_2": "8",
+            "recommendation_3": "16"
         }
     },
     {
@@ -277,12 +301,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "1,9,17",
             "planting_start": 3,
             "planting_end": 5,
             "flowering_start": 4,
             "flowering_end": 6,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "1",
+            "recommendation_2": "9",
+            "recommendation_3": "17"
         }
     },
     {
@@ -299,12 +325,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "2,6,10",
             "planting_start": 4,
             "planting_end": 6,
             "flowering_start": 6,
             "flowering_end": 8,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "2",
+            "recommendation_2": "6",
+            "recommendation_3": "10"
         }
     },
     {
@@ -321,12 +349,14 @@
             "type": "Bulbs",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "3,7,11",
             "planting_start": 6,
             "planting_end": 8,
             "flowering_start": 9,
             "flowering_end": 11,
-            "season": 3
+            "season": 3,
+            "recommendation_1": "3",
+            "recommendation_2": "7",
+            "recommendation_3": "11"
         }
     },
     {
@@ -343,12 +373,14 @@
             "type": "Bulbs",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "4,8,12",
             "planting_start": 9,
             "planting_end": 11,
             "flowering_start": 1,
             "flowering_end": 3,
-            "season": 4
+            "season": 4,
+            "recommendation_1": "4",
+            "recommendation_2": "8",
+            "recommendation_3": "12"
         }
     },
     {
@@ -365,12 +397,14 @@
             "type": "Bulbs",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Well-drained",
-            "recommendations": "1,5,13",
             "planting_start": 3,
             "planting_end": 5,
             "flowering_start": 4,
             "flowering_end": 6,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "1",
+            "recommendation_2": "5",
+            "recommendation_3": "13"
         }
     },
     {
@@ -387,12 +421,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "2,6,10",
             "planting_start": 4,
             "planting_end": 6,
             "flowering_start": 7,
             "flowering_end": 9,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "2",
+            "recommendation_2": "6",
+            "recommendation_3": "10"
         }
     },
     {
@@ -409,12 +445,14 @@
             "type": "Seeds",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Well-drained",
-            "recommendations": "3,7,15",
             "planting_start": 8,
             "planting_end": 10,
             "flowering_start": 10,
             "flowering_end": 12,
-            "season": 3
+            "season": 3,
+            "recommendation_1": "3",
+            "recommendation_2": "7",
+            "recommendation_3": "15"
         }
     },
     {
@@ -431,12 +469,14 @@
             "type": "Bulbs",
             "light_exposure": "Shade",
             "soil_drainage": "Moist",
-            "recommendations": "4,8,12",
             "planting_start": 9,
             "planting_end": 11,
             "flowering_start": 1,
             "flowering_end": 3,
-            "season": 4
+            "season": 4,
+            "recommendation_1": "4",
+            "recommendation_2": "8",
+            "recommendation_3": "12"
         }
     },
     {
@@ -453,12 +493,14 @@
             "type": "Bulbs",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Well-drained",
-            "recommendations": "1,9,17",
             "planting_start": 2,
             "planting_end": 4,
             "flowering_start": 3,
             "flowering_end": 5,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "1",
+            "recommendation_2": "9",
+            "recommendation_3": "17"
         }
     },
     {
@@ -475,12 +517,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "2,10,14",
             "planting_start": 4,
             "planting_end": 6,
             "flowering_start": 6,
             "flowering_end": 8,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "2",
+            "recommendation_2": "10",
+            "recommendation_3": "14"
         }
     },
     {
@@ -497,12 +541,14 @@
             "type": "Seeds",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Well-drained",
-            "recommendations": "3,7,19",
             "planting_start": 8,
             "planting_end": 10,
             "flowering_start": 9,
             "flowering_end": 11,
-            "season": 3
+            "season": 3,
+            "recommendation_1": "3",
+            "recommendation_2": "7",
+            "recommendation_3": "19"
         }
     },
     {
@@ -519,12 +565,14 @@
             "type": "Bulbs",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Moist",
-            "recommendations": "4,8,12",
             "planting_start": 10,
             "planting_end": 12,
             "flowering_start": 1,
             "flowering_end": 3,
-            "season": 4
+            "season": 4,
+            "recommendation_1": "4",
+            "recommendation_2": "8",
+            "recommendation_3": "12"
         }
     },
     {
@@ -541,12 +589,14 @@
             "type": "Bulbs",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "1,9,13",
             "planting_start": 2,
             "planting_end": 4,
             "flowering_start": 3,
             "flowering_end": 5,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "1",
+            "recommendation_2": "9",
+            "recommendation_3": "13"
         }
     },
     {
@@ -563,12 +613,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "2,6,14",
             "planting_start": 4,
             "planting_end": 6,
             "flowering_start": 6,
             "flowering_end": 8,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "2",
+            "recommendation_2": "6",
+            "recommendation_3": "14"
         }
     },
     {
@@ -585,12 +637,14 @@
             "type": "Seeds",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "3,7,15",
             "planting_start": 8,
             "planting_end": 10,
             "flowering_start": 9,
             "flowering_end": 11,
-            "season": 3
+            "season": 3,
+            "recommendation_1": "3",
+            "recommendation_2": "7",
+            "recommendation_3": "15"
         }
     },
     {
@@ -607,12 +661,14 @@
             "type": "Bulbs",
             "light_exposure": "Partial Shade",
             "soil_drainage": "Moist",
-            "recommendations": "4,8,16",
             "planting_start": 9,
             "planting_end": 11,
             "flowering_start": 1,
             "flowering_end": 3,
-            "season": 4
+            "season": 4,
+            "recommendation_1": "4",
+            "recommendation_2": "8",
+            "recommendation_3": "16"
         }
     },
     {
@@ -629,12 +685,14 @@
             "type": "Bulbs",
             "light_exposure": "Full Sun",
             "soil_drainage": "Well-drained",
-            "recommendations": "1,5,13",
             "planting_start": 2,
             "planting_end": 4,
             "flowering_start": 3,
             "flowering_end": 5,
-            "season": 1
+            "season": 1,
+            "recommendation_1": "1",
+            "recommendation_2": "5",
+            "recommendation_3": "13"
         }
     },
     {
@@ -651,12 +709,14 @@
             "type": "Bulbs",
             "light_exposure": "Full Sun",
             "soil_drainage": "Moist",
-            "recommendations": "2,6,10",
             "planting_start": 4,
             "planting_end": 6,
             "flowering_start": 7,
             "flowering_end": 9,
-            "season": 2
+            "season": 2,
+            "recommendation_1": "2",
+            "recommendation_2": "6",
+            "recommendation_3": "10"
         }
     }
 ]

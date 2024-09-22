@@ -20,16 +20,17 @@
                 <hr>
             </div>
         </div>
-
-
-       
-                
+   
         <div class="container-fluid">
             <div class="row">
                 {% if bag_items %}
                     {% for item in bag_items %}
                         <div class="col-4 col-md-3 w-25">
-                            <img class="img-fluid rounded product-img-bag" src="{{ item.product.image.url }}">
+                            {% if item.product.image %}
+                                <img class="img-fluid rounded product-img-bag" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                                <img class="img-fluid rounded product-img-bag" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
                         </div>
                         <div class="col-8 col-md-9">
                             <div class="row">

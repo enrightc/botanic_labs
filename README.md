@@ -218,5 +218,16 @@ Solution: The user_profile assignment was mistakenly placed within the section o
 
 Outcome: After correcting the code placement, the user_profile is now correctly attached to orders, whether processed via the form submission or handled directly through Stripe webhooks. This allows user order history and profile data to function as expected in both cases.
 
+**AttributeError When Using .split() on a NoneType Object in Product Recommendations**
+Issue: An error occurred when adding new products due to an attempt to call the .split() method on a NoneType object while processing the recommendations field in the Product model.
+
+Cause: The issue arose because the recommendations field was initially a CharField that could be left empty. When the field was empty, it was stored as None, and trying to call .split() on a NoneType value resulted in an error. The database was originally set up to allow admin users to enter recommendations as a string using product primary key (PK) numbers, with products separated by commas.
+
+Solution: The Product model was refactored to improve usability by allowing admin users to select specific product recommendations instead of manually entering comma-separated strings. The recommendations field was replaced with three separate ForeignKey fields to allow relational selection of recommended products:
+
+![Recommendations](botanic_labs/media/docs/wireframes/recommendations.png)
+
+
+
 # REFERENCES
 [CSS translateY() Function](https://www.quackit.com/css/functions/css_translatey_function.cfm). Accessed 12th Sept, 2024.
