@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -85,8 +86,13 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required # Django will check whether the user is logged in before executing the view.
 def add_product(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -106,12 +112,16 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required # Django will check whether the user is logged in before executing the view.
 def edit_product(request, product_id):
     """ 
     Edit a product in the store 
     - This view allows users to edit an existing product's details.
     - It checks if the form was submitted via POST or just loaded.
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
     
     # Get the product object by its id or return a 404 error if not found
     product = get_object_or_404(Product, pk=product_id)
@@ -154,9 +164,13 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
-
+@login_required # Django will check whether the user is logged in before executing the view.
 def delete_product(request, product_id):
     """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
