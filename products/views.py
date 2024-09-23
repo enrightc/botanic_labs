@@ -107,27 +107,52 @@ def add_product(request):
 
 
 def edit_product(request, product_id):
-    """ Edit a product in the store """
+    """ 
+    Edit a product in the store 
+    - This view allows users to edit an existing product's details.
+    - It checks if the form was submitted via POST or just loaded.
+    """
+    
+    # Get the product object by its id or return a 404 error if not found
     product = get_object_or_404(Product, pk=product_id)
+
+    # Check if the request is a POST (form submission)
     if request.method == 'POST':
+        # Create a form instance with the POST data and any uploaded files
+        # 'instance=product' means the form will be pre-populated with the current product data
         form = ProductForm(request.POST, request.FILES, instance=product)
+
+        # Validate the form data
         if form.is_valid():
+            # If the form is valid, save the updated product information to the database
             form.save()
+            # Display a success message to the user
             messages.success(request, 'Successfully updated product!')
+            # Redirect the user to the product detail page after successful edit
             return redirect(reverse('product_detail', args=[product.id]))
         else:
+            # If the form is not valid, show an error message
             messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+
+    # If the request method is not POST, show the form with the current product data for editing
     else:
+        # Pre-populate the form with the product's current information
         form = ProductForm(instance=product)
+        # Display a message to inform the user which product is being edited
         messages.info(request, f'You are editing {product.name}')
 
+    # Set the template to use for rendering the form
     template = 'products/edit_product.html'
+
+    # Prepare the context with the form and product to send to the template
     context = {
         'form': form,
         'product': product,
     }
 
+    # Render the edit product template with the context data
     return render(request, template, context)
+
 
 
 def delete_product(request, product_id):
