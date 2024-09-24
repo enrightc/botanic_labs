@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-)!7_3x(3_0!h)zo!c(ttc*@v#($iof4w%h*fq&p_(dz4f+uonp
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
-                 'botanic-labs.herokuapp.com', 'localhost']
+                 'botanic-labs.herokuapp.com', 'botanic-labs-d446513705ac.herokuapp.com', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com", "https://*.codeinstitute-ide.net"] # allows admin login
 
