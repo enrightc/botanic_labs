@@ -1,0 +1,1 @@
+web: gunicorn botanic_labs.wsgi:application
