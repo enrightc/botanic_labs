@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENMT' in os.environ # Add 'DEVELOPMENT' to variables and set value to '1' to set DEBUG to TRUE. This will only be the case in gitpod
+# DEBUG = 'DEVELOPMENMT' in os.environ # Add 'DEVELOPMENT' to variables and set value to '1' to set DEBUG to TRUE. This will only be the case in gitpod
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
                  'botanic-labs.herokuapp.com', 'botanic-labs-d446513705ac.herokuapp.com', 'localhost']
@@ -171,6 +172,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
     # Cache control
