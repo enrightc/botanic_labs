@@ -76,11 +76,9 @@ class Product(models.Model):
         return self.name
 
     def get_planting_period(self):
-        return f"{self.get_planting_start_display()} to {
-            self.get_planting_end_display()}"
+        return f"{self.get_planting_start_display()} to {self.get_planting_end_display()}"
 
     def get_flowering_period(self):
-        return f"{self.get_flowering_start_display()} to {
-            self.get_flowering_end_display()}"
+        return f"{self.get_flowering_start_display()} to {self.get_flowering_end_display()}"
 
     
