@@ -2,26 +2,27 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'articles/css/articles.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
+
 
 {% block content %}
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
                 <hr>
-                <h1 class="logo-font mb-4">Product Management</h1>
-                <h2 class="text-muted"> Add a Product</h2>
+                <h1 class="logo-font mb-4">Article Management</h1>
+                <h2 class="text-muted"> Add an Article</h2>
                 <hr>
             </div>
         </div>
         
         <div class="row">
-            <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data" id="add-product-form">
+            <div class="col-12">
+                <form method="POST" action="{% url 'add_article' %}" class="form mb-2" enctype="multipart/form-data" id="add-article-form">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
@@ -31,8 +32,8 @@
                         {% endif %}
                     {% endfor %}
                     <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'articles' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Add Article</button>
                     </div>
                 </form>
             </div>            
@@ -42,6 +43,15 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#id_content'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <!-- Image change handling -->
     <script type="text/javascript">
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];
@@ -49,7 +59,3 @@
         });
     </script>
 {% endblock %}
-
-
-
-
