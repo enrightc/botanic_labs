@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENMT' in os.environ # Add 'DEVELOPMENT' to variables and set value to '1' to set DEBUG to TRUE. This will only be the case in gitpod
-
+# DEBUG = 'DEVELOPMENMT' in os.environ # Add 'DEVELOPMENT' to variables and set value to '1' to set DEBUG to TRUE. This will only be the case in gitpod
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
                  'botanic-labs.herokuapp.com', 'botanic-labs-d446513705ac.herokuapp.com', 'localhost']
@@ -53,10 +53,12 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
+    'articles',
 
     # Other
     'crispy_forms',
     'storages',
+    'djrichtextfield',
 
 ]
 

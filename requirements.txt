@@ -6,7 +6,9 @@ Django==3.2.25
 django-allauth==0.50.0
 django-countries==7.2.1
 django-crispy-forms==1.14.0
+django-richtextfield==1.6.2
 django-storages==1.14.4
+django-tinymce==4.1.0
 gunicorn==23.0.0
 jmespath==1.0.1
 oauthlib==3.2.2
