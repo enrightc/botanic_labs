@@ -7,13 +7,16 @@ from .forms import ArticleForm
  
 def articles(request):
     """ View to display all articles """
+    
     all_articles = Article.objects.filter(is_deleted=False).order_by('-posted_date')
-    template = 'articles/articles.html'
+    
+    articles = Article.objects.all()
+
     context = {
-        'articles': all_articles,
+        'articles': articles,
     }
     
-    return render(request, template, context)
+    return render(request, 'articles/articles.html', context)
 
     
 @login_required # Django will check whether the user is logged in before executing the view.
