@@ -30,6 +30,15 @@
                             <p class="text-muted">{{ article.posted_date|date:"F j, Y" }} by {{ article.author }}</p>
                             <p class="article-excerpt mt-3">{{ article.excerpt }}</p>
                         </div>
+
+                        <div class="d-flex justify-content-end">
+                            {% if request.user.is_superuser %}
+                                <small class="ml-3">
+                                    <a href="{% url 'edit_article' article.slug %}">Edit</a> | 
+                                    <a class="text-danger" href="{% url 'delete_article' article.slug %}">Delete</a>
+                                </small>
+                            {% endif %}
+                        </div>
                     </div>
                     
                     <hr>

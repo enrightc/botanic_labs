@@ -11,7 +11,7 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = [
-            'title',  'content', 'excerpt', 'image', 'image_alt', 'status'
+            'title',  'content', 'excerpt', 'image', 'image_alt', 'status', 'is_deleted',
         ]
 
         widgets = {
@@ -26,7 +26,8 @@ class ArticleForm(forms.ModelForm):
             "excerpt": "Excerpt",
             "image": "Upload Image",
             "image_alt": "Image Alt tag",
-            "status": "Article Status"
+            "status": "Article Status",
+            "is_deleted": "Mark as hidden"
         }
 
     def __init__(self, *args, **kwargs):

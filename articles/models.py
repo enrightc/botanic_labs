@@ -30,7 +30,7 @@ class Article(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     # A boolean flag for soft deletion. When True, the article is considered deleted,
     # but the record is still kept in the database. Default is False (not deleted).
-    is_deleted = models.BooleanField(default=False)
+    is_deleted = models.BooleanField(default=False, verbose_name="Mark as hidden")
 
     class Meta:
         """ Order articles by posted date date """
