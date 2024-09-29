@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -8,15 +8,24 @@ from .forms import ArticleForm
 def articles(request):
     """ View to display all articles """
     
-    all_articles = Article.objects.filter(is_deleted=False).order_by('-posted_date')
+    articles = Article.objects.filter(status=1).order_by('-posted_date')
     
-    articles = Article.objects.all()
-
     context = {
         'articles': articles,
     }
     
     return render(request, 'articles/articles.html', context)
+
+
+def article(request, slug):
+    """ View to display an article """
+    
+    article = get_object_or_404(Article, slug=slug)
+    context = {
+        'article': article,
+    }
+    
+    return render(request, 'articles/article.html', context)
 
     
 @login_required # Django will check whether the user is logged in before executing the view.
