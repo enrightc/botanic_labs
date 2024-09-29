@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
     'djrichtextfield',
-    'django_ckeditor_5',
+    'django_summernote',
 
 ]
 

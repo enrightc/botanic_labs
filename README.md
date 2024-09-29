@@ -227,7 +227,12 @@ Solution: The Product model was refactored to improve usability by allowing admi
 
 ![Recommendations](botanic_labs/media/docs/wireframes/recommendations.png)
 
+**Issue with Form Submission Using CKEditor**
+Issue: After implementing CKEditor, the form was not submitting correctly when all required fields were filled, leading to form validation issues.
 
+Cause: The issue stemmed from CKEditor not properly updating the content of the hidden textarea field when submitting the form. As a result, the form's content field appeared empty, causing validation errors.
+
+Solution: The issue was resolved by switching to Summernote, a different rich text editor that integrates better with Django forms, preventing the submission issues encountered with CKEditor.
 
 # REFERENCES
 [CSS translateY() Function](https://www.quackit.com/css/functions/css_translatey_function.cfm). Accessed 12th Sept, 2024.
