@@ -10,14 +10,27 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font">Articles</h2>
-                <hr class="w-50 mb-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <hr>
+                <h1 class="logo-font mb-4">Article Management</h1>
+                <hr>
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12 text-right">
+                <a href="{% url 'add_article' %}" class="btn btn-outline-primary">
+                    New Article
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
@@ -36,18 +49,35 @@
                                 {% endif %}
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ article.title }}</p>
-                                </div>
-                                <div class="card-body pb-0">
                                     <p class="mb-0">{{ article.excerpt }}</p>
-                                </div>
-                                <div class="card-body pb-0">
                                     <p class="mb-0">{{ article.posted_date|date:"F j, Y" }} by {{ article.author }}</p>
+
+                                    <!-- Display status (Published/Draft) -->
+                                    <p class="mb-0">
+                                        Status: 
+                                        {% if article.status == 1 %}
+                                            <span class="text-success">Published</span>
+                                        {% else %}
+                                            <span class="text-warning">Draft</span>
+                                        {% endif %}
+                                    </p>
+
+                                    <!-- Display is_deleted status -->
+                                    <p class="mb-0">
+                                        Deleted: 
+                                        {% if article.is_deleted %}
+                                            <span class="text-danger">Yes</span>
+                                        {% else %}
+                                            <span class="text-success">No</span>
+                                        {% endif %}
+                                    </p>
                                 </div>
-                                <div class="card-body pb-0">
-                                    <a href="{% url 'article' article.slug %}" class="mb-0">Read More &rarr;</a>
-                                </div>
+
+                                
                             </div>
                         </div>
+
+                        <!-- Responsive design spacing with horizontal lines -->
                         {% if forloop.counter|divisibleby:1 %}
                             <div class="col-12 d-sm-none mb-5">
                                 <hr>
@@ -73,4 +103,5 @@
             </div>
         </div>
     </div>
+    
 {% endblock %}

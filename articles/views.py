@@ -8,7 +8,7 @@ from .forms import ArticleForm
 def articles(request):
     """ View to display all articles """
     
-    articles = Article.objects.filter(status=1).order_by('-posted_date')
+    articles = Article.objects.filter(status=1, is_deleted=False).order_by('-posted_date')
     
     context = {
         'articles': articles,
@@ -27,6 +27,20 @@ def article(request, slug):
     
     return render(request, 'articles/article.html', context)
 
+
+@login_required
+def admin_articles_view(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    articles = Article.objects.all()
+    context = {
+        'articles': articles,
+    }
+
+    return render(request, 'articles/admin_articles_view.html', context)
+
     
 @login_required # Django will check whether the user is logged in before executing the view.
 def add_article(request):
@@ -42,7 +56,7 @@ def add_article(request):
             article.author = request.user # Set the author
             article.save()  # Now save the article with the author set
             messages.success(request, 'Successfully added article!')
-            return redirect(reverse('articles'))
+            return redirect(reverse('admin_articles_view'))
         else:
             messages.error(request, 'Failed to add article. Please ensure the form is valid.')
     else:
