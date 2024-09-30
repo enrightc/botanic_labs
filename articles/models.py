@@ -20,7 +20,7 @@ class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name="article_posts")
     title = models.CharField(max_length=150, unique=True, null=False, blank=False)
-    content = models.TextField(max_length=5000)
+    content = models.TextField(max_length=50000)
     image = models.ImageField(null=True, blank=True)
     image_alt = models.CharField(
         max_length=100, default='default alt', null=False, blank=False)

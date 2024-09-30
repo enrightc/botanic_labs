@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'articles/css/articles.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container h-100vh">
         <div class="row h-100">
@@ -22,7 +26,7 @@
 
     <div class="container">
         <div class="row mt-4">
-            <div class="col-12 text-right">
+            <div class="col-12 text-right mb-4">
                 <a href="{% url 'add_article' %}" class="btn btn-outline-primary">
                     New Article
                 </a>
@@ -33,47 +37,60 @@
     <div class="container-fluid">
         <div class="row">
             <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
                 <div class="row">
+                    {% if articles|length == 0 %}
+                        <div class="col-12 text-center">
+                            <p>No articles found.</p>
+                        </div>
+                    {% else %}
                     {% for article in articles %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                {% if article.image %}
-                                    <a href="{% url 'article' article.slug %}">
-                                        <img class="card-img-top img-fluid" src="{{ article.image.url }}" alt="{{ article.image_alt }}">
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'article' article.slug %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.title }}">
-                                    </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ article.title }}</p>
-                                    <p class="mb-0">{{ article.excerpt }}</p>
-                                    <p class="mb-0">{{ article.posted_date|date:"F j, Y" }} by {{ article.author }}</p>
-
-                                    <!-- Display status (Published/Draft) -->
-                                    <p class="mb-0">
-                                        Status: 
-                                        {% if article.status == 1 %}
-                                            <span class="text-success">Published</span>
-                                        {% else %}
-                                            <span class="text-warning">Draft</span>
-                                        {% endif %}
-                                    </p>
-
-                                    <!-- Display is_deleted status -->
-                                    <p class="mb-0">
-                                        Visibility: 
-                                        {% if article.is_deleted %}
-                                            <span class="text-danger">Hidden</span>
-                                        {% else %}
-                                            <span class="text-success">Public</span>
-                                        {% endif %}
-                                    </p>
+                        <div class="col-12 mb-4"> 
+                            <div class="row bg-white rounded shadow p-3">
+                                <!-- Image Column -->
+                                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                    {% if article.image %}
+                                        <a href="{% url 'article' article.slug %}">
+                                            <img class="card-img img-fluid" src="{{ article.image.url }}" alt="{{ article.image_alt }}">
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'article' article.slug %}">
+                                            <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.title }}">
+                                        </a>
+                                    {% endif %}
                                 </div>
 
-                                <div class="card-footer bg-white pt-0 border-0">
+                                <!-- Article Text Column -->
+                                <div class="col-md-8">
+                                    <div class="card-body pb-0">
+                                        <p class="mb-3"><strong>{{ article.title }}</strong></p>
+                                        <p class="mb-3 article-excerpt">{{ article.excerpt }}</p>
+                                        <p class="text-muted mb-2">{{ article.posted_date|date:"F j, Y" }} by {{ article.author }}</p>
+
+                                        <div class="card-body pb-0 d-flex justify-content-end">
+                                            <a href="{% url 'article' article.slug %}" class="mb-0">Read More &rarr;</a>
+                                        </div>
+
+                                        <!-- Display status (Published/Draft) -->
+                                        <p class="mb-3">
+                                            Status: 
+                                            {% if article.status == 1 %}
+                                                <span class="badge badge-success">Published</span>
+                                            {% else %}
+                                                <span class="badge badge-warning">Draft</span>
+                                            {% endif %}
+                                        </p>
+
+                                        <!-- Display is_deleted status -->
+                                        <p class="mb-3">
+                                            Visibility: 
+                                            {% if article.is_deleted %}
+                                                <span class="badge badge-danger">Hidden</span>
+                                            {% else %}
+                                                <span class="badge badge-primary">Public</span>
+                                            {% endif %}
+                                        </p>
+                                    </div>
+
                                     <div class="d-flex justify-content-end">
                                         {% if request.user.is_superuser %}
                                             <small class="ml-3">
@@ -85,29 +102,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Responsive design spacing with horizontal lines -->
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
                     {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
