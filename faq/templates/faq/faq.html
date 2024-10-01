@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'faq/css/faq.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container h-100vh">
+        <div class="row h-100">
+            <div class="row"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <hr>
+                <h1 class="logo-font mb-4">FAQ</h1>
+                <p>Get all the essential tips for gardening and growing flowers. 
+                    Click on any question to reveal the answer. 
+                    Didn’t find what you’re looking for? Reach out to us, 
+                    and we’ll be happy to help!
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            {% if faqs|length == 0 %}
+                <div class="col-12 text-center">
+                    <p>No FAQs found.</p>
+                </div>
+            {% else %}
+                <div class="accordion" id="faqAccordion">
+                    {% for faq in faqs %}
+                        <div class="accordion-item card mb-3">
+                            <h2 class="accordion-header card-header" id="heading{{ forloop.counter }}">
+                                <button class="accordion-button btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                                    <strong>{{ faq.question }}</strong>
+                                </button>
+                            </h2>
+                            <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-parent="#faqAccordion">
+                                <div class="accordion-body card-body">
+                                    {{ faq.answer|safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+

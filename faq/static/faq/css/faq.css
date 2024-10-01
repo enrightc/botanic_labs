@@ -1,0 +1,45 @@
+.card {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    transition: all 0.3s ease; 
+}
+
+.accordion-body {
+    background-color: 
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.card-header {
+    background-color: rgb(250, 247, 242);
+    font-weight: bold;
+    font-size: 1.1rem; 
+    padding: 1rem; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125); 
+}
+
+.accordion-button {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent; 
+    padding: 0.75rem 1rem; 
+    border-radius: 8px; 
+    transition: background-color 0.2s ease; 
+}
+
+.accordion-button:hover, .accordion-button:focus {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.05); 
+    color: inherit;
+}
+
+.accordion-body {
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.5; 
+    background-color: rgb(250, 247, 242);
+}
