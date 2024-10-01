@@ -33,7 +33,7 @@ class Article(models.Model):
     is_deleted = models.BooleanField(default=False, verbose_name="Mark as hidden")
 
     class Meta:
-        """ Order articles by posted date date """
+        """ Order articles by posted date """
         ordering = ["-posted_date"]
 
     def save(self, *args, **kwargs):
