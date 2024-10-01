@@ -55,5 +55,18 @@
             {% endif %}
         </div>
     </div>
+
+    {% if request.user.is_superuser %}
+    <div class="container"></div>
+        <div class="row mt-4">
+            <div class="col-12 text-right mb-4">
+                <a href="{% url 'add_faq' %}" class="btn btn-outline-primary">
+                    New FAQ
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}
+
 
