@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'articles/css/articles.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h1 class="logo-font mb-4">FAQ Management</h1>
+                <h2 class="text-muted"> Add an FAQ</h2>
+                <hr>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <form method="POST" action="{% url 'edit_faq' faq.id %}" class="form mb-2" enctype="multipart/form-data" id="edit-faq-form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="text-right">
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'faq' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Update FAQ</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+{% endblock %}
+
+
