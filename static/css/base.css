@@ -1,11 +1,17 @@
-html {
+html, body {
     height: 100%;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     padding-top:172.8px;
     background-color: #FAF7F2;
     font-family: 'inter', sans-serif;
+}
+
+main {
+    flex: 1; /* Take up all available space to push footer to bottom */
 }
 
 .product-title {
@@ -371,9 +377,6 @@ input[name='q']::placeholder {
     overflow-x: hidden;
     overflow-y: auto;
 }
-
-/* ------------------------------- Footer */
-
 
 /* -------------------------------- Media Queries */
 
