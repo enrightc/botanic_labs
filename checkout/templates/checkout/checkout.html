@@ -2,6 +2,10 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_meta %}
+    <meta name="description" content="Complete your purchase at Botanic Labs. Secure checkout for your gardening essentials and flower bulbs. Review your items, enter shipping details, and choose payment options."/>
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}

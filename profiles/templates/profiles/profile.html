@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Manage your Botanic Labs account. Update personal information, view order history, and manage preferences to enhance your shopping experience."/>
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}

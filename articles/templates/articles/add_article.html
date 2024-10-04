@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Submit a gardening article">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'articles/css/articles.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
-
 
 {% block content %}
     <div class="container">

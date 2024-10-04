@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     'storages',
     'djrichtextfield',
     'django_summernote',
-
 ]
 
 CKEDITOR_5_CONFIGS = {

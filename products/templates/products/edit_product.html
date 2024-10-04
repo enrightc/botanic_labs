@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Edit existing products at Botanic Labs."/>
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}

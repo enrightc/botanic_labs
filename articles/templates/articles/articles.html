@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Explore our collection of insightful articles on gardening, plant care, and seasonal tips.">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'articles/css/articles.css' %}">
 {% endblock %}

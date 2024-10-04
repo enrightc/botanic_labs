@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Manage and oversee all submitted articles on gardening and plant care.">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'articles/css/articles.css' %}">
 {% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_meta %}
+    <meta name="description" content="500 Internal Server Error: Something went wrong on our end. Please try again later or contact support.">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container h-100vh">
+        <div class="row h-100">
+            <div class="row"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <hr>
+                <h1 class="logo-font mb-4">404 Forbidden Error</h1>
+                <p>We’re sorry, but something has gone wrong on our end. 
+                    Please try refreshing the page or come back later. 
+                    If the problem continues, let our team know and 
+                    we'll get it fixed as soon as possible.
+                </p>
+                <ul>
+                    <li><a href="{% url 'home' %}">Return to Homepage</a></li>
+                    <li><a href="{% url 'products' %}">Browse Our Products</a></li>
+                    <li><a href="{% url 'articles' %}">Check Out Articles</a></li>
+                    <li><a href="{% url 'faq' %}">Visit Our FAQs</a></li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

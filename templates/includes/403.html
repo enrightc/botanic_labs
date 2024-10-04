@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_meta %}
+<meta name="description" content="403 Forbidden Error: You do not have permission to access this page.">
+
+{% endblock %}
+
+{% block page_header %}
+    <div class="container h-100vh">
+        <div class="row h-100">
+            <div class="row"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <hr>
+                <h1 class="logo-font mb-4">404 Forbidden Error</h1>
+                <p>Oops! You don’t have permission to view this page. 
+                    It looks like you’ve stumbled upon a restricted area. 
+                    If you believe this is an error, please contact the administrator 
+                    or return to the homepage.
+                </p>
+                <ul>
+                    <li><a href="{% url 'home' %}">Return to Homepage</a></li>
+                    <li><a href="{% url 'products' %}">Browse Our Products</a></li>
+                    <li><a href="{% url 'articles' %}">Check Out Articles</a></li>
+                    <li><a href="{% url 'faq' %}">Visit Our FAQs</a></li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
