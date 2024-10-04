@@ -56,6 +56,7 @@ def add_article(request):
             article = form.save(commit=False) # Create article instance but don't save to DB yet
             article.author = request.user # Set the author
             article.save()  # Now save the article with the author set
+            request.session['show_bag_summary'] = False # disable bag summary
             messages.success(request, 'Successfully added article!')
             return redirect(reverse('admin_articles_view'))
         else:
@@ -93,8 +94,8 @@ def edit_article(request, slug):
         if form.is_valid():
             # If the form is valid, save the updated product information to the database
             form.save()
+            request.session['show_bag_summary'] = False # disable bag summary
             # Display a success message to the user
-            request.session['show_bag_summary'] = False
             messages.success(request, 'Successfully updated article!')
             # Redirect the user to the product detail page after successful edit
             return redirect(reverse('article', args=[article.slug]))
@@ -131,6 +132,6 @@ def delete_article(request, slug):
         
     article = get_object_or_404(Article, slug=slug)
     article.delete()
-    request.session['show_bag_summary'] = False
+    request.session['show_bag_summary'] = False # disable bag summary
     messages.success(request, 'Article deleted!')
     return redirect(reverse('admin_articles_view'))

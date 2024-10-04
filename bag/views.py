@@ -33,6 +33,8 @@ def add_to_bag(request, item_id):
 
     # Save the shopping bag into the user's session
     request.session['bag'] = bag
+    request.session['show_bag_summary'] = True  # Set to True only when adding to the cart
+
     return redirect(redirect_url)
 
 

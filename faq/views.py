@@ -30,7 +30,8 @@ def add_faq(request):
         if form.is_valid():
             faq = form.save(commit=False) # Create faq instance but don't save to DB yet
             faq.save()  # Now save the faq form
-            request.session['show_bag_summary'] = False
+            request.session['add_to_bag'] = False  # Disable the bag summary
+            request.session['show_bag_summary'] = False  
             messages.success(request, 'Successfully added FAQ!')
             return redirect(reverse('faq'))
         else:
@@ -41,6 +42,7 @@ def add_faq(request):
     template = 'faq/add_faq.html'
     context = {
         'form': form,
+        'show_bag_summary': request.session.get('show_bag_summary', True)  # Pass to template
     }
 
     return render(request, template, context)
@@ -55,7 +57,7 @@ def delete_faq(request, id):
         
     faq = get_object_or_404(Faq, id=id)
     faq.delete()
-    request.session['show_bag_summary'] = False
+    request.session['show_bag_summary'] = False  
     messages.success(request, 'FAQ deleted!')
     return redirect(reverse('faq'))
 
@@ -76,8 +78,7 @@ def edit_faq(request, id):
 
         if form.is_valid():
             form.save()
-            request.session['show_bag_summary'] = False
-            messages.success(request, 'Successfully updated article!')
+            request.session['show_bag_summary'] = False # disable bag summary
             return redirect(reverse('faq'))
         else:
             messages.error(request, 'Failed to update faq. Please ensure the form is valid.')

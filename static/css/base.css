@@ -19,6 +19,17 @@ main {
     color:#000;
 }
 
+.dropdown-item.active {
+    background-color: transparent !important;
+}
+
+.container-content {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* from Bulma */
 .icon {
     align-items: center;
