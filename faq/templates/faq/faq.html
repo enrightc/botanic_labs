@@ -50,10 +50,10 @@
                             </h2>
                             <div class="admin-controls d-flex justify-content-end pr-2">
                                 {% if request.user.is_superuser %}
-                                    <small class="ml-3">
+                                    <span class="ml-3 font-weight-bold">
                                         <a href="{% url 'edit_faq' faq.id %}"><i class="fa-regular fa-pen-to-square"></i></a> | 
                                         <a class="text-danger" href="{% url 'delete_faq' faq.id %}"><i class="fa-solid fa-trash"></i></a>
-                                    </small>
+                                    </span>
                                 {% endif %}
                             </div>
                             <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-parent="#faqAccordion">
