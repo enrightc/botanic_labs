@@ -40,12 +40,17 @@ main {
     background: #C83274;
     color: #F5F5F5;
     min-width: 260px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
 }
 
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus {
     background-color: #df5598;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
 }
 
 .btn-black {
@@ -53,9 +58,6 @@ main {
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {

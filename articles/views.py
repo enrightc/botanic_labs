@@ -94,6 +94,7 @@ def edit_article(request, slug):
             # If the form is valid, save the updated product information to the database
             form.save()
             # Display a success message to the user
+            request.session['show_bag_summary'] = False
             messages.success(request, 'Successfully updated article!')
             # Redirect the user to the product detail page after successful edit
             return redirect(reverse('article', args=[article.slug]))
@@ -130,5 +131,6 @@ def delete_article(request, slug):
         
     article = get_object_or_404(Article, slug=slug)
     article.delete()
+    request.session['show_bag_summary'] = False
     messages.success(request, 'Article deleted!')
     return redirect(reverse('admin_articles_view'))
