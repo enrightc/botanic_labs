@@ -79,6 +79,7 @@ def edit_faq(request, id):
         if form.is_valid():
             form.save()
             request.session['show_bag_summary'] = False # disable bag summary
+            messages.success(request, 'FAQ updated!')
             return redirect(reverse('faq'))
         else:
             messages.error(request, 'Failed to update faq. Please ensure the form is valid.')

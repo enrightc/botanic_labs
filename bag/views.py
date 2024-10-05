@@ -11,6 +11,7 @@ def view_bag(request):
     '''
     return render(request, 'bag/bag.html')
 
+
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
@@ -24,6 +25,7 @@ def add_to_bag(request, item_id):
     if item_id in list(bag.keys()):
         # If the product is already in the bag increment the quantity of that product 
         bag[item_id] += quantity
+        request.session['show_bag_summary'] = True  # Ensure bag summary is shown when adding to bag
         messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
     else:
         # If the product is not in the bag add it with the specified quantity
@@ -33,7 +35,10 @@ def add_to_bag(request, item_id):
 
     # Save the shopping bag into the user's session
     request.session['bag'] = bag
-    request.session['show_bag_summary'] = True  # Set to True only when adding to the cart
+    
+
+    # Print the value of show_bag_summary to the terminal for debugging
+    print(request.session.get('show_bag_summary'))
 
     return redirect(redirect_url)
 

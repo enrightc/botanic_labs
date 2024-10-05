@@ -26,7 +26,7 @@
                                 href="{% url 'products' %}?season={{ s.name }}">
                                 
 
-                                <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark
+                                <span class="pt-2 pb-2 pl-3 pr-3 mt-2 badge badge-white text-black rounded-1 border border-dark
                                     {% if current_seasons and s.name in current_seasons %} {% else %} border-dark {% endif %}">
                                     {{ s.friendly_name }}
                                 </span>

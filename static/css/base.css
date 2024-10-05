@@ -29,6 +29,19 @@ main {
     margin-right: auto;
 }
 
+#delivery-banner {
+    background-color: #781d45;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
+  }
+
 
 /* from Bulma */
 .icon {
@@ -90,6 +103,18 @@ main {
 
 input[name='q']::placeholder {
     color: #aab7c4;
+}
+
+/* -------------------------------- navigation */
+.dropdown-menu a:focus, .dropdown-menu a:active {
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+
+/* -------------------------------- Forms */
+.form-container {
+    max-width: 718px;
 }
 
 /* -------------------------------- Home page */
@@ -190,13 +215,13 @@ input[name='q']::placeholder {
 }
 
 .active-season {
-    color: pink; 
-    border-bottom: 2px solid pink; 
+    color: #df5598; 
+    border-bottom: 2px solid #df5598; 
     font-weight: 600;
 }
 
 .active-season:hover {
-    color: rgb(248, 179, 190); 
+    color: #df5598; 
     border-bottom: 3px solid;
 }
 

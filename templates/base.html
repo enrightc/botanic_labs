@@ -42,15 +42,18 @@
 
     <title>Botanic Labs {% block extra_title %}{% endblock %}</title>
   </head>
+  
   <body>
     <main>
       <header class="container-fluid fixed-top">
           <div id="topnav" class="row bg-white pt-lg02 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+              <!-- Logo -->
               <a href="{% url 'home' %}" class="nav-link main-logo-link">
                 <h2 class="logo-font text-black my-0"><strong>Botanic Labs</strong></h2>
               </a>
             </div>
+            <!-- Search Bar -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
               <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-group w-100">
@@ -65,6 +68,8 @@
                 </div>
               </form>
             </div>
+
+            <!-- Account and Bag Links -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
               <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                 <li class="list-inline-item dropdown">
@@ -105,6 +110,8 @@
               </ul>
             </div>
           </div>
+          
+          <!-- Main Navigation Links -->
           <div class="row bg-white">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,15 +120,17 @@
               {% include 'includes/mobile-top-header.html' %}
               {% include 'includes/main-nav.html' %}
             </nav>
-
           </div>
+
+          <!-- Delivery Banner -->
           <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white mb-5">
+            <div class="col text-white mb-0">
                 <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
             </div>
           </div>          
       </header>
 
+      <!-- Action Notifications -->
       {% if messages %}
         <div class="message-container">
             {% for message in messages %}
@@ -147,57 +156,54 @@
       {% endblock %}
     </main>
 
-      
-      <footer class="bg-dark text-light py-4">
-        <div class="container-fluid">
-          <div class="row">
-            <!-- Social Media Links Column -->
-            <div class="col-md-4 mb-3">
-              <h5>Follow Us</h5>
-              <ul class="list-unstyled">
-                <li><a target="_blank" href="https://www.facebook.com" class="text-light"
-                  aria-label="Go to our facebook page (opens in new tab)" rel="noopener">
-                  <i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
-                </li>
-                <li><a target="_blank" href="https://x.com/" class="text-light"
-                  aria-label="Go to our facebook page (opens in new tab)" rel="noopener">
-                  <i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter</a>
-                </li>
-                <li><a target="_blank" href="https://www.instagram.com" class="text-light"
-                  aria-label="Go to our facebook page (opens in new tab)" rel="noopener">
-                  <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
-                </li>
-              </ul>
-            </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Social Media Links Column -->
+          <div class="col-md-4 mb-3">
+            <h5>Follow Us</h5>
+            <ul class="list-unstyled">
+              <li><a target="_blank" href="https://www.facebook.com" class="text-light"
+                aria-label="Go to our facebook page (opens in new tab)" rel="noopener">
+                <i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
+              </li>
+              <li><a target="_blank" href="https://x.com/" class="text-light"
+                aria-label="Go to our facebook page (opens in new tab)" rel="noopener">
+                <i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter</a>
+              </li>
+              <li><a target="_blank" href="https://www.instagram.com" class="text-light"
+                aria-label="Go to our facebook page (opens in new tab)" rel="noopener">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+              </li>
+            </ul>
+          </div>
+  
+          <!-- Articles and FAQs Links Column -->
+          <div class="col-md-4 mb-3">
+            <h5>Explore</h5>
+            <ul class="list-unstyled">
+              <li><a href="{% url 'articles' %}" class="text-light">Articles</a></li>
+              <li><a href="{% url 'faq' %}" class="text-light">FAQs</a></li>
+            </ul>
+          </div>
     
-            <!-- Articles and FAQs Links Column -->
-            <div class="col-md-4 mb-3">
-              <h5>Explore</h5>
-              <ul class="list-unstyled">
-                <li><a href="{% url 'articles' %}" class="text-light">Articles</a></li>
-                <li><a href="{% url 'faq' %}" class="text-light">FAQs</a></li>
-              </ul>
-            </div>
-      
-            <!-- About Description Column -->
-            <div class="col-md-4 mb-3">
-              <h5>About Us</h5>
-              <p>We are dedicated to providing the best tips and advice for gardening and growing flowers. In addition to offering guidance, we also sell a range of beautiful flowers to enhance your garden. Stay connected for the latest updates, articles, and our selection of flowers!</p>
-            </p>
-            </div>
+          <!-- About Description Column -->
+          <div class="col-md-4 mb-3">
+            <h5>About Us</h5>
+            <p>We are dedicated to providing the best tips and advice for gardening and growing flowers. In addition to offering guidance, we also sell a range of beautiful flowers to enhance your garden. Stay connected for the latest updates, articles, and our selection of flowers!</p>
+          </p>
           </div>
         </div>
-      </footer>
-  
-      
-   
+      </div>
+    </footer>
 
-    {% block postloadjs %}
-      <!-- Show the toast -->
-      <script type="text/javascript">
-        $('.toast').toast('show');
-      </script>
-    {% endblock %}
+  {% block postloadjs %}
+    <!-- Show the toast -->
+    <script type="text/javascript">
+      $('.toast').toast('show');
+    </script>
+  {% endblock %}
     
   </body>
 </html>
