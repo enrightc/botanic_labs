@@ -353,8 +353,9 @@ input[name='q']::placeholder {
     overflow: visible;
 }
 
-.toast-capper {
-    height: 8px;
+.bag-summary {
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
