@@ -1,6 +1,7 @@
 from django import forms
 from .models import Article
 from django_summernote.widgets import SummernoteWidget
+from .widgets import ArticleCustomClearableFileInput
 
 
 class ArticleForm(forms.ModelForm):
@@ -8,6 +9,8 @@ class ArticleForm(forms.ModelForm):
     Form to create a new article
     """
     
+    image = forms.ImageField(label='Image', required=False, widget=ArticleCustomClearableFileInput)
+
     class Meta:
         model = Article
         fields = [
