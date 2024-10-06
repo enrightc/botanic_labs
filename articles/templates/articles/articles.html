@@ -58,19 +58,6 @@
                                         <div class="card-body pb-0 d-flex justify-content-end">
                                             <a href="{% url 'article' article.slug %}" class="mb-3">Read More &rarr;</a>
                                         </div>
-
-                                        
-
-                                        
-                                    </div>
-
-                                    <div class="d-flex justify-content-end">
-                                        {% if request.user.is_superuser %}
-                                            <small class="ml-3">
-                                                <a href="{% url 'edit_article' article.slug %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_article' article.slug %}">Delete</a>
-                                            </small>
-                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@
 
     <div class="container">
         <div class="row mt-4">
-            <div class="col-12 text-right mb-4">
+            <div class="col-10 offset-1 text-right mb-4">
                 <a href="{% url 'add_article' %}" class="btn btn-black rounded-0">
                     New Article
                 </a>
@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row">
@@ -94,9 +94,32 @@
                                         {% if request.user.is_superuser %}
                                             <small class="ml-3">
                                                 <a href="{% url 'edit_article' article.slug %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_article' article.slug %}">Delete</a>
+                                                <a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal{{ article.slug }}">
+                                                    Delete
+                                                </a>
                                             </small>
                                         {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal for FAQ Deletion Confirmation -->
+                        <div class="modal fade" id="deleteModal{{ article.slug }}" tabindex="-1" role="dialog"
+                            aria-labelledby="deleteModalLabel{{ article.slug }}" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteModalLabel{{ article.slug }}">Confirm Deletion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this Article: "{{ article.slug }}"?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <a href="{% url 'delete_article' article.slug %}" class="btn btn-danger">Delete</a>
                                     </div>
                                 </div>
                             </div>
@@ -108,3 +131,6 @@
         </div>
     </div>
 {% endblock %}
+
+
+<a class="text-danger" href="">Delete</a>
