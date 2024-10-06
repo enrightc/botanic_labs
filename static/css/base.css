@@ -1,3 +1,4 @@
+/* -------------------------------- General */
 html, body {
     height: 100%;
 }
@@ -14,10 +15,12 @@ main {
     flex: 1; /* Take up all available space to push footer to bottom */
 }
 
-.product-title {
-    font-size: 16px;
-    color:#000;
+
+/* -------------------------------- Header */
+header {
+    background-color: #FAF7F2;
 }
+
 
 .dropdown-item.active {
     background-color: transparent !important;
@@ -31,9 +34,23 @@ main {
 
 #delivery-banner {
     background-color: #781d45;
+    height: 46px;
+}
+.delivery {
+    font-size: clamp(1rem, 5vw, 1.75rem);
+    text-wrap: nowrap;
 }
 
+/* navigation */
+.dropdown-menu a:focus, .dropdown-menu a:active {
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
 
+  .navbar-expand-lg {
+    margin-left: -40px;
+  }
 
 /* from Bulma */
 .icon {
@@ -97,12 +114,7 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
-/* -------------------------------- navigation */
-.dropdown-menu a:focus, .dropdown-menu a:active {
-    outline: none;
-    background-color: transparent;
-    color: inherit;
-  }
+
 
 /* -------------------------------- Forms */
 .form-container {
@@ -114,6 +126,22 @@ input[name='q']::placeholder {
     background: url('/media/homepage_hero.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 600px;
+}
+
+.category-header {
+    font-size: 2.5rem;
+    color: #343a40;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.category-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #ff7f50; 
+    margin: 0.5rem auto 0; 
 }
 
 /* Search by Category */
@@ -132,8 +160,7 @@ input[name='q']::placeholder {
 
 .spring-card {
     background: url('/media/spring.avif');
-    background-size: cover;
-    
+    background-size: cover; 
 }
 
 .summer-card {
@@ -411,27 +438,53 @@ input[name='q']::placeholder {
 
 /* -------------------------------- Media Queries */
 
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+/* margin for hamburger menu */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0px;
+    }
+}
+
+/* margin for hamburger menu */
+@media (max-width: 992px) {
+    .navbar-expand-lg {
+        margin-left: 0px;
+    }
 }
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    .fixed-top-desktop-only {
+    .fixed-top {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 1030;
     }
+}
 
-    .header-container {
-        padding-top: 164px;
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
     }
 }
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    body {
+        height: calc(100vh - 126px);
+        padding-top: 126px;
+
+    }
+}
+
+
 
 /* Allauth form formatting */
 
@@ -485,30 +538,4 @@ input[name='q']::placeholder {
 
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
-}
-
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-}
-
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
-    body {
-        height: calc(100vh - 116px);
-    }
 }

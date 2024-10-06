@@ -11,7 +11,7 @@
         </div>
         {% if grand_total and request.session.show_bag_summary %}
             <p class="h6 mb-3">Your Bag ({{ product_count }})</p>
-            <div class="bag-summary mb-3" style="max-height: 400px; overflow-y: auto;">
+            <div class="bag-summary mb-3">
                 {% for item in bag_items %}
                     <div class="d-flex align-items-center mb-2">
                         <div class="col-3 p-0">
