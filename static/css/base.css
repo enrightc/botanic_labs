@@ -438,7 +438,7 @@ input[name='q']::placeholder {
 
 /* -------------------------------- Media Queries */
 
-/* margin for hamburger menu */
+/* Padding on nav bar icons */
 @media (max-width: 992px) {
     .navbar {
         padding: 0px;
@@ -480,10 +480,16 @@ input[name='q']::placeholder {
     body {
         height: calc(100vh - 126px);
         padding-top: 126px;
-
     }
 }
 
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    body {
+        height: calc(100vh - 126px);
+        padding-top: 102px;
+    }
+}
 
 
 /* Allauth form formatting */
