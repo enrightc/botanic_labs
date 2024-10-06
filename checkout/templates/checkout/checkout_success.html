@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block extra_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons/css/all/all.css">
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
@@ -195,7 +196,7 @@
                 {% else %}
                     <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
                         <span class="icon mr-2">
-                            <i class="fas fa-gifts"></i>
+                            <i class="fi fi-rr-flower-daffodil"></i>
                         </span>
                         <span class="text-uppercase">Broswse More Products</span>
                     </a>

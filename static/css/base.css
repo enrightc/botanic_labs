@@ -367,6 +367,10 @@ input[name='q']::placeholder {
     width: 100%;
 }
 
+.trash-icon {
+    font-size: 1.5rem;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
@@ -545,3 +549,6 @@ input[name='q']::placeholder {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+
+
+
