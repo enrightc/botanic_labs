@@ -10,24 +10,14 @@ This section outlines the fundamental reasons behind the creation of **Botanic L
 ### 3.1.1 Project Rationale
 While many gardening websites offer plants and gardening products, few provide a comprehensive, engaging platform that caters to both seasoned gardeners and beginners. Botanic Labs was conceived to fill this gap, offering an inspiring and interactive space where users can explore, purchase, and learn about plants tailored to their specific needs and garden spaces.
 
-Botanic Labs aims to inspire customers to enhance their gardens by providing a wide range of plants suited for every season. The platform encourages user engagement through features such as product ratings, comments, and interactive blogs. These features create a community-driven environment where gardeners can share experiences, offer advice, and learn from one another.
+Botanic Labs aims to inspire customers to enhance their gardens by providing a wide range of plants suited for every season. The platform encourages user engagement through resources such as blogs and FAQs. These resources provide valuable advice and insights, creating a sense of shared enthusiasm and support among gardening enthusiasts.
 
-Moreover, the platform's advanced search capabilities allow users to easily find plants based on specific criteria, including seasonality, light exposure, and soil type. This refined filtering ensures that users can quickly locate the plants that will thrive in their particular garden conditions, providing a personalised and efficient shopping experience.
+The platform includes a search filter based on seasonality, which allows users to quickly locate plants suitable for particular times of the year. This feature streamlines the shopping experience, helping customers find plants that align with their gardening plans and seasonal needs.
 
 Botanic Labs addresses several key needs:
-
-- Inspiring Purchase and Engagement: By providing a platform that combines a vast selection of plants with community-driven features, Botanic Labs motivates users to not only purchase plants but also to engage with other gardening enthusiasts. This interaction fosters a sense of belonging and shared passion among users.
-- Educational Resources: The inclusion of blogs, FAQs, and expert advice articles helps educate users about best gardening practices, plant care, and garden design. This knowledge empowers users to make informed decisions, leading to healthier gardens and more satisfied customers.
-- Personalised Shopping Experience: The ability to search and filter products based on specific needs, such as seasonal availability, light exposure, and soil requirements, ensures that users find plants that are most suitable for their garden conditions. This tailored approach increases customer satisfaction and helps build long-term loyalty.
-- Building a Community of Gardeners: By enabling users to leave comments, rate products, and participate in discussions, Botanic Labs creates a vibrant community where gardeners can connect, share insights, and learn from each other’s experiences.
-
-Botanic Labs has significant real-world applications, including:
-
-Promoting Sustainable Gardening: By providing access to a variety of plants suited to different environments, Botanic Labs encourages sustainable gardening practices, helping users create gardens that are not only beautiful but also environmentally friendly.
-Enhancing User Experience: The platform's focus on user engagement and personalised service enhances the overall customer experience, making gardening accessible and enjoyable for all.
-Supporting Biodiversity: Offering a diverse range of plants supports biodiversity by encouraging users to plant various species, which is beneficial for local ecosystems.
-Cultivating a Passion for Gardening: By making gardening fun, educational, and interactive, Botanic Labs inspires more people to take up gardening, fostering a greater appreciation for nature and the environment.
-Through these strategic elements, Botanic Labs seeks to revolutionise the gardening experience, making it more interactive, educational, and enjoyable for all users.
+  - Inspiring Purchase and Engagement: By offering a wide selection of plants along with informative content, Botanic Labs motivates users to explore and purchase plants while furthering their gardening knowledge. This approach not only enhances the shopping experience but also encourages users to engage with the platform regularly.
+	- Educational Resources: The inclusion of articles and FAQs provides users with a robust knowledge base on gardening practices, plant care, and garden design. This information allows customers to make informed decisions, leading to healthier gardens and greater satisfaction with their purchases.
+	- Personalised Shopping Experience: The seasonality filter enables users to find plants that align with specific seasonal requirements, making it easier to choose plants that will thrive in their gardens. This focus on personalisation ensures that users have a more relevant and satisfying shopping experience.
 
 ## 3.1.2 Target Audience
 **Botanic Labs** is designed to attract a diverse range of customers who are looking for a fresh, contemporary take on garden products. With its trendy appeal and user-friendly platform, Botanic Labs caters to both beginners and advanced gardeners, making gardening accessible and enjoyable for everyone.
@@ -35,127 +25,135 @@ Through these strategic elements, Botanic Labs seeks to revolutionise the garden
 ## 3.1.3 Project Goals
 ### Website Owner Goals
 **Increase Sales and Revenue:**
-The primary goal for Botanic Labs as a business is to increase sales of plants and gardening products. By offering a curated selection of high-quality, seasonal plants and providing a seamless shopping experience, the website aims to boost revenue through online sales.
+The primary goal for Botanic Labs as a business is to increase sales of plants and gardening products. By offering a selection of high-quality, seasonal plants and providing a seamless shopping experience, the website aims to boost revenue through online sales.
 **Build Brand Recognition and Loyalty:**
 Botanic Labs seeks to establish itself as a trusted and recognised brand in the gardening market. By providing excellent customer service, quality products, and valuable content, the goal is to build strong brand loyalty and encourage repeat customers.
 **Grow the User Base:**
 Expanding the reach of Botanic Labs is crucial. The goal is to attract a growing number of users, both beginner and experienced gardeners.
 **Enhance User Engagement:**
-Increasing user engagement on the platform is a key objective. By encouraging users to leave comments, rate products, and participate in discussions, Botanic Labs aims to create a vibrant, interactive community of garden enthusiasts.
+Increasing user engagement on the platform is a key objective. By providing new content in the form of articles and FAQs Botanic Labs aims to create a resource of all levels of gardeners.
 **Expand Product Offerings:**
 To meet the diverse needs of its customers, Botanic Labs aims to continually expand its range of products, including new plant varieties, gardening tools, and accessories. This will cater to different tastes and garden sizes, enhancing the overall shopping experience.
 **Promote Sustainable Gardening Practices:**
-Botanic Labs is committed to promoting environmentally friendly gardening practices. The goal is to educate customers about sustainable options and offer products that align with these principles, contributing to a healthier environment.
+Botanic Labs is committed to promoting environmentally friendly gardening practices. The goal is to educate customers about sustainable options through articles and offer products that align with these principles, contributing to a healthier environment.
 
 ### External User Goals
 **Find the Right Plants for Their Garden:**
 Users visit Botanic Labs with the goal of finding plants that suit their specific garden conditions and preferences. Whether they are looking for seasonal blooms, plants for a particular light exposure, or options for small urban spaces, the platform aims to provide tailored plant recommendations.
 **Learn and Improve Gardening Skills:**
-Many users, especially beginners, seek to learn more about gardening. Botanic Labs offers educational resources such as blogs, tutorials, and FAQs to help users gain knowledge and improve their gardening skills, ensuring they can grow and maintain a beautiful garden.
+Many users, especially beginners, seek to learn more about gardening. Botanic Labs offers educational resources such as articles and FAQs to help users gain knowledge and improve their gardening skills, ensuring they can grow and maintain a beautiful garden.
 **Access Quality Products Easily:**
 Users expect a straightforward and convenient shopping experience. Botanic Labs aims to provide a user-friendly website where customers can easily browse, filter, and purchase high-quality plants and gardening products, ensuring a smooth and satisfying experience.
-**Connect with a Community of Gardeners:**
-Gardening enthusiasts often seek to connect with others who share their passion. Botanic Labs offers community features such as product reviews, ratings, and comment sections, allowing users to share their experiences, ask questions, and exchange gardening tips.
-**Get Inspiration for Garden Design:**
-Users may come to Botanic Labs for inspiration on how to design and beautify their garden spaces. The website provides ideas through curated collections, seasonal highlights, helping users envision and create stunning gardens.
 **Support Sustainable and Ethical Choices:**
 Many users are conscious of their environmental impact and look for sustainable and ethical gardening options. Botanic Labs offers products and advice that support eco-friendly practices, helping users make choices that align with their values.
 
 ## 3.1.4 User Stories
 
-### As a general visitor:
-
-1. I want to understand the purpose of the site immediately upon entering, so that I know what services are offered.
-2. I want to be able to browse products without creating an account, so that I can see what's available before committing.
-3. I want to easily navigate between different product categories, so that I can find what I'm looking for quickly.
-4. I want to use a search function to find specific plants or products, so that I can save time browsing.
-5. I want to read gardening tips and advice on the blog, so that I can improve my gardening skills.
-6. I want to view product details including planting instructions and care tips, so that I can make informed decisions about my purchases.
-
-### As a shopper:
-
-1. I want to add products to my cart and see the total cost updating in real-time, so that I can stay within my budget.
-2. I want to adjust quantities or remove items from my cart, so that I can make changes before purchasing.
-3. I want to see related products or companion plants, so that I can create a well-rounded garden.
-4. I want to complete my purchase as a guest, so that I can buy quickly without creating an account.
-5. I want to see reviews from other gardeners, so that I can gauge the quality and success rate of the products.
-6. I want to be able to save my cart and come back later, so that I can take my time with purchasing decisions.
-
-### As a registered user:
-
-1. I want to create an account easily, so that I can access personalised features.
-2. I want to log in and out securely, so that my information is protected.
-3. I want to reset my password if I forget it, so that I can regain access to my account.
-4. I want to view my order history, so that I can keep track of my purchases.
-5. I want to save my shipping and billing information, so that I can check out faster in the future.
-6. I want to create a wishlist of products, so that I can plan future purchases.
-7. I want to leave reviews on products I've purchased, so that I can share my experience with other gardeners.
-8. I want to subscribe to a newsletter, so that I can receive updates on new products and gardening tips.
-
-### As a premium user:
-
-1. I want to access a virtual garden planner tool, so that I can design my garden layout before purchasing.
-2. I want to receive exclusive discounts or early access to new products, so that I feel valued as a premium member.
-3. I want to participate in members-only webinars or Q&A sessions with gardening experts, so that I can enhance my gardening knowledge.
-
-### As a site admin:
-
-1. I want to add, edit, and remove products from the catalog, so that I can keep the inventory up-to-date.
-2. I want to manage product categories and tags, so that users can easily find what they're looking for.
-3. I want to process orders and update their status, so that customers are informed about their purchase.
-4. I want to moderate user reviews, so that I can ensure the content is appropriate and helpful.
-5. I want to create and edit blog posts, so that I can share gardening tips and news with users.
-6. I want to view reports on sales and popular products, so that I can make informed business decisions.
-7. I want to manage user accounts and permissions, so that I can provide appropriate access levels to different users.
+| Role             | User Story Description                                                                                   |
+|------------------|----------------------------------------------------------------------------------------------------------|
+| **General Visitor**  | Understand the site’s purpose and services offered.                                                     |
+|                  | Browse products without creating an account.                                                               |
+|                  | Navigate easily through different product categories.                                                       |
+|                  | Use a search function to find specific plants or products.                                                 |
+|                  | Read gardening tips and advice on the blog.                                                                |
+|                  | View product details, including planting instructions and care tips.                                        |
+| **Shopper**         | Add products to the cart with real-time total cost updates.                                              |
+|                  | Adjust quantities or remove items from the cart.                                                           |
+|                  | View related products or companion plants for inspiration.                                                 |
+|                  | Complete purchases as a guest without needing an account.                                                  |
+|                  | Read product reviews from other gardeners.                                                                 |
+|                  | Save cart contents for future reference.                                                                   |
+| **Registered User**  | Easily create an account for personalised features.                                                     |
+|                  | Log in and out securely to protect information.                                                            |
+|                  | Reset password if forgotten to regain access.                                                              |
+|                  | View order history for tracking purchases.                                                                 |
+|                  | Save shipping and billing information for faster checkout.                                                 |
+|                  | Create a wishlist for future purchases.                                                                    |
+|                  | Leave reviews on purchased products to share experiences.                                                  |
+|                  | Subscribe to the newsletter for updates on new products and gardening tips.                                |
+| **Site Admin**      | Add, edit, or remove products to keep the catalog up-to-date.                                           |
+|                  | Manage product categories and tags to help users find items easily.                                        |
+|                  | Process and update orders to keep customers informed.                                                      |
+|                  | Moderate user reviews to ensure content is appropriate and helpful.                                        |
+|                  | Create and edit blog posts to share gardening tips and news.                                               |
+|                  | View reports on sales and popular products for informed business decisions.                                |
+|                  | Manage user accounts and permissions to provide the right access levels.                                   |
 
 # 4.0   SCOPE
-To ensure **Botanic Labs** is able to meet the needs of its audience a variety of features designed to enhance user experience, engagement and functionality have been considered. At a minimum the following features have been deemed essential to emet the needs of different types of users and ensure the website is comprehensive and user friendly.
+To ensure **Botanic Labs** is able to meet the needs of its audience a variety of features designed to enhance user experience, engagement and functionality have been considered. At a minimum the following features have been deemed essential to meet the needs of different types of users and ensure the website is comprehensive and user friendly.
 
-## General:
-- Responsive design
-- Database to store products
-- Intuitive navigation
+# 4.0 SCOPE
 
-## Other Key Features
-1. User Authentication
-- User registration and login
-- Password reset functionality
+To ensure **Botanic Labs** meets the needs of its audience, various features designed to enhance user experience, engagement, and functionality have been considered. The following table lists key features, their difficulty, and their importance, reflecting the essentials required to provide a comprehensive and user-friendly website:
 
-2. Product Catalog
-- Browse products by category 
-- Search functionality
-- Filtering options (e.g., sun exposure, difficulty level, season)
+| **Feature**                                                            | **Difficulty** | **Importance** |
+|------------------------------------------------------------------------|----------------|----------------|
+| Responsive Design                                                      | 1              | 5              |
+| Database to store products                                             | 2              | 5              |
+| Intuitive Navigation                                                   | 1              | 5              |
+| User Authentication - Registration & Login                             | 4              | 5              |
+| User Authentication - Password Reset                                   | 4              | 5              |
+| Product Catalog - Browse by Category (Season)                                  | 2              | 5              |
+| Product Catalog - Search Functionality                                 | 3              | 4              |
+| Product Details - Detailed Information                                 | 2              | 5              |
+| Shopping Cart - Add/Remove Items                                       | 4              | 5              |
+| Shopping Cart - Update Quantities                                      | 4              | 5              |
+| Shopping Cart - Save Cart for Registered Users                         | 3              | 4              |
+| Checkout Process - Guest Checkout                                      | 3              | 5              |
+| Checkout Process - Secure Payments with Stripe                         | 5              | 5              |
+| Checkout Process - Address Management                                  | 4              | 4              |
+| User Profile - Order History                                           | 3              | 4              |
+| User Profile - Saved Addresses                                         | 4              | 4              |
+| FAQ Page                                                               | 2              | 4              |
+| Articles with gardening tips                                                               | 2              | 4              |
+| Reviews                                                               | 2              | 3             |
+| Wishlist                                                               | 2              | 2              |
+| Advanced filtering                                  | 4              | 3              |
+| Admin Panel - Manage Products & Categories                             | 3              | 5              |
+| Admin Panel - Manage Orders                                            | 4              | 5              |
+| Admin Panel - View Customer Reviews                                    | 3              | 3              |
+| Contact Us Page                                                        | 2              | 3              |
 
-3. Product Details
-- Detailed product information (description, planting instructions, care tips)
-- Customer reviews and ratings
-- Related products
+## Key Feature Breakdown
 
-4. Shopping Cart
-- Add/remove items
-- Update quantities
-- Save cart for registered users
+### General:
+- **Responsive Design:** Ensures usability across various devices, enhancing user experience. (Importance: 5)
+- **Database to Store Products:** Enables efficient storage and retrieval of product information. (Importance: 5)
+- **Intuitive Navigation:** Allows users to easily access different sections and features of the site. (Importance: 5)
 
-5. Checkout Process
-- Guest checkout option
-- Address management for registered users
-- Integration with Stripe for secure payments
+### User Authentication:
+- **Registration & Login:** Provides secure access to the site, allowing users to create and manage accounts. (Importance: 5)
+- **Password Reset:** Helps users regain access if they forget their passwords, ensuring smooth account management. (Importance: 5)
 
-6. User Profiles
-- Order history
-- Saved addresses
-- Wishlist/Favorites
+### Product Catalogue:
+- **Browse by Category (Season):** Helps users find plants suitable for specific seasons, enhancing browsing experience. (Importance: 5)
+- **Search Functionality:** Allows users to quickly locate specific products, saving time. (Importance: 4)
 
-7. Admin Panel
-- Manage products, categories, and orders
-- View and respond to customer reviews
-- Generate reports (e.g., best-selling items, revenue)
+### Product Details:
+- **Detailed Information:** Comprehensive descriptions on planting and care enable informed purchasing. (Importance: 5)
 
-8. Additional Features
-- Blog with gardening tips and advice
-- Subscription service for seasonal seed/bulb boxes
-- Virtual garden planner (premium feature)
-- FAQ
+### Shopping Cart & Checkout:
+- **Add/Remove Items & Update Quantities:** Allows users to manage their cart contents easily. (Importance: 5)
+- **Save Cart for Registered Users:** Enables users to save their selections for future visits. (Importance: 4)
+- **Guest Checkout:** Provides a convenient option for non-registered users to complete purchases. (Importance: 5)
+- **Secure Payments with Stripe:** Ensures safe transactions through trusted payment processing. (Importance: 5)
+- **Address Management:** Allows registered users to save addresses for a streamlined checkout experience. (Importance: 4)
+
+### User Profiles:
+- **Order History:** Allows users to review past purchases, enhancing customer experience. (Importance: 4)
+- **Saved Addresses:** Facilitates faster checkout for returning users by storing address information. (Importance: 4)
+
+### Admin Panel:
+- **Manage Products, Categories, and Orders:** Essential tools for maintaining an up-to-date product catalog and processing orders. (Importance: 5)
+- **View Customer Reviews:** Allows admins to monitor user feedback and ensure content quality. (Importance: 3)
+
+### Additional Features:
+- **FAQ Page:** Provides quick answers to common questions, improving user support. (Importance: 4)
+- **Articles with Gardening Tips:** Educates users, helping them improve their gardening skills. (Importance: 4)
+- **Contact Us Page:** Enables users to reach out with inquiries or feedback, enhancing communication. (Importance: 3)
+- **Reviews (Future Addition):** Allows users to leave feedback, helping build community trust. (Importance: 3)
+- **Wishlist (Future Addition):** Enables users to save products for later, encouraging return visits. (Importance: 2)
+- **Advanced Filtering:** Provides additional search options based on soil type and light exposure for precise results. (Importance: 3)
 
 # 5.0   STRUCTURE
 ## 5.1 Frontend Framework
@@ -165,17 +163,36 @@ Botanic Labs is built using **Bootstrap v4.188, ensuring a responsive and mobile
 The backend application connects to a Postgres database hosted on [Amazon Web Service](https://aws.amazon.com/).
 
 ## 5.3 Database Schema
-An essential step in the development of Botanic Lanbs was the careful planning and creation of the database schema. By planning the structure of the data from the beginning, the development process was more straightforward and allowed for efficient data management throughout the project. The database schema was informed by the user stories, scope definition, and initial flow diagrams.
+To create a clear visual representation of the database, I used **Lucid Chart** to build a Entity-Relationship Diagram (ERD). This diagram served as a reference throughout the development process, providing a clear visual representation of the database structure and the relationship between components of the website. Through the development process I continuously updated the ERD to ensure it aligned with the overall design of Bontanic Labs. 
 
-To create a clear visual representation of the database, I used **Lucid Chart** to build the schema. This visual guide was continuously referred to throughout development, allowing me to keep track of the relationships between the various components of the website, and it was updated as the project evolved.
+![Entity-relationship Diagram](botanic_labs/media/docs/wireframes/Database_ER_diagram.jpeg)
 
-One key component of the schema was the integration of user profiles and the relationship with products, orders, and wishlist functionalities. Each user has a single profile and can manage a wishlist, while also interacting with the product catalog and order system. I also planned a blog system and a review feature for users to interact with plant products, sharing their experiences and ratings.
+Although at this stage wishlist and review functionality has not yet been implemented I have left these in the ERD to show the planned future expansion of Botanic Labs, providing a roadmap for how these features can be integrated
 
-While I initially considered including an FAQ section connected to the product database, I opted to leave this as a standalone table without direct relationships to other entities. This kept the database design clean and efficient, allowing for potential future expansion without complicating the current scope.
+### Conclusions from the ERD
 
-![Entity-relationship Diagram](botanic_labs/media/docs/entity-relationship-diagram.jpeg)
+1. **User-Centric Design:**
+   - The database design centres around user interactions, linking users to profiles and orders. While wishlist and review features are planned for future additions, they have been included in the design for easier integration later. This anticipates user needs as the platform grows.
 
-The ER diagram above represents the relationships between the different entities in the Botanic Labs database.
+2. **Organised Product Management:**
+   - The product model is structured to include various attributes such as type, season, soil drainage, lifespan, and light exposure. This allows for detailed filtering and helps users find products that match their needs. The option to link up to three recommended products provides users with suggestions, enhancing the browsing experience.
+
+3. **Simple Order Handling:**
+   - Orders are organised with individual line items, allowing multiple products per order. This setup ensures accurate order processing and inventory management, as well as facilitating customer support by detailing each product within an order.
+
+4. **Admin-Controlled Article Creation:**
+   - The article model is linked to the user model for authorship, with only admin users permitted to add content. This provides a controlled environment for content creation, ensuring high-quality and relevant information is shared with users through articles.
+
+5. **Independent FAQs for Flexibility:**
+   - The FAQ section is designed as a standalone model, allowing it to be managed and updated independently of other parts of the database. This is beneficial for quick adjustments and additions without impacting the core user or product data. Only admin can add/edit FAQs. 
+
+6. **Scalability and Expansion:**
+   - By planning for wishlist and review models, the database is prepared for future features without the need for significant structural changes. This supports potential growth and additional functionality as user engagement increases.
+
+7. **Reliable Data Connections:**
+   - Foreign key relationships ensure secure and reliable connections between models, such as users with profiles and orders with line items. This setup enhances data integrity and consistency across the platform, supporting a smooth user experience and effective data management.
+
+Overall, the ERD for Botanic Labs provides a solid foundation for current features while allowing for future growth by adding wishlists and reviews functionality. It enables a personalised shopping experience, straightforward content management, and flexible product handling, ensuring that both user and admin needs are effectively met.
 
 ## 6.0  SKELETON
 Prior to commencing the website coding process, wireframes were produced for each page using Figma - a design tool used for creating user interfaces, prototypes, and wireframes. These wireframes served as the initial blueprints, providing a visual roadmap for the website's layout and structure.
@@ -208,6 +225,10 @@ This iterative process allowed for flexibility in adapting to evolving project r
   <summary>Checkout</summary>
   <img src="botanic_labs/media/docs/wireframes/checkout.png" alt="Checkout page">
 </details>
+
+
+
+
 
 # BUGS
 **User Profile Not Attached to Orders in Webhook Handling**
