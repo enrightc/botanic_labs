@@ -32,6 +32,27 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
+
+        <!-- Filters Section -->
+        <form method="GET">
+            <div class="row mb-3">
+                <div class="col-12">
+                    Type:{{ product_filter.form.type }}
+                </div>
+                <div class="col-md-3">
+                    Lifespan:{{ product_filter.form.lifespan }}
+                </div>
+                <div class="col-md-3">
+                    Light Exposure:{{ product_filter.form.light_exposure }}
+                </div>
+                <div class="col-md-3">
+                    Soil Drainage:{{ product_filter.form.soil_drainage }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-black rounded-0">Filter</button>
+        </form>
+
+
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
