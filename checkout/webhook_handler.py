@@ -1,17 +1,13 @@
 from django.shortcuts import (
-    render, redirect, reverse,
-    get_object_or_404, HttpResponse
+    HttpResponse
 )
-from django.views.decorators.http import require_POST
-from django.contrib import messages
+
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
-from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-from bag.contexts import bag_contents
 from profiles.models import UserProfile
 
 import time
@@ -136,8 +132,9 @@ class StripeWH_Handler:
                 time.sleep(1)  # Wait for 1 second before trying again
 
         if order_exists:
-            # If order exists send confirmation email before returning response to stripe
-            self._send_confirmation_email(order)  
+            # If order exists send confirmation email before
+            # returning response to stripe
+            self._send_confirmation_email(order)
         # If the order exists, return a success message
             return HttpResponse(
                 content=(

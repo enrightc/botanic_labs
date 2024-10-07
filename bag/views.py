@@ -61,8 +61,8 @@ def adjust_bag(request, item_id):
         # Update the quantity of the item in the bag
         bag[item_id] = quantity
         messages.success(
-        request, f'Updated {product.name} quantity to {bag[item_id]}'
-    )
+            request, f'Updated {product.name} quantity to {bag[item_id]}'
+        )
     else:
         # Remove the item from the bag if quantity is 0 or less
         bag.pop(item_id)
@@ -93,6 +93,5 @@ def remove_from_bag(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Error removing item: (e)')
+        messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
-        

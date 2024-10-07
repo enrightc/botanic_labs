@@ -1,11 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from djrichtextfield.models import RichTextField
 from django.utils.text import slugify
-
-
-from django_summernote.widgets import SummernoteWidget
-
 
 STATUS = (
     (0, "Draft"),

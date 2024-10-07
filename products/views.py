@@ -39,8 +39,6 @@ def all_products(request):
         if 'season' in request.GET:
             seasons = request.GET['season'].split(',')
             products = products.filter(season__name__in=seasons)
-            current_seasons = Season.objects.filter(name__in=seasons)
-
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
