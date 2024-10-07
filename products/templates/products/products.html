@@ -36,10 +36,12 @@
         <!-- Filters Section -->
         <form method="GET">
             {% if current_seasons %}
-                {% for season in current_seasons %}
-                    <input type="hidden" name="season" value="{{ season }}">
-                {% endfor %}
-            {% endif %}
+    {% for season in current_seasons %}
+        <input type="hidden" name="season" value="{{ season }}">
+    {% endfor %}
+{% else %}
+    <input type="hidden" name="season" value="all">
+{% endif %}
             <div class="row mb-3">
                 <div class="col-md-3">
                     Type:{{ product_filter.form.type }}
@@ -54,6 +56,13 @@
                     Soil Drainage:{{ product_filter.form.soil_drainage }}
                 </div>
             </div>
+            <!-- Planting Season Checkboxes -->
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <label>Planting Season:</label><br>
+            {{ product_filter.form.planting_season }}
+        </div>
+    </div>
             <button type="submit" class="btn btn-outline-black rounded-0">Filter</button>
         </form>
 
