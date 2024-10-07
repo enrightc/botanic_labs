@@ -479,13 +479,7 @@ input[name='q']::placeholder {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
-    body {
-        height: calc(100vh - 126px);
-        padding-top: 126px;
-    }
-}
+
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
@@ -497,11 +491,14 @@ input[name='q']::placeholder {
 
 
 /* Allauth form formatting */
-
+.allauth-form-inner-content {
+    min-height: 60vh;
+}
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
     color: #6c757d; /* text-secondary */
 }
+
 
 .allauth-form-inner-content input {
     border-color: #000;
@@ -549,6 +546,3 @@ input[name='q']::placeholder {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
-
-
-
