@@ -1,9 +1,13 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse,
+    HttpResponse, get_object_or_404
+)
 from django.contrib import messages
 
 from products.models import Product
 
 # Create your views here.
+
 
 def view_bag(request):
     '''
@@ -23,10 +27,14 @@ def add_to_bag(request, item_id):
 
     # Check if the product (item_id) is already in the shopping bag.
     if item_id in list(bag.keys()):
-        # If the product is already in the bag increment the quantity of that product 
+        # If the product is already in the bag
+        # increment the quantity of that product
         bag[item_id] += quantity
-        request.session['show_bag_summary'] = True  # Ensure bag summary is shown when adding to bag
-        messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+        # Ensure bag summary is shown when adding to bag
+        request.session['show_bag_summary'] = True
+        messages.success(
+            request, f'Updated {product.name} quantity to {bag[item_id]}'
+        )
     else:
         # If the product is not in the bag add it with the specified quantity
         bag[item_id] = quantity
@@ -35,7 +43,6 @@ def add_to_bag(request, item_id):
 
     # Save the shopping bag into the user's session
     request.session['bag'] = bag
-    
 
     # Print the value of show_bag_summary to the terminal for debugging
     print(request.session.get('show_bag_summary'))
@@ -53,12 +60,13 @@ def adjust_bag(request, item_id):
     if quantity > 0:
         # Update the quantity of the item in the bag
         bag[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+        messages.success(
+        request, f'Updated {product.name} quantity to {bag[item_id]}'
+    )
     else:
         # Remove the item from the bag if quantity is 0 or less
         bag.pop(item_id)
         messages.success(request, f'Removed {product.name} from your bag')
-
 
     # Save the updated bag back to the session
     request.session['bag'] = bag
@@ -87,3 +95,4 @@ def remove_from_bag(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: (e)')
         return HttpResponse(status=500)
+        

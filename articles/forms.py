@@ -8,21 +8,25 @@ class ArticleForm(forms.ModelForm):
     """
     Form to create a new article
     """
-    
-    image = forms.ImageField(label='Image', required=False, widget=ArticleCustomClearableFileInput)
+
+    image = forms.ImageField(
+        label='Image',
+        required=False,
+        widget=ArticleCustomClearableFileInput
+        )
 
     class Meta:
         model = Article
         fields = [
-            'title',  'content', 'excerpt', 'image', 'image_alt', 'status', 'is_deleted',
+            'title',  'content', 'excerpt',
+            'image', 'image_alt', 'status', 'is_deleted',
         ]
 
         widgets = {
             'content': SummernoteWidget(),
             'excerpt': forms.Textarea(attrs={'rows': 3}),
-            
         }
-    
+
         labels = {
             "title": "Article Title",
             "content": "Content",
@@ -35,6 +39,6 @@ class ArticleForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'

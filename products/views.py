@@ -7,6 +7,7 @@ from django.db.models.functions import Lower
 from .forms import ProductForm
 from .models import Product, Season
 
+
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -36,17 +37,22 @@ def all_products(request):
 
     if request.GET:
         if 'season' in request.GET:
-                seasons = request.GET['season'].split(',')
-                products = products.filter(season__name__in=seasons)
-                current_seasons = Season.objects.filter(name__in=seasons)
+            seasons = request.GET['season'].split(',')
+            products = products.filter(season__name__in=seasons)
+            current_seasons = Season.objects.filter(name__in=seasons)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                )
                 return redirect(reverse('products'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+
+            queries = (
+                Q(name__icontains=query) |
+                Q(description__icontains=query)
+            )
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -66,8 +72,8 @@ def product_detail(request, product_id):
     '''
     A view to show individual product details
     '''
-
-    product = get_object_or_404(Product, pk=product_id) # get only one product using the product id.
+    # get only one product using the product id.
+    product = get_object_or_404(Product, pk=product_id)
 
     # Get the recommended products if they exist
     recommended_products = []
@@ -86,7 +92,7 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
-@login_required # Django will check whether the user is logged in before executing the view.
+@login_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
@@ -97,14 +103,17 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            request.session['show_bag_summary'] = False # disable bag summary
+            request.session['show_bag_summary'] = False
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. '
+                'Please ensure the form is valid.'
+            )
     else:
         form = ProductForm()
-        
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -113,40 +122,47 @@ def add_product(request):
     return render(request, template, context)
 
 
-@login_required # Django will check whether the user is logged in before executing the view.
+@login_required
 def edit_product(request, product_id):
-    """ 
-    Edit a product in the store 
+    """
+    Edit a product in the store
     - This view allows users to edit an existing product's details.
     - It checks if the form was submitted via POST or just loaded.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     # Get the product object by its id or return a 404 error if not found
     product = get_object_or_404(Product, pk=product_id)
 
     # Check if the request is a POST (form submission)
     if request.method == 'POST':
         # Create a form instance with the POST data and any uploaded files
-        # 'instance=product' means the form will be pre-populated with the current product data
+        # 'instance=product' means the form will be
+        # pre-populated with the current product data
         form = ProductForm(request.POST, request.FILES, instance=product)
 
         # Validate the form data
         if form.is_valid():
-            # If the form is valid, save the updated product information to the database
+            # If the form is valid, save the updated
+            # product information to the database
             form.save()
-            request.session['show_bag_summary'] = False # disable bag summary
+            request.session['show_bag_summary'] = False
             # Display a success message to the user
             messages.success(request, 'Successfully updated product!')
-            # Redirect the user to the product detail page after successful edit
+            # Redirect the user to the product detail
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             # If the form is not valid, show an error message
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update product. '
+                'Please ensure the form is valid.'
+            )
 
-    # If the request method is not POST, show the form with the current product data for editing
+    # If the request method is not POST,
+    # show the form with the current product data for editing
     else:
         # Pre-populate the form with the product's current information
         form = ProductForm(instance=product)
@@ -166,15 +182,15 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
-@login_required # Django will check whether the user is logged in before executing the view.
+@login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    request.session['show_bag_summary'] = False # disable bag summary
+    request.session['show_bag_summary'] = False  # disable bag summary
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))

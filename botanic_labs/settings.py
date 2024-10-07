@@ -11,32 +11,40 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-if os.path.exists("env.py"):
-  import env 
-import dj_database_url
 from pathlib import Path
+import dj_database_url
+
+if os.path.exists("env.py"):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENMT' in os.environ # Add 'DEVELOPMENT' to variables and set value to '1' to set DEBUG to TRUE. This will only be the case in gitpod
-DEBUG = True
+# Debug settings
+DEBUG = True  # Set to False in production
 
-ALLOWED_HOSTS = ['8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
-                 'botanic-labs.herokuapp.com', 'botanic-labs-d446513705ac.herokuapp.com', 'localhost']
+# Uncomment for deployment:
+# DEBUG = 'DEVELOPMENMT' in os.environ
 
-CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com", "https://*.codeinstitute-ide.net"] # allows admin login
+ALLOWED_HOSTS = [
+    '8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
+    'botanic-labs.herokuapp.com',
+    'botanic-labs-d446513705ac.herokuapp.com',
+    'localhost'
+]
+
+# Allows admin login
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.herokuapp.com",
+    "https://*.codeinstitute-ide.net"
+]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,8 +63,6 @@ INSTALLED_APPS = [
     'profiles',
     'articles',
     'faq',
-
-    # Other
     'crispy_forms',
     'storages',
     'djrichtextfield',
@@ -65,56 +71,76 @@ INSTALLED_APPS = [
 
 CKEDITOR_5_CONFIGS = {
     'default': {
-        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
-                    'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
-    },
-    'extends': {
-        'blockToolbar': [
-            'paragraph', 'heading1', 'heading2', 'heading3',
-            '|',
-            'bulletedList', 'numberedList',
-            '|',
-            'blockQuote',
+        'toolbar': [
+            'heading', '|', 'bold', 'italic', 'link', 'bulletedList',
+            'numberedList', 'blockQuote', 'imageUpload',
         ],
-        'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
-        'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing', 'insertImage',
-                    'bulletedList', 'numberedList', 'todoList', '|',  'blockQuote', 'imageUpload', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
-                    'insertTable',],
-        'image': {
-            'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
-                        'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
-            'styles': [
-                'full',
-                'side',
-                'alignLeft',
-                'alignRight',
-                'alignCenter',
-            ]
-
+        'extends': {
+            'blockToolbar': [
+                'paragraph', 'heading1', 'heading2', 'heading3', '|',
+                'bulletedList', 'numberedList', '|', 'blockQuote'
+            ],
+            'toolbar': [
+                'heading', '|', 'outdent', 'indent', '|', 'bold',
+                'italic', 'link', 'underline', 'strikethrough', 'code',
+                'subscript', 'superscript', 'highlight', '|', 'codeBlock',
+                'sourceEditing', 'insertImage', 'bulletedList', 'numberedList',
+                'todoList', '|', 'blockQuote', 'imageUpload', '|', 'fontSize',
+                'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed',
+                'removeFormat', 'insertTable',
+            ],
+            'image': {
+                'toolbar': [
+                    'imageTextAlternative', '|', 'imageStyle:alignLeft',
+                    'imageStyle:alignRight', 'imageStyle:alignCenter',
+                    'imageStyle:side', '|'
+                ],
+                'styles': [
+                    'full', 'side', 'alignLeft', 'alignRight', 'alignCenter'
+                ]
+            },
+            'table': {
+                'contentToolbar': [
+                    'tableColumn', 'tableRow', 'mergeTableCells',
+                    'tableProperties', 'tableCellProperties'
+                ]
+            },
+            'heading': {
+                'options': [
+                    {
+                        'model': 'paragraph',
+                        'title': 'Paragraph',
+                        'class': 'ck-heading_paragraph'
+                    },
+                    {
+                        'model': 'heading1',
+                        'view': 'h1',
+                        'title': 'Heading 1',
+                        'class': 'ck-heading_heading1'
+                    },
+                    {
+                        'model': 'heading2',
+                        'view': 'h2', 'title':
+                        'Heading 2', 'class':
+                        'ck-heading_heading2'},
+                    {
+                        'model': 'heading3',
+                        'view': 'h3', 'title':
+                        'Heading 3', 'class':
+                        'ck-heading_heading3'
+                    }
+                ]
+            }
         },
-        'table': {
-            'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
-            'tableProperties', 'tableCellProperties' ],
-        },
-        'heading' : {
-            'options': [
-                { 'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph' },
-                { 'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1' },
-                { 'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2' },
-                { 'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3' }
-            ]
-        }
-    },
-    'list': {
-        'properties': {
-            'styles': 'true',
-            'startIndex': 'true',
-            'reversed': 'true',
+        'list': {
+            'properties': {
+                'styles': 'true',
+                'startIndex': 'true',
+                'reversed': 'true',
+            }
         }
     }
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +154,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'botanic_labs.urls'
 
-# For crispy forms
+# Crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
@@ -142,7 +168,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # Required by allauth
+                # Required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -162,7 +189,6 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
@@ -179,7 +205,6 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'botanic_labs.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -195,38 +220,41 @@ else:
         }
     }
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -235,7 +263,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 if 'USE_AWS' in os.environ:
     # Cache control
@@ -274,17 +301,14 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
-
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'botaniclab@example.com'
 else:
-    EMAIL_BASCKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
-ACCOUNT_EMAIL_VERIFICATION = 'none'

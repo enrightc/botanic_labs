@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse,
+    get_object_or_404, HttpResponse
+)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -71,12 +74,13 @@ def checkout(request):
                 try:
                     # Try to get the product from the database using its ID
                     product = Product.objects.get(id=item_id)
-                    
+
                     # Create an order line item (a single product in the order)
                     order_line_item = OrderLineItem(
                         order=order,  # Connect this line item to the order
                         product=product,  # Specify which product it is
-                        quantity=item_data,  # Specify the quantity of the product
+                        # Specify the quantity of the product
+                        quantity=item_data,
                     )
                     # Save the line item to the database
                     order_line_item.save()
@@ -84,11 +88,15 @@ def checkout(request):
                 # If the product is not found in the database
                 except Product.DoesNotExist:
                     # Show an error message to the user
-                    messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
+                    messages.error(
+                        request,
+                        (
+                            "One of the products in your bag wasn't found "
+                            "in our database. Please call us for assistance!"
+                        )
                     )
-                    # Delete the order since it cannot be completed without the product
+                    # Delete the order
+                    # since it cannot be completed without the product
                     order.delete()
                     # Redirect the user back to their shopping bag
                     return redirect(reverse('view_bag'))
@@ -97,15 +105,20 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
 
             # Redirect to the checkout success page with the order number
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse(
+                    'checkout_success', args=[order.order_number]
+                )
+            )
         else:
             # If the form is invalid, show an error message to the user
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
 
-    # If the user is just viewing the checkout page and hasn't submitted the form yet
+    # If the user is just viewing the checkout page and
+    # hasn't submitted the form yet
     bag = request.session.get('bag', {})
-    
+
     # If the bag is empty, show an error and redirect to the products page
     if not bag:
         messages.error(request, "There's nothing in your bag at the moment")
@@ -121,10 +134,10 @@ def checkout(request):
         # Create a payment intent for Stripe (used to process the payment)
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,  # Amount to be charged
-            currency=settings.STRIPE_CURRENCY,  # Currency type 
+            currency=settings.STRIPE_CURRENCY,  # Currency type
         )
 
-         # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with any info the user profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -142,7 +155,8 @@ def checkout(request):
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:
-            order_form = OrderForm() # Create an empty order form for the user to fill out
+            # Create an empty order form for the user to fill out
+            order_form = OrderForm()
 
         # If Stripe public key is missing, warn the user
         if not stripe_public_key:
@@ -153,8 +167,10 @@ def checkout(request):
         template = 'checkout/checkout.html'
         context = {
             'order_form': order_form,  # The form the user will fill out
-            'stripe_public_key': stripe_public_key,  # Stripe key for the frontend
-            'client_secret': intent.client_secret,  # Secret key for Stripe payment intent
+            # Stripe key for the frontend
+            'stripe_public_key': stripe_public_key,
+            # Secret key for Stripe payment intent
+            'client_secret': intent.client_secret,
         }
 
         # Render the checkout page with the given template and context

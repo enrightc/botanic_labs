@@ -8,8 +8,8 @@ from django_summernote.widgets import SummernoteWidget
 
 
 STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
+    (0, "Draft"),
+    (1, "Publish")
 )
 
 
@@ -19,7 +19,8 @@ class Article(models.Model):
     """
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name="article_posts")
-    title = models.CharField(max_length=150, unique=True, null=False, blank=False)
+    title = models.CharField(
+        max_length=150, unique=True, null=False, blank=False)
     content = models.TextField(max_length=50000)
     image = models.ImageField(null=True, blank=True)
     image_alt = models.CharField(
@@ -28,9 +29,13 @@ class Article(models.Model):
     excerpt = models.TextField(max_length=300, null=False, blank=False)
     posted_date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    # A boolean flag for soft deletion. When True, the article is considered deleted,
-    # but the record is still kept in the database. Default is False (not deleted).
-    is_deleted = models.BooleanField(default=False, verbose_name="Mark as hidden")
+    # A boolean flag for soft deletion.
+    # When True, the article is considered deleted,
+    # but the record is still kept in the database.
+    # Default is False (not deleted).
+    is_deleted = models.BooleanField(
+        default=False,
+        verbose_name="Mark as hidden")
 
     class Meta:
         """ Order articles by posted date """
@@ -40,5 +45,5 @@ class Article(models.Model):
         # Generate the slug if it's not already set
         if not self.slug:
             self.slug = slugify(self.title)
-        
+
         super(Article, self).save(*args, **kwargs)
