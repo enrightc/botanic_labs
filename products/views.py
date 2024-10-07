@@ -7,7 +7,6 @@ from django.db.models.functions import Lower
 from .forms import ProductForm
 from .models import Product, Season
 
-from .filters import ProductFilter
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -54,10 +53,6 @@ def all_products(request):
             )
             products = products.filter(queries)
 
-    # Apply the ProductFilter to filter based on type, lifespan, light exposure, and soil drainage
-    product_filter = ProductFilter(request.GET, queryset=products)
-    products = product_filter.qs
-
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -65,9 +60,7 @@ def all_products(request):
         'search_term': query,
         'current_seasons': seasons,
         'all_seasons': all_seasons,  # All seasons for navigation
-        'current_sorting': current_sorting,
-        'product_filter': product_filter,
-        
+        'current_sorting': current_sorting,      
     }
 
     return render(request, 'products/products.html', context)
