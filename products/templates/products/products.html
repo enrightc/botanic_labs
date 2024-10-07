@@ -35,8 +35,13 @@
 
         <!-- Filters Section -->
         <form method="GET">
+            {% if current_seasons %}
+                {% for season in current_seasons %}
+                    <input type="hidden" name="season" value="{{ season }}">
+                {% endfor %}
+            {% endif %}
             <div class="row mb-3">
-                <div class="col-12">
+                <div class="col-md-3">
                     Type:{{ product_filter.form.type }}
                 </div>
                 <div class="col-md-3">
