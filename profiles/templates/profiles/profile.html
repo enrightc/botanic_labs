@@ -25,10 +25,17 @@
             <div class="col-12 col-md-6 col-lg-5 mb-5">
                 <div class="card shadow border-0 sleek-card">
                     <div class="card-body">
-                        <h4 class="mb-4 text-center card-title">Delivery Information</h4>
+
+                        
                         <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                             {% csrf_token %}
-                            {{ form|crispy }}
+                            
+                            <h4 class="mb-4 text-center card-title">Personal Information</h4>
+                            {{ name_form|crispy }}
+                            
+                            <h4 class="mb-4 text-center card-title">Delivery Information</h4>
+                            {{ delivery_form|crispy }}
+                            
                             <button class="btn btn-primary btn-block sleek-button">Update Information</button>
                         </form>
                     </div>
