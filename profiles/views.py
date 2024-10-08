@@ -15,7 +15,7 @@ def profile(request):
     user = request.user
 
     if request.method == 'POST':
-        # Bind the submitted data to both forms
+        # Pass submitted data to both forms
         delivery_form = UserProfileForm(request.POST, instance=profile)
         name_form = NameForm(request.POST, instance=user)
 

@@ -156,7 +156,124 @@ To ensure **Botanic Labs** is able to meet the needs of its audience a variety o
 Botanic Labs is built using **Bootstrap v4.188, ensuring a responsive and mobile-friendly design across all devices. 
 
 ## 5.2 Database
-The backend application connects to a Postgres database hosted on [Amazon Web Service](https://aws.amazon.com/).
+The backend application connects to a Postgres database hosted on [Amazon Web Service](https://aws.amazon.com/). Below is a summary of the models used on Botanic Labs. A number of these are based on models provided by the Boutique Ado walkthrough (UserProfile, Category, Product, Order, OrderLineItem) as well as two original models (FAQs and Articles) created for this project.
+
+<details>
+  <summary>Click to expand UserProfile</summary>
+
+  | Field                    | Field Type      | Validation                | null  | blank | default | on_delete | editable |
+  |--------------------------|-----------------|---------------------------|-------|-------|---------|-----------|----------|
+  | user                     | OneToOneField   | n/a                       | FALSE | FALSE | n/a     | CASCADE   | TRUE     |
+  | default_phone_number     | CharField       | max_length=20             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | default_street_address1  | CharField       | max_length=80             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | default_street_address2  | CharField       | max_length=80             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | default_town_or_city     | CharField       | max_length=40             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | default_county           | CharField       | max_length=80             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | default_postcode         | CharField       | max_length=20             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | default_country          | CountryField    | blank_label='Country'     | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+
+</details>
+
+<details>
+  <summary>Click to expand Season Model table</summary>
+
+  | Field          | Field Type   | Validation       | null  | blank | default | on_delete | editable |
+  |----------------|--------------|------------------|-------|-------|---------|-----------|----------|
+  | name           | CharField    | max_length=254   | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | friendly_name  | CharField    | max_length=254   | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+
+</details>
+
+<details>
+  <summary>Click to expand Product Model table</summary>
+
+  | Field              | Field Type       | Validation                                                                 | null  | blank | default | on_delete | editable |
+  |--------------------|------------------|----------------------------------------------------------------------------|-------|-------|---------|-----------|----------|
+  | season             | ForeignKey       | n/a                                                                        | TRUE  | TRUE  | n/a     | SET_NULL  | TRUE     |
+  | sku                | CharField        | max_length=254                                                             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | name               | CharField        | max_length=254                                                             | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | description        | TextField        | n/a                                                                        | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | price              | DecimalField     | max_digits=6, decimal_places=2                                             | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | rating             | DecimalField     | max_digits=6, decimal_places=2                                             | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | image              | ImageField       | n/a                                                                        | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | planting_start     | IntegerField     | choices=MONTH_CHOICES, validators=[MinValueValidator(1), MaxValueValidator(12)] | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | planting_end       | IntegerField     | choices=MONTH_CHOICES, validators=[MinValueValidator(1), MaxValueValidator(12)] | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | flowering_start    | IntegerField     | choices=MONTH_CHOICES, validators=[MinValueValidator(1), MaxValueValidator(12)] | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | flowering_end      | IntegerField     | choices=MONTH_CHOICES, validators=[MinValueValidator(1), MaxValueValidator(12)] | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | soil_drainage      | CharField        | max_length=50, choices=SOIL_DRAINAGE_CHOICES                               | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | lifespan           | CharField        | max_length=50, choices=LIFESPAN_CHOICES                                    | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | type               | CharField        | max_length=50, choices=TYPE_CHOICES                                        | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | light_exposure     | CharField        | max_length=50, choices=LIGHT_EXPOSURE_CHOICES                              | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | recommendation_1   | ForeignKey       | n/a                                                                        | TRUE  | TRUE  | n/a     | SET_NULL  | TRUE     |
+  | recommendation_2   | ForeignKey       | n/a                                                                        | TRUE  | TRUE  | n/a     | SET_NULL  | TRUE     |
+  | recommendation_3   | ForeignKey       | n/a                                                                        | TRUE  | TRUE  | n/a     | SET_NULL  | TRUE     |
+
+</details>
+
+<details>
+  <summary>Click to expand Order Model table</summary>
+
+  | Field             | Field Type       | Validation                            | null  | blank | default | on_delete | editable |
+  |-------------------|------------------|---------------------------------------|-------|-------|---------|-----------|----------|
+  | order_number      | CharField        | max_length=32                         | FALSE | FALSE | n/a     | n/a       | FALSE    |
+  | user_profile      | ForeignKey       | n/a                                   | TRUE  | TRUE  | n/a     | SET_NULL  | TRUE     |
+  | full_name         | CharField        | max_length=50                         | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | email             | EmailField       | max_length=254                        | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | phone_number      | CharField        | max_length=20                         | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | country           | CountryField     | blank_label='Country *'               | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | postcode          | CharField        | max_length=20                         | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | town_or_city      | CharField        | max_length=40                         | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | street_address1   | CharField        | max_length=80                         | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | street_address2   | CharField        | max_length=80                         | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | county            | CharField        | max_length=80                         | TRUE  | TRUE  | n/a     | n/a       | TRUE     |
+  | date              | DateTimeField    | auto_now_add=True                     | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | delivery_cost     | DecimalField     | max_digits=6, decimal_places=2        | FALSE | FALSE | 0       | n/a       | TRUE     |
+  | order_total       | DecimalField     | max_digits=10, decimal_places=2       | FALSE | FALSE | 0       | n/a       | TRUE     |
+  | grand_total       | DecimalField     | max_digits=10, decimal_places=2       | FALSE | FALSE | 0       | n/a       | TRUE     |
+  | original_bag      | TextField        | n/a                                   | FALSE | FALSE | ''      | n/a       | TRUE     |
+  | stripe_pid        | CharField        | max_length=254                        | FALSE | FALSE | ''      | n/a       | TRUE     |
+
+</details>
+
+<details>
+  <summary>Click to expand OrderLineItem Model table</summary>
+
+  | Field           | Field Type       | Validation                  | null  | blank | default | on_delete | editable |
+  |-----------------|------------------|-----------------------------|-------|-------|---------|-----------|----------|
+  | order           | ForeignKey       | n/a                         | FALSE | FALSE | n/a     | CASCADE   | TRUE     |
+  | product         | ForeignKey       | n/a                         | FALSE | FALSE | n/a     | CASCADE   | TRUE     |
+  | quantity        | IntegerField     | n/a                         | FALSE | FALSE | 0       | n/a       | TRUE     |
+  | lineitem_total  | DecimalField     | max_digits=6, decimal_places=2 | FALSE | FALSE | n/a     | n/a       | TRUE     |
+
+</details>
+
+<details>
+  <summary>Click to expand Faq Model table</summary>
+
+  | Field     | Field Type   | Validation       | null  | blank | default | on_delete | editable |
+  |-----------|--------------|------------------|-------|-------|---------|-----------|----------|
+  | question  | CharField    | max_length=250   | FALSE | FALSE | n/a     | n/a       | TRUE     |
+  | answer    | TextField    | max_length=500   | FALSE | FALSE | n/a     | n/a       | TRUE     |
+
+</details>
+
+<details>
+  <summary>Click to expand Article Model table</summary>
+
+  | Field         | Field Type       | Validation             | null  | blank | default      | on_delete | editable |
+  |---------------|------------------|------------------------|-------|-------|--------------|-----------|----------|
+  | author        | ForeignKey       | n/a                    | FALSE | FALSE | n/a          | CASCADE   | TRUE     |
+  | title         | CharField        | max_length=150         | FALSE | FALSE | n/a          | n/a       | TRUE     |
+  | content       | TextField        | max_length=50000       | FALSE | FALSE | n/a          | n/a       | TRUE     |
+  | image         | ImageField       | n/a                    | TRUE  | TRUE  | n/a          | n/a       | TRUE     |
+  | image_alt     | CharField        | max_length=100         | FALSE | FALSE | 'default alt'| n/a       | TRUE     |
+  | slug          | SlugField        | max_length=200         | TRUE  | TRUE  | n/a          | n/a       | TRUE     |
+  | excerpt       | TextField        | max_length=300         | FALSE | FALSE | n/a          | n/a       | TRUE     |
+  | posted_date   | DateTimeField    | auto_now_add=True      | FALSE | FALSE | n/a          | n/a       | TRUE     |
+  | status        | IntegerField     | choices=STATUS         | FALSE | FALSE | 0            | n/a       | TRUE     |
+  | is_deleted    | BooleanField     | n/a                    | FALSE | FALSE | FALSE        | n/a       | TRUE     |
+
+</details>
 
 ## 5.3 Database Schema
 To create a clear visual representation of the database, I used **Lucid Chart** to build a Entity-Relationship Diagram (ERD). This diagram served as a reference throughout the development process, providing a clear visual representation of the database structure and the relationship between components of the website. Through the development process I continuously updated the ERD to ensure it aligned with the overall design of Bontanic Labs. 
@@ -266,7 +383,8 @@ The below diagram illustrates the user journey through Botanic Labs.
 
 ![Entity-relationship Diagram](botanic_labs/media/docs/wireframes/userflow.jpg)
 
-## 6.0  SKELETON
+# 6.0  SKELETON
+## 6.1 Wireframes
 Prior to commencing the website coding process, wireframes were produced for each page using Figma - a design tool used for creating user interfaces, prototypes, and wireframes. These wireframes served as the initial blueprints, providing a visual roadmap for the website's layout and structure.
 
 It's important to note that while the final web pages evolved from these early plans, some deviations were intentionally made to enhance the user experience and align better with the project's goals.
@@ -329,3 +447,5 @@ Solution: The issue was resolved by switching to Summernote, a different rich te
 
 # REFERENCES
 [CSS translateY() Function](https://www.quackit.com/css/functions/css_translatey_function.cfm). Accessed 12th Sept, 2024.
+
+
