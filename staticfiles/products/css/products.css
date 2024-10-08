@@ -1,0 +1,17 @@
+#add-product-form .form-control {
+    border: 1px solid #dee2e6;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+}
+
+#add-product-form .form-control:focus {
+    border-color: #6c757d;
+    box-shadow: 0 0 8px rgba(125, 111, 108, 0.2);
+}
+
+.product-title {
+    font-size: 16px;
+    color:#000;
+}
+
+

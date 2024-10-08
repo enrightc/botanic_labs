@@ -1,0 +1,80 @@
+.order-history {
+    max-height: 584px; /* height of profile form + submit button */
+    overflow-y: auto;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+#profile-update-form .form-control {
+    border: 1px solid #dee2e6;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+}
+
+#profile-update-form .form-control:focus {
+    border-color: #6c757d;
+    box-shadow: 0 0 8px rgba(125, 111, 108, 0.2);
+}
+
+/* Button Styling */
+#profile-update-form button {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #ffffff;
+    padding: 0.7rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+#profile-update-form button:hover {
+    background-color: #23272b;
+    transform: translateY(-2px);
+}
+
+/* Card Styling */
+.sleek-card {
+    background: #ffffff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+/* Placeholder Styling */
+#profile-update-form-input::placeholder {
+    color: #aab7c4;
+}
+
+/* Media Query to Handle Smaller Devices */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    #profile-update-form button {
+        font-size: 1rem;
+    }
+}

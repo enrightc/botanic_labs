@@ -1,0 +1,548 @@
+/* -------------------------------- General */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding-top:172.8px;
+    background-color: #FAF7F2;
+    font-family: 'inter', sans-serif;
+}
+
+main {
+    flex: 1; /* Take up all available space to push footer to bottom */
+}
+
+
+/* -------------------------------- Header */
+header {
+    background-color: #FAF7F2;
+}
+
+
+.dropdown-item.active {
+    background-color: transparent !important;
+}
+
+.container-content {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#delivery-banner {
+    background-color: #781d45;
+    height: 46px;
+}
+.delivery {
+    font-size: clamp(1rem, 5vw, 1.75rem);
+    text-wrap: nowrap;
+}
+
+/* navigation */
+.dropdown-menu a:focus, .dropdown-menu a:active {
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+
+  .navbar-expand-lg {
+    margin-left: -40px;
+  }
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-now-button {
+    background: #C83274;
+    color: #F5F5F5;
+    min-width: 260px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background-color: #df5598;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.bg-black {
+    background-color: #000 !important;
+}
+
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+
+
+/* -------------------------------- Forms */
+.form-container {
+    max-width: 718px;
+}
+
+/* -------------------------------- Home page */
+.hero {
+    background: url('/media/homepage_hero.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 600px;
+}
+
+.category-header {
+    font-size: 2.5rem;
+    color: #343a40;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.category-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #ff7f50; 
+    margin: 0.5rem auto 0; 
+}
+
+/* Search by Category */
+.season-select-card {
+    height: 400px; 
+    object-fit: cover; 
+    width: 100%; 
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.season-select-card:hover {
+    transform: scale(1.05); 
+    text-decoration: none;
+}
+
+.spring-card {
+    background: url('/media/spring.avif');
+    background-size: cover; 
+}
+
+.summer-card {
+    background: url('/media/summer.avif');
+    background-size: cover;
+}
+
+.autumn-card {
+    background: url('/media/autumn.avif');
+    background-size: cover;
+}
+
+.winter-card {
+    background: url('/media/winter.avif');
+    background-size: cover;
+}
+
+.season-title {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)); /* Gradient background */
+    color: white;
+    text-align: center;
+    padding: 30px 30px; 
+    max-width: 100%;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px;
+}
+
+.season-select-card:hover {
+    text-decoration: none;
+}
+
+.scroll-indicator {
+    position: absolute;
+    right: 10px;
+    bottom: 250px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+}
+
+/* -------------------------------- Products */
+.card-img-top {
+    object-fit: cover;
+    aspect-ratio: 3/2;
+}
+
+/* Season navigation */
+.category-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    color: #555;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.category-badge:hover {
+    color: #000;
+    border-bottom: 2px solid #666; 
+    background-color: transparent;
+    box-shadow: none; 
+}
+
+.active-season {
+    color: #df5598; 
+    border-bottom: 2px solid #df5598; 
+    font-weight: 600;
+}
+
+.active-season:hover {
+    color: #df5598; 
+    border-bottom: 3px solid;
+}
+
+/* Back to Top Button Styles */
+.btt-button {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #605e5e;  
+    border-radius: 50%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    z-index: 1000;
+}
+
+.btt-button:hover {
+    background-color: #ff4081; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);  
+    transform: translateY(-5px); 
+    opacity: 1;
+}
+
+.btt-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    font-size: 24px;  
+    transition: color 0.3s ease; 
+}
+
+.btt-link:hover {
+    color: white;
+}
+
+.btt-link i {
+    transition: transform 0.3s ease;
+}
+
+.btt-link:hover i {
+    transform: scale(1.2);  
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important; 
+    border: 1px solid black;
+}
+
+.update-link, .remove-item {
+    cursor: pointer;
+}
+
+/* -------------------------------- Product Details*/
+.product-details {
+    line-height: 0.75;
+}
+
+.qty_input {
+    text-align: center; 
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.decrement-qty, .increment-qty {
+    width: 40px; 
+    height: 30px; 
+    padding: 0;
+    margin: 2px 0; 
+    font-size: 14px; 
+}
+
+.input-qty-group {
+    margin-left: 5px;
+    flex-direction: column;
+    align-items: center; 
+    transform: translateY(-10px); /* Move buttons up a few pixels */
+}
+
+/* ------------------------------- Product Form */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #dc3545;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 0;
+}
+
+/* -------------------------------- Shopping Cart */
+.input-group-bag {
+    flex-direction: column;
+    align-items: center; 
+    margin-left: 5px;
+}
+
+.product-img-bag {
+    max-width: 280px;
+    width: 100%;
+}
+
+.trash-icon {
+    font-size: 1.5rem;
+}
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.bag-summary {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Padding on nav bar icons */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0px;
+    }
+}
+
+/* margin for hamburger menu */
+@media (max-width: 992px) {
+    .navbar-expand-lg {
+        margin-left: 0px;
+    }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+}
+
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+}
+
+
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    body {
+        height: calc(100vh - 126px);
+        padding-top: 102px;
+    }
+}
+
+
+/* Allauth form formatting */
+.allauth-form-inner-content {
+    min-height: 60vh;
+}
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; /* text-secondary */
+}
+
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #000;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #fff;
+    background-color: #222;
+    border-color: #222;
+}
+
+.allauth-form-inner-content a {
+	color: #17a2b8; /* text-info */
+}
