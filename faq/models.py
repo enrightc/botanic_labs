@@ -7,14 +7,14 @@ class Faq(models.Model):
     """
 
     question = models.CharField(
-        max_length=250,
+        max_length=300,
         unique=True,
         blank=False,
         null=False
     )
 
     answer = models.TextField(
-        max_length=500,
+        max_length=800,
         unique=True,
         blank=False,
         null=False

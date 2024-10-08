@@ -24,23 +24,21 @@
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-12">
-                <form method="POST" action="{% url 'add_faq' %}" class="form mb-2" enctype="multipart/form-data" id="add-faq-form">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
-                    <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'faq' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add FAQ</button>
-                    </div>
-                </form>
-            </div>            
+        <div class="form-container">
+            <div class="row">
+                <div class="col-12">
+                    <form method="POST" action="{% url 'add_faq' %}" class="form mb-2" enctype="multipart/form-data" id="add-faq-form">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {% if field.name != 'image' %}
+                                {{ field | as_crispy_field }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
+                        {% endfor %}
+                    </form>
+                </div>            
+            </div>
         </div>
     </div>
 {% endblock %}
