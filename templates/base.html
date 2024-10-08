@@ -41,6 +41,7 @@
     {% endblock %}
 
     <title>Botanic Labs {% block extra_title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}favicon.ico">
   </head>
   
   <body>
@@ -49,7 +50,9 @@
           <div id="topnav" class="row pt-lg02 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
               <!-- Logo -->
-              <a href="{% url 'home' %}" class="nav-link main-logo-link">
+              <a href="{% url 'home' %}" class="nav-link main-logo-link d-flex align-items-center">
+                <img class="navbar-brand mr-0 logo" src="{{ MEDIA_URL }}logo.png" width="56" height="56"
+                    alt="The company logo illustrated by silhouette of a single flower.">
                 <h2 class="logo-font text-black my-0"><strong>Botanic Labs</strong></h2>
               </a>
             </div>
