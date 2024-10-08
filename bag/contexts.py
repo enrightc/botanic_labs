@@ -37,6 +37,7 @@ def bag_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'show_bag_summary': request.session.get('show_bag_summary', True),
     }
 
     return context

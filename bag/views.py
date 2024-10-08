@@ -38,14 +38,12 @@ def add_to_bag(request, item_id):
     else:
         # If the product is not in the bag add it with the specified quantity
         bag[item_id] = quantity
+        request.session['show_bag_summary'] = True
         # Display success message to the user
         messages.success(request, f'Added {product.name} to your bag')
 
     # Save the shopping bag into the user's session
     request.session['bag'] = bag
-
-    # Print the value of show_bag_summary to the terminal for debugging
-    print(request.session.get('show_bag_summary'))
 
     return redirect(redirect_url)
 
