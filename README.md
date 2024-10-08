@@ -82,10 +82,6 @@ Many users are conscious of their environmental impact and look for sustainable 
 # 4.0   SCOPE
 To ensure **Botanic Labs** is able to meet the needs of its audience a variety of features designed to enhance user experience, engagement and functionality have been considered. At a minimum the following features have been deemed essential to meet the needs of different types of users and ensure the website is comprehensive and user friendly.
 
-# 4.0 SCOPE
-
-To ensure **Botanic Labs** meets the needs of its audience, various features designed to enhance user experience, engagement, and functionality have been considered. The following table lists key features, their difficulty, and their importance, reflecting the essentials required to provide a comprehensive and user-friendly website:
-
 | **Feature**                                                            | **Difficulty** | **Importance** |
 |------------------------------------------------------------------------|----------------|----------------|
 | Responsive Design                                                      | 1              | 5              |
@@ -193,6 +189,82 @@ Although at this stage wishlist and review functionality has not yet been implem
    - Foreign key relationships ensure secure and reliable connections between models, such as users with profiles and orders with line items. This setup enhances data integrity and consistency across the platform, supporting a smooth user experience and effective data management.
 
 Overall, the ERD for Botanic Labs provides a solid foundation for current features while allowing for future growth by adding wishlists and reviews functionality. It enables a personalised shopping experience, straightforward content management, and flexible product handling, ensuring that both user and admin needs are effectively met.
+
+## 5.4 User Journey
+
+This section outlines a typical user experience through the website, from landing on the homepage to logging out.
+
+### Landing on the Homepage:
+- User visits the homepage of **Botanic Labs**.
+- They see a hero section with a call-to-action to "Shop Now."
+- Below, they find a "Search by Category" section featuring different seasons (Spring, Summer, Autumn, Winter).
+
+### Browsing Products:
+- Users can click on a season category or "All Seasons" to view products.
+- They land on the products page, where they can see a list of flowers.
+- Products can be sorted by price, rating, or season.
+- Each product card displays an image, name, price, and season.
+
+### Viewing Product Details:
+- Users click on a product to view its details.
+- The product detail page includes:
+  - Product image
+  - Name, price, and rating
+  - Description
+  - Details like lifespan, type, light exposure, soil drainage, planting period, and flowering period
+  - Option to add the product to the bag
+- Recommended products are shown at the bottom of the page.
+
+### Adding to Bag:
+- Users can select a quantity and add the product to their bag.
+- A success toast appears, confirming the addition and showing a bag summary.
+
+### Viewing and Adjusting the Bag:
+- Users can click on the bag icon to view their current items.
+- In the bag, they can adjust quantities or remove items.
+- The bag provides a summary of costs, including delivery if applicable.
+
+### Checkout Process:
+- From the bag, users can proceed to checkout.
+- If not logged in, they're prompted to log in, register, or check out as a guest.
+- They fill in delivery information and payment details.
+- After successful payment, they're shown an order confirmation page.
+
+### Registration:
+- New users can register by clicking "Register" in the account dropdown.
+- They fill in their details to create an account.
+- After registration, they can set up their profile with default delivery information.
+
+### Login:
+- Returning users can log in via the account dropdown.
+- After login, they're redirected to their profile page.
+
+### Profile Management:
+- Logged-in users can access their profile to:
+  - View and update their default delivery information
+  - See their order history
+
+### Exploring Articles:
+- Users can navigate to the **Articles** section from the main menu.
+- They can read various articles related to gardening and flowers.
+
+### Checking FAQs:
+- Users can access the **FAQ** section from the main menu.
+- Here, they can find answers to common questions about products and services.
+
+### Admin Functions:
+- Superusers have additional options for:
+  - **Product Management:** Add, edit, or delete products
+  - **Article Management:** Add, edit, or delete articles
+  - **FAQ Management:** Add, edit, or delete FAQ entries
+
+### Logging Out:
+- Users can log out via the account dropdown.
+- They're redirected to the homepage after logging out.
+
+The below diagram illustrates the user journey through Botanic Labs.
+
+![Entity-relationship Diagram](botanic_labs/media/docs/wireframes/userflow.jpg)
 
 ## 6.0  SKELETON
 Prior to commencing the website coding process, wireframes were produced for each page using Figma - a design tool used for creating user interfaces, prototypes, and wireframes. These wireframes served as the initial blueprints, providing a visual roadmap for the website's layout and structure.
