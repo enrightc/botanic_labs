@@ -416,9 +416,80 @@ This iterative process allowed for flexibility in adapting to evolving project r
   <img src="botanic_labs/media/docs/wireframes/checkout.png" alt="Checkout page">
 </details>
 
+# 7.0 DESIGN
+
+## 7.1 Colour Scheme
+
+For Botanic Labs, a minimalistic approach was chosen to create a calm and visually appealing environment fitting with the natural vibe of gardening. The focus is on keeping it simple and elegant, so users can explore the site without feeling overwhelmed. The colour scheme is low-key but engaging, letting the products themselves take centre stage.
 
 
+### Primary Colours
 
+•	Background Colour: #FAF7F2
+•	This natural, soft beige serves as the primary background colour, providing a neutral base that doesn’t detract from the content on the page. It complements the nature-themed focus of Botanic Labs and creates a clean, fresh atmosphere.
+
+### Accent Colours
+
+•	Primary Button Colour: #C83274
+•	The primary action buttons, like “Shop Now” use a vibrant magenta (#C83274). This bold colour provides a stark contrast against the neutral background, drawing attention to call-to-action elements without being overly flashy.
+•	Secondary Button Style:
+•	Secondary buttons, such as the “Keep Shopping” button, are designed with a clean black-and-white scheme. They have a white background with a black border and black text, creating a subtle contrast with the primary action buttons. This ensures they are easily accessible without overshadowing the main actions.
+
+This colour scheme supports a professional and clean interface, where the focus is on usability and clarity. By keeping the design elements understated, users can concentrate on the primary functions and content of the website without unnecessary distractions.
+
+## Fonts
+In Botanic Labs the typography is essential for achieving a modern and sophisticated look while ensuring readability across all content. The primary font used throughout the website is 'Inter', sourced from Google Fonts.
+
+Inter, designed by Rasmus Andersson, is a popular typeface created specifically for digital interfaces. Known for its open apertures, tall x-height, and distinct letterforms, Inter enhances readability, particularly for small text in UI design. These features make it an excellent choice for modern web projects where legibility is key
+
+For headings, 'Inter' adds a touch of professionalism and clarity, making important information stand out. The same font is applied to paragraph text to maintain a unified and consistent visual identity across the interface.
+
+To ensure the text remains legible and visually appealing, a Sans Serif font serves as the fallback option. This guarantees that even if 'Inter' fails to load, the text will still be clear and easy to read.
+
+By consistently using 'Inter' across the website, the design achieves a seamless and polished look, enhancing the user experience and ensuring that all information is easily accessible.
+
+## Accessability
+Accessibility is a fundamental aspect of the LidarFind project, ensuring that all users, regardless of ability, can fully interact with the content.
+
+**Colour Contrast:** The colour palette is designed with high contrast in mind, improving readability and ensuring that text and other content stand out against the background. This thoughtful approach provides a visually accessible experience for everyone.
+
+**Font Selection:** Emphasising simplicity and readability, the fonts chosen are clear and easy to read. This choice ensures that the content remains legible for users with different visual abilities, fostering an inclusive user experience.
+
+# 8.0 FEATURES
+## 8.2 Existing Features
+
+## 8.3 Future Features
+It is hoped that **Botanic Labs** will continute to be expanded upon in the future to enhance user experience and streamline the shopping process. Here are some potential additions:
+
+1. **Reviews and Ratings:** Enabling users to leave reviews and rate products would provide valuable insights for others. This feature would help customers make more informed decisions based on the experiences of fellow gardeners.
+
+2. **Wishlist:** A wishlist feature would allow users to save products they’re interested in for future purchases. This would make it easier for returning customers to quickly find and purchase items they’ve previously considered.
+
+3. **Refined Filtering Options:** While currently users can filter by season, I aim to expand this to include additional attributes like lifespan, type, light exposure, soil drainage, planting period, and flowering period. These refined filters would empower users to tailor their searches and find products that best suit their unique garden conditions.
+
+<div style="border: 1px solid #ddd; padding: 15px; border-radius: 5px; background-color: #fff;">
+
+#### Feature Experimentation with Django Filters
+
+During development, I experimented with Django Filters to explore advanced filtering capabilities. The idea was to let users refine their product searches based on multiple attributes, providing a more precise and personalised shopping experience.
+
+**Approach and Implementation:**
+
+- **Django Filters Integration**: I set up Django Filters to allow for attribute-based filtering on the product listings page. This aimed to make the browsing experience more intuitive.
+  
+- **Checkboxes for Planting Season**: I explored checkbox filtering for planting season ranges, intending to let users select multiple seasons dynamically. While useful, it proved challenging to implement effectively for dynamic ranges.
+
+- **Testing and Feedback**: Through testing, I found that combining multiple filters was more complex than anticipated. Handling overlapping filters (like combining soil drainage and light exposure) required more refinement than initially expected.
+
+**Temporary Removal of the Feature:**
+
+As the feature wasn’t fully refined, I chose to exclude it from the final version. However, I preserved all progress by creating a dedicated branch, `filter-experiments`. This branch contains the groundwork for these filtering options, ready for future development.
+
+**Next Steps:**
+
+In future iterations, I plan to revisit and refine these features, with the `filter-experiments` branch serving as a foundation. This setup allows me to continue enhancing Botanic Labs' filtering capabilities without affecting the main project’s stability.
+
+</div>
 
 # BUGS
 **User Profile Not Attached to Orders in Webhook Handling**
