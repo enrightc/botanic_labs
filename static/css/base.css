@@ -481,6 +481,14 @@ input[name='q']::placeholder {
 
 
 
+/* Adding padding to top when main-title goes onto two lines */
+@media (max-width: 1035px) {
+    body {
+        height: calc(100vh - 126px);
+        padding-top: 202.8px;
+    }
+}
+
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     body {

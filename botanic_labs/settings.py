@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # Debug settings
-DEBUG = False  # Set to False in production
+DEBUG = True  # Set to False in production
 
 # Uncomment for deployment:
-DEBUG = 'DEVELOPMENMT' in os.environ
+# DEBUG = 'DEVELOPMENMT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
@@ -306,7 +306,7 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
-    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST = 'live.smtp.mailtrap.io'
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
