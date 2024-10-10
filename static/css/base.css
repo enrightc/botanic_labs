@@ -480,7 +480,6 @@ input[name='q']::placeholder {
 }
 
 
-
 /* Adding padding to top when main-title goes onto two lines */
 @media (max-width: 1035px) {
     body {
