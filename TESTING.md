@@ -1,3 +1,30 @@
+# BOTANIC LABS TESTING
+
+# 1.0 AUTOMATED TESTING
+Automated testing was undertaken using a range of open-source developer tools including Google Lighthouse Analysis, HTML, CSS and JavaScript validation. These tests assessed the applications quality, performance, accessibility and adherence to web standards. Any identified issues were addressed to enhance the websites usability and overall user experience.
+
+## HTML Validation
+To test the markup validity [HTML Validator](https://validator.w3.org/) was used to assess markup validity and compliance with accessibility standards. THe following table shows the results for each page:
+
+### HTML Validation Test Results
+
+#### Summary Table
+
+## CSS Validation
+
+The CSS code of the website was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). The validation results are as follows:
+
+## JSHint
+
+### script.js Testing Report
+
+## Lighthouse Analysis
+
+# 2.0 MANUAL TESTING
+
+## Feature Testing:
+
+
 # BUGS
 **User Profile Not Attached to Orders in Webhook Handling**
 

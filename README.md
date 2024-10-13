@@ -546,9 +546,315 @@ In future iterations, I plan to revisit and refine these features, with the `fil
 # 10.0 TESTING
 Please see [TESTING.md](TESTING.md).
 
+# 11.0 DEPLOYMENT
+
+## Live deployment
+Botanic Labs is deployed live to [Heroku](https://botanic-labs-d446513705ac.herokuapp.com/).
+
+## Local Deployment
+To deploy this project locally:
+
+**Step 1: Fork or Clone the Botanic Labs repository**
+
+  1. Login to [GitHub](www.github.com) and navigate to the [Botanic Labs](https://github.com/enrightc/botanic_labs.git) repository. 
+
+  2. You can either:
+  - For the repository by clicking the fork button, creating your own copy of the project, or,
+  - Clone the repository. 
+
+**Step 2: Insall Dependencies**
+  1. Within your IDE install required dependencies with:
+    ```
+    pip3 install -r requirements.txt
+    ```
+
+**Step 3: Set Up Environment Variables**
+  1. Create an env.py file for environment variables, ensuring you add it to .gitignore.
+  2. Populate your env.py file with the following (Replace KEY and VALUE with your actual values):
+```
+import os
+
+os.environ["SECRET_KEY"] = "your_secret_key"
+os.environ["LOCAL_HOST"] = "your_local_host"
+os.environ["STRIPE_PUBLIC_KEY"] = "your_stripe_public_key"
+os.environ["STRIPE_SECRET_KEY"] = "your_stripe_secret_key"
+os.environ["STRIPE_WH_SECRET"] = "your_stripe_webhook_secret"
+
+```
+
+**Step 4: Run Initial Migrations and Create Superuser**
+  1. Run the migrations to set up the database structure:
+  ```
+  python3 manage.py migrate
+  ```
+
+  2. Create a superuser account:
+  ```
+  python3 manage.py createsuperuser
+  ```
+
+## Deployment to Heroku
+**Step 1: Setup a PostgreSQL Database**
+  1. Set up a PostgreSQL database using a service like AWS (This project uses a Code Institute PostgreSQL database which is only available to students of code Institute).
+  2. Note down the database URL for use in Heroku.
+
+**Step 2: Set up Heroku**
+  1. Log in to [Heroku](www.heroku.com) and create a new app.
+  2. Name the app and select your nearest region.
+  3. In the app settings , under **Config Var**, add the following vairable: `DATABASE_URL: "Your PostgreSQL database URL"`
+    
+**Step 3: Configure the Database**
+  1. In settings.py, set up the database:
+  ```
+  import dj_database_url
+
+  DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+  }
+  ```
+  **Do not push your code to GitHub whilst this value is in your settings.py**
+  2. In the IDE terminal enter `python3 manage.py showmigrations`. If you are  
+     connected to the new database you will see a lift of migrations with no 
+     ticks next to them. 	
+  3. Migrate the database by running the command `python3 manage.py migrate` to 
+     migrate the database structure from the project to the new database.  
+  4. Create a superuser for your deployed site by using the command `python3 manage.py createsuperuser`
+  5. In your env.py file add `os.environ["DEVELOPMENT"] = "True"`
+  5. Remove your new database URL from the settings.py and replace it with the following code:
+      ```
+      if 'DATABASE_URL' in os.environ:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+      else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
+        }
+      ```
+  6. Push your changes to GitHub. 
+
+**Step 4: Deploying to Heroku**
+  1. Create a Procfile in the apps root directory and add `web: gunicorn botanic_labs.wsgi:application`, ensure a blank line is at the end of the Profile. If it is not already included it may also be necessary to include a runtime.txt in the root directory. You will need to include the python version in your runtime.txt. To find out which version of python you are using use the command `python3 --version` and hen add the correct version to your runtime.txt e.g. `python-3.12.6`.
+  2. Log in to Heroku in your IDE. 
+  3. To prevent Heroku from collecting static files during deployment run the command `heroku config:set DISABLE_COLLECTSTATIC=1 --app your-heroku-app-name`.
+  4. Make sie all changes are committed, then push your project to GitHub.
+  5. Go to your Heroku dashboard, select your app and navigate to the **Deploy** tab.
+  6. Under **Deployment Method** select **GitHub**.
+  7. Search for your repository name and click **Connect**.
+  8. To ensure Heroku automatically deploys updates from GitHub, click on **Enable Automatic Deploys**.
+  9. Finally, deploy your branch by clocking **Deploy Branch**. Once the build is complete the site is now deployed but without any static files.
+  10. Update allowed hosts by navigating to settings.py in your IDE and add your deployed site's URL to ALLOWED_HOSTS to ensure it runs in Heroku.
+  11. If a Django secret key is in your settings.py it will need to be replaced with an environment vairbale to keep it secure: `SECRET_KEY = os.environ.get('SECRET_KEY', '')` You can use an online key generator to obtain a key.
+  12. Ensure the SECRET_KEY is included in your env.py file.
+  13. Add a different Django secret key to the environment variables in Heroku by going to your app's settings and under **Config Vars** and add the variable SECRET_KEY with a value.
+  14. Modify the `DEBUG` setting in settings.py to enable/disbale debug mode based on the environment:
+      `DEBUG = 'DEVELOPMENT' in os.environ`.
+  15. Commit your changes and push them to GitHub.
+
+## AWS Setup for Static and Media Files
+1. **Create an S3 Bucket**
+   - Log into your AWS account and navigate to the S3 service.
+   - Click on "Create Bucket," name it to match your Heroku app, and select the region closest to you.
+   - Uncheck the "Block All Public Access" box and create the bucket.
+
+2. **Enable Static Website Hosting**
+   - In your new bucket, go to the **Properties** tab.
+   - Scroll to **Static Website Hosting**, click **Edit**, and select **Enable**.
+   - Use `index.html` and `error.html` as default documents, then save your changes.
+
+3. **Set Up Permissions**
+   - In the **Permissions** tab, scroll to **Bucket Policy** and click **Edit**.
+   - Use the **Policy Generator** to create a policy:
+     - Select **S3 Bucket Policy** as the policy type.
+     - Use `*` as the Principal to allow all users.
+     - Set **Action** to `GetObject`.
+     - Paste your bucket’s ARN (found at the top of the Permissions tab) and append `/*` to specify all objects.
+   - Generate and copy the policy, paste it into the **Bucket Policy Editor**, and save.
+
+4. **Configure CORS (Cross-Origin Resource Sharing)**
+   - In the **Permissions** tab, scroll to the **CORS** section and add the following configuration:
+     ```json
+     [
+       {
+         "AllowedHeaders": ["Authorization"],
+         "AllowedMethods": ["GET"],
+         "AllowedOrigins": ["*"],
+         "ExposeHeaders": []
+       }
+     ]
+     ```
+
+5. **Set Up IAM for Access**
+   - Go back to the AWS dashboard, search for **IAM**, and go to the **User Groups** section.
+   - Create a new group (e.g., `your-app-name-group`).
+   - Go to **Policies**, create a policy with the **S3FullAccess** template, and customize as follows:
+     ```json
+     {
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Action": "s3:*",
+           "Resource": [
+             "arn:aws:s3:::your-bucket-name",
+             "arn:aws:s3:::your-bucket-name/*"
+           ]
+         }
+       ]
+     }
+     ```
+   - Attach this policy to your group.
+
+6. **Create a User and Assign Permissions**
+   - Under **Users**, create a user, select **Programmatic Access**, and add it to your group.
+   - Complete the setup and download the CSV with access credentials.
+
+7. **Configure Django for AWS**
+   - In `settings.py`, add the following configuration:
+     ```python
+     if 'USE_AWS' in os.environ:
+         AWS_STORAGE_BUCKET_NAME = 'your-bucket-name'
+         AWS_S3_REGION_NAME = 'your-region'
+         AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+         AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+         AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+         # Static and media files configuration
+         STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+         DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+         STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+         MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+     ```
+
+8. **Create Custom Storage Classes**
+   - In your project root, create `custom_storages.py` and add:
+     ```python
+     from django.conf import settings
+     from storages.backends.s3boto3 import S3Boto3Storage
+
+     class StaticStorage(S3Boto3Storage):
+         location = 'static'
+
+     class MediaStorage(S3Boto3Storage):
+         location = 'media'
+     ```
+
+9. **Set Up Heroku Config Vars**
+   - Add AWS keys and values in Heroku: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `USE_AWS=True`.
+   - Remove `DISABLE_COLLECTSTATIC` from Heroku’s config variables.
+
+10. **Push and Deploy**
+    - Commit changes and push to GitHub. Deploy the updated application to Heroku.
+    - Verify that the static files are accessible in the S3 bucket and visible on your live site.
+
+11. **Upload Media Files**
+    - In AWS S3, create a `media` folder and upload your media files.
+    - Ensure public read access, then confirm they appear on the live site.
+
+## Setting Up Stripe Payments 
+
+1. **Configure Stripe API Keys**
+   - Log in to your Stripe account and go to the **API keys** section.
+   - Copy your **Publishable Key** and **Secret Key**.
+   - Add these keys to your Heroku config variables:
+     - `STRIPE_PUBLIC_KEY`: Your Stripe Publishable Key
+     - `STRIPE_SECRET_KEY`: Your Stripe Secret Key
+   - Also include these keys in your local `env.py` file for use in development:
+     ```python
+     import os
+     os.environ.setdefault("STRIPE_PUBLIC_KEY", "your-publishable-key")
+     os.environ.setdefault("STRIPE_SECRET_KEY", "your-secret-key")
+     ```
+
+2. **Set Up a Webhook for Stripe**
+   - In the Stripe Dashboard, navigate to **Developers** > **Webhooks** and click on **Add endpoint**.
+   - Enter your deployed site's URL followed by `/checkout/wh/` (e.g., `https://your-app-name.herokuapp.com/checkout/wh/`).
+   - Set the webhook to listen to **All Events** to ensure you receive all necessary notifications.
+
+3. **Add the Webhook Signing Secret to Heroku and env.py**
+   - After creating the webhook, click on **Reveal Signing Secret** and copy the value.
+   - In Heroku, add the signing secret as a config variable:
+     - `STRIPE_WH_SECRET`: Your Stripe Webhook Signing Secret
+   - Include the signing secret in your local `env.py` file as well:
+     ```python
+     os.environ.setdefault("STRIPE_WH_SECRET", "your-webhook-signing-secret")
+     ```
+
+By completing these steps, your deployed site and development environment will be fully configured to handle Stripe payments and receive webhook notifications for transaction updates.
+
+## Setting Up Emails on the Deployed Site
+
+1. **Set Up an App Password with Your Email Provider**
+   - Go to your email account’s settings and enable **Two-Factor Authentication**.
+   - Create an **app password** for your email account. This password allows external apps (like your deployed site) to send emails securely on your behalf.
+
+2. **Configure Email Settings in Heroku**
+   - In your Heroku dashboard, navigate to your app's settings and click on **Config Vars**.
+   - Add the following email configuration variables:
+     - `EMAIL_HOST`: Your email provider’s SMTP server (e.g., `smtp.gmail.com` for Gmail).
+     - `EMAIL_HOST_USER`: Your email address.
+     - `EMAIL_HOST_PASSWORD`: Your app-specific password.
+
+3. **Add Email Settings to Your Local `env.py` File**
+   - For local development, include these email configuration settings in your `env.py` file as well:
+     ```python
+     import os
+     os.environ.setdefault("EMAIL_HOST", "your-smtp-server")
+     os.environ.setdefault("EMAIL_HOST_USER", "your-email@example.com")
+     os.environ.setdefault("EMAIL_HOST_PASSWORD", "your-app-password")
+     ```
+
+By following these steps, your deployed site and local development environment will be configured to send confirmation and notification emails through your chosen email provider.
 
 
-# REFERENCES
-[CSS translateY() Function](https://www.quackit.com/css/functions/css_translatey_function.cfm). Accessed 12th Sept, 2024.
+## Heroku Config Variables
+Upon completing the above steps to configure the deployed app your config varables in Heroku should look like the following:
+
+| **Key**               | **Value**                                                             |
+|-----------------------|-----------------------------------------------------------------------|
+| DATABASE_URL          | Database URL (from your database settings)                            |
+| SECRET_KEY            | Secret Key (Users own generated secret key)    |
+| AWS_ACCESS_KEY_ID     | AWS Access Key (from the CSV file downloaded from your AWS S3 account)|
+| AWS_SECRET_ACCESS_KEY | Secret Access Key (from the CSV file downloaded from your AWS S3 account) |
+| USE_AWS               | True                                                                  |
+| STRIPE_PUBLIC_KEY     | Stripe Public Key (from your Stripe account - API keys)               |
+| STRIPE_SECRET_KEY     | Stripe Secret Key (from your Stripe account - API keys)               |
+| STRIPE_WH_SECRET      | Stripe Webhook Secret (from your Stripe account - Webhooks)           |
+| EMAIL_HOST            | Email SMTP host (from your email account)                             |
+| EMAIL_HOST_USER       | Email address (from your email account)                               |
+| EMAIL_HOST_PASSWORD   | Email app password (from your email account)                          |
+
+# 12.0 REFERENCES
+
+**Resources**
+| **Topic**                                  | **Description**                                                                              | **Source**                                                                                                           | **Accessed**     |
+|--------------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|------------------|
+ | Boutieque Ado ecommerce website                  | Walkthrough guide  | Code Institute                                  | September 2024   | 
+| Ignoring Errors in Python                  | Guide on how to ignore errors using Flake8                                                   | [Flake8 Documentation](https://flake8.pycqa.org/en/3.1.1/user/ignoring-errors.html)                                   | September 2024   |
+| Ignoring Pyflakes Errors                   | Solution for ignoring "imported but unused" errors in `__init__.py` files                     | [Stack Overflow](https://stackoverflow.com/questions/8427701/how-to-ignore-pyflakes-errors-imported-but-unused-in-init-py-files) | September 2024   |
+| Limiting Text Length in CSS                | CSS techniques to limit text to a specific number of lines                                   | [Stack Overflow](https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css)                  | September 2024   |
+| Integrating Summernote in Django           | A tutorial on adding the Summernote editor to Django applications                            | [Django Central](https://djangocentral.com/integrating-summernote-in-django/)                                         | September 2024   |
+| Django Authentication Tutorial             | A mini walkthrough series that is creating a django recipe sharing website                                                    | [YouTube](https://www.youtube.com/watch?v=2sceEnAkb80&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=13)               | September 2024   |
+| CSS translateY() Function                  | Explanation and usage of the CSS `translateY()` function                                     | [Quackit](https://www.quackit.com/css/functions/css_translatey_function.cfm)                                         | September 2024   |
+| Creating Slugs in Django                   | How to create a slug in Django                                                               | [Stack Overflow](https://stackoverflow.com/questions/837828/how-do-i-create-a-slug-in-django)                         | September 2024   |
+
+**Images**
+Product Images obtained from [Unsplash](https://unsplash.com/)
+
+ **Products**
+- Product Images obtained from [Unsplash](https://unsplash.com/)
+- Product descriptions generated by ChatGPT.
+
+**Articles and FAQs**
+- Content generated by ChatGPT
 
 
+## 13.0 Acknowledgements
+heartfelt thank you to my course facilitators, Amy and Lewis, for always being on hand with inspiration and speedy responses to my questions.
+
+I’m also incredibly grateful to my mentor, Anton, for his guidance in planning and keeping the project on track. A special thank you to Student Support for their invaluable help in troubleshooting the many bugs that came up along the way.
+
+Finally, a big thanks to all my friends and colleagues for their patience and for testing my website – your feedback has been instrumental in bringing this project to completion.
