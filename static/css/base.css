@@ -18,6 +18,9 @@ main {
     flex: 1; /* Take up all available space to push footer to bottom */
 }
 
+a {
+    color:#0400ff;
+}
 
 /* -------------------------------- Header */
 header {

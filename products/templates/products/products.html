@@ -37,7 +37,8 @@
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">
-                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}"
+                            aria-label="Sort products by">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                             <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -51,7 +52,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 order-md-first">
-                    <p class="text-muted mt-3 text-center text-md-left">
+                    <p class="mt-3 text-center text-md-left">
                         {% if search_term or current_season or current_sorting != 'None_None' %}
                             <span class="small"><a href="{% url 'products' %}">Flowers Home</a> | </span>
                         {% endif %}
