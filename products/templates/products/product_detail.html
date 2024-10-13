@@ -33,13 +33,13 @@
                             <p class="lead mb-2 text-left font-weight-bold">£{{ product.price }}</p>
                             {% if product.season %}
                                 <p class="small mt-1 mb-2">
-                                    <a class="text-muted" href="{% url 'products' %}?season={{ product.season.name }}">
+                                    <a href="{% url 'products' %}?season={{ product.season.name }}" class="text-decoration-none text-dark">
                                         <i class="fas fa-tag mr-1"></i>{{ product.season.friendly_name }}
                                     </a>
                                 </p>
                             {% endif %}
                             {% if product.rating %}
-                                <small class="text-muted">
+                                <small>
                                     <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5
                                 </small>
                             {% else %}
@@ -49,7 +49,7 @@
                                 {% if request.user.is_superuser %}
                                     <small class="ml-3">
                                         <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                        <a class="badge badge-danger" href="#" data-toggle="modal" data-target="#deleteModal{{ product.id }}">Delete</a>
                                     </small>
                                 {% endif %}
                             </div>
@@ -86,15 +86,18 @@
                             <div class="form-group mt-3 w-50 d-flex align-items-center">
                                 <input class="form-control form-control-sm qty_input w-25" 
                                     type="number" name="quantity" value="1" min="1" max="99" 
-                                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"
+                                    aria-label="quantity">
                                 
                                 <div class="input-group-bag ml-2">
                                     <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}"
+                                        aria-label="Decrease quantity">
                                         <i class="fas fa-minus fa-sm"></i>
                                     </button>
                                     <button class="increment-qty btn btn-sm btn-black rounded-0" 
-                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}"
+                                        aria-label="increase quantity">
                                         <i class="fas fa-plus fa-sm"></i>
                                     </button>
                                 </div>
@@ -120,7 +123,7 @@
 
     <!-- Recommended products -->
     <div class="container">
-        <h3 class="text-center mb-3">Other shoppers also bought</h3>
+        <h2 class="text-center mb-3">Other shoppers also bought</h2>
         <div class="row justify-content-center">
             {% for recommended in recommended_products %}
                 <div class="col-4 col-md-3">
@@ -140,6 +143,27 @@
             {% endfor %}
         </div>
     </div>
+    <!-- Modal for FAQ Deletion Confirmation -->
+    <div class="modal fade" id="deleteModal{{ product.id }}" tabindex="-1" role="dialog"
+    aria-labelledby="deleteModalLabel{{ article.slug }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel{{ product.id }}">Confirm Deletion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this product: "{{ product.name }}"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
