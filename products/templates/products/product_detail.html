@@ -126,7 +126,7 @@
         <h2 class="text-center mb-3">Other shoppers also bought</h2>
         <div class="row justify-content-center">
             {% for recommended in recommended_products %}
-                <div class="col-4 col-md-3">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card mb-4">
                         <a href="{% url 'product_detail' recommended.id %}">
                             {% if recommended.image %}

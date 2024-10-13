@@ -14,12 +14,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">Thank You</h2>
+                <h1 class="logo-font my-4">Thank You</h1>
                 <hr>
                 <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
             </div>
@@ -29,7 +27,7 @@
             <div class="col-12 col-lg-9">
                 <div class="order-confirmation-wrapper p-4 border rounded">
                     <div class="section-header mb-4">
-                        <h5 class="text-muted">Order Info</h5>
+                        <h5 class="text">Order Info</h5>
                     </div>
                     <!-- Order Information Section -->
                     <div class="row mb-3">
@@ -51,7 +49,7 @@
                     </div>
         
                     <div class="section-header mb-4 mt-4">
-                        <h5 class="text-muted">Order Details</h5>
+                        <h5 class="text">Order Details</h5>
                     </div>
         
                     {% for item in order.lineitems.all %}
@@ -66,7 +64,7 @@
                     {% endfor %}
                     <!-- Delivery Information Section -->
                     <div class="section-header mb-4 mt-4">
-                        <h5 class="text-muted">Delivering To</h5>
+                        <h5 class="text">Delivering To</h5>
                     </div>
         
                     <div class="row mb-3">
@@ -148,7 +146,7 @@
                     </div>
                     <!-- Billing Information Section -->
                     <div class="section-header mb-4 mt-4">
-                        <h5 class="text-muted">Billing Info</h5>
+                        <h5 class="text">Billing Info</h5>
                     </div>
         
                     <div class="row mb-3">
@@ -194,7 +192,7 @@
                         <span class="text-uppercase">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
+                    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="shop-now-button btn btn-lg rounded-pill text-uppercase py-3 px-5 my-3">
                         <span class="icon mr-2">
                             <i class="fi fi-rr-flower-daffodil"></i>
                         </span>

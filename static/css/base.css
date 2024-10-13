@@ -313,7 +313,7 @@ input[name='q']::placeholder {
 
 /* -------------------------------- Product Details*/
 .product-details {
-    line-height: 0.75;
+    line-height: 1.75;
 }
 
 .qty_input {

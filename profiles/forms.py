@@ -42,7 +42,9 @@ class NameForm(forms.ModelForm):
         model = User
         fields = (
             'first_name',
-            'last_name')
+            'last_name',
+            'email'
+            ,)
 
     def __init__(self, *args, **kwargs):
         """
@@ -53,6 +55,7 @@ class NameForm(forms.ModelForm):
         placeholders = {
             'first_name': 'First Name',
             'last_name': 'Last Name',
+            'email': 'Email Address',
         }
 
         for field in self.fields:

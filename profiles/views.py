@@ -24,6 +24,7 @@ def profile(request):
             # Save both forms to update the user's profile and name
             delivery_form.save()
             name_form.save()
+            request.session['show_bag_summary'] = False  # disable bag summary
             messages.success(request, 'Profile updated successfully')
         else:
             messages.error(

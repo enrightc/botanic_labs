@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
-                <h2 class="logo-font page-title">Products</h2>
+                <h2 class="logo-font page-title mt-2">Products</h2>
                 <div class="seasons-navigation">
                     <div>
                         {% for s in all_seasons %}
@@ -67,11 +67,11 @@
                             <!-- Card top containing product image-->
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <img class="card-img-top" src="{{ product.image.url }}" alt="view details of {{ product.name }}">
                             </a>
                             {% else %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="view details of {{ product.name }}">
                             </a>
                             {% endif %}
                             
