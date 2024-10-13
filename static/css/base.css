@@ -444,6 +444,19 @@ input[name='q']::placeholder {
 }
 
 /* -------------------------------- Media Queries */
+/* Adjust navlinks to stay on one line */
+@media (max-width: 480px) {
+    .nav-link {
+        padding: .5rem 0.25rem;
+    }
+}
+
+/* Adjust text size of navlinks to fit on one line */
+@media (max-width: 480px) {
+    .nav-link p {
+        font-size: 0.75rem;
+    }
+}
 
 /* Padding on nav bar icons */
 @media (max-width: 992px) {
