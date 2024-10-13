@@ -22,6 +22,10 @@ a {
     color:#0400ff;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /* -------------------------------- Header */
 header {
     background-color: #FAF7F2;
