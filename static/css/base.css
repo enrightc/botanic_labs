@@ -1,3 +1,6 @@
+/* -------------------------------- pre-loaded images */
+@import url('/media/homepage_hero.avif') all;
+
 /* -------------------------------- General */
 html, body {
     height: 100%;
@@ -123,7 +126,7 @@ input[name='q']::placeholder {
 
 /* -------------------------------- Home page */
 .hero {
-    background: url('/media/homepage_hero.jpg') no-repeat center center fixed;
+    background: url('/media/homepage_hero.avif') no-repeat center center fixed;
     background-size: cover;
     height: 600px;
 }
