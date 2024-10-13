@@ -61,8 +61,8 @@
                             <div class="admin-controls d-flex justify-content-end pr-2">
                                 {% if request.user.is_superuser %}
                                     <span class="ml-3 font-weight-bold">
-                                        <a href="{% url 'edit_faq' faq.id %}"><i class="fa-regular fa-pen-to-square"></i></a> | 
-                                        <a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal{{ faq.id }}">
+                                        <a href="{% url 'edit_faq' faq.id %}" aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></a> | 
+                                        <a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal{{ faq.id }}" aria-label="Delete">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
                                     </span>

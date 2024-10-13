@@ -94,7 +94,7 @@
                                         {% if request.user.is_superuser %}
                                             <small class="ml-3">
                                                 <a href="{% url 'edit_article' article.slug %}">Edit</a> | 
-                                                <a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal{{ article.slug }}">
+                                                <a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal{{ article.slug }}" aria-label="Delete">
                                                     Delete
                                                 </a>
                                             </small>

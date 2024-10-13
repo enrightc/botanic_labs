@@ -29,27 +29,28 @@
 
     {% block corejs %}
       <!-- Font Awesome Script -->
-<script src="https://kit.fontawesome.com/c3713995f0.js" crossorigin="anonymous" defer></script>
+      <script src="https://kit.fontawesome.com/c3713995f0.js" crossorigin="anonymous" async></script>
 
-<!-- jQuery Script -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" 
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
-        crossorigin="anonymous" 
-        defer></script>
+      <!-- jQuery Script -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
+              integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+              crossorigin="anonymous" 
+              async></script>
 
-<!-- Popper.js Script -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
-        crossorigin="anonymous" 
-        defer></script>
+      <!-- Popper.js Script -->
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+              integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+              crossorigin="anonymous" 
+              async></script>
 
-<!-- Bootstrap JavaScript -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
-        crossorigin="anonymous" 
-        defer></script>
-      <!-- Stripe -->
-      <script src="https://js.stripe.com/v3/"></script>
+      <!-- Bootstrap JavaScript -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+              integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+              crossorigin="anonymous" 
+              async></script>
+              
+        <!-- Stripe -->
+        <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -110,7 +111,7 @@
                   </div>
               </li>
               <li class="list-inline-item">
-                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}" aria-label="Shopping Bag">
+                <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}" aria-label="Shopping Bag">
                     <div class="text-center">
                         <div><i class="fas fa-shopping-bag fa-lg" aria-hidden="true"></i></div>
                         <p class="my-0 menu-option-text">
@@ -141,7 +142,7 @@
           <!-- Delivery Banner -->
           <div id="delivery-banner" class="row text-center">
             <div class="col text-white mb-0">
-                <h4 class="delivery logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+                <p class="delivery logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</p>                
             </div>
           </div>          
       </header>
