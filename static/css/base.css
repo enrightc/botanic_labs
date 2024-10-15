@@ -460,6 +460,9 @@ input[name='q']::placeholder {
     .nav-link p {
         font-size: 0.75rem;
     }
+    .dropdown-menu {
+        left: -76px;
+    }
 }
 
 /* Padding on nav bar icons */
