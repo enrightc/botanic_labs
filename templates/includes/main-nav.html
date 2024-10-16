@@ -1,14 +1,14 @@
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav mx-auto text-center">
+    <ul class="nav navbar-nav mx-auto text-center">
 
         <li class="nav-item">
-            <a class="nav-link h5 text-dark mx-3" href="{% url 'home' %}">
+            <a class="nav-link main-nav h5 text-black mx-3 {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
                 Home
             </a>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link h5 text-dark mx-3 dropdown-toggle" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link main-nav text-black h5 mx-3 dropdown dropdown-toggle {% if request.resolver_match.url_name == 'products' %}active{% endif %}" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Flowers
             </a>
             <div class="dropdown-menu border-0 shadow" aria-labelledby="all-products-link">
@@ -20,13 +20,13 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link h5 text-dark mx-3" href="{% url 'articles' %}">
+            <a class="nav-link main-nav h5 text-black mx-3 {% if request.resolver_match.url_name == 'articles' %}active{% endif %}" href="{% url 'articles' %}">
                 Articles
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link h5 text-dark mx-3" href="{% url 'faq' %}">
+            <a class="nav-link main-nav h5 text-black mx-3 {% if request.resolver_match.url_name == 'faq' %}active{% endif %}" href="{% url 'faq' %}">
                 FAQ
             </a>
         </li>
