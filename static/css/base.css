@@ -22,6 +22,43 @@ a {
 .cursor-pointer {
     cursor: pointer;
 }
+/* -------------------------------- Buttons */
+/*  Primary button */
+.shop-now-button {
+    background: #C83274;
+    color: #F5F5F5;
+    min-width: 260px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background-color: #df5598;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+/* Secondary button */
+.btn-outline-black {
+    background: white;
+    color: black !important; 
+    border: 1px solid black;
+}
 
 /* -------------------------------- Header */
 header {
@@ -55,17 +92,8 @@ header {
     color: inherit;
   }
 
-  .navbar-expand-lg {
-    margin-left: -40px;
-  }
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+.navbar-expand-lg {
+margin-left: -40px;
 }
 
 .logo-font {
@@ -76,34 +104,7 @@ header {
     width: fit-content;
 }
 
-.shop-now-button {
-    background: #C83274;
-    color: #F5F5F5;
-    min-width: 260px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    font-weight: bold;
-}
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus {
-    background-color: #df5598;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05);
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
-}
 
 .text-black {
     color: #000 !important;
@@ -120,8 +121,6 @@ header {
 input[name='q']::placeholder {
     color: #aab7c4;
 }
-
-
 
 /* -------------------------------- Forms */
 .form-container {
@@ -251,6 +250,12 @@ input[name='q']::placeholder {
     border-bottom: 3px solid;
 }
 
+
+
+.update-link, .remove-item {
+    cursor: pointer;
+}
+
 /* Back to Top Button Styles */
 .btt-button {
     height: 50px;
@@ -298,15 +303,7 @@ input[name='q']::placeholder {
     transform: scale(1.2);  
 }
 
-.btn-outline-black {
-    background: white;
-    color: black !important; 
-    border: 1px solid black;
-}
 
-.update-link, .remove-item {
-    cursor: pointer;
-}
 
 /* -------------------------------- Product Details*/
 .product-details {
