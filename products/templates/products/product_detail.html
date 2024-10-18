@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_meta %}
-    <meta name="description" content="{{ pruduct.name }}"/>
+    <meta name="description" content="{{ pruduct.name }}">
 {% endblock %}
 
 {% block page_header %}
@@ -145,7 +145,7 @@
     </div>
     <!-- Modal for Product Deletion Confirmation -->
     <div class="modal fade" id="deleteModal{{ product.id }}" tabindex="-1" role="dialog"
-    aria-labelledby="deleteModalLabel{{ article.slug }}" aria-hidden="true">
+    aria-labelledby="deleteModalLabel{{ product.id }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

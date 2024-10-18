@@ -6,6 +6,30 @@ Automated testing was undertaken using a range of open-source developer tools in
 ## HTML Validation
 To test the markup validity [HTML Validator](https://validator.w3.org/) was used to assess markup validity and compliance with accessibility standards. THe following table shows the results for each page:
 
+| Page             | Date       | Comments | Pass/Fail |
+|------------------|------------|----------|-----------|
+| Home             |    16/10/24        |          |    Pass       |
+| Products         |    16/10/24       |          |     Pass      |
+| Product Detail   |    16/10/24       |          |    Pass       |
+| Add Product      |            |          |           |
+| Edit Product     |            |          |           |
+| Bag              |   17/10/24         |          |    Pass       |
+| Checkout         |    17/10/24        |          |    Pass       |
+| Checkout Success |     17/10/24       |          |    Pass       |
+| Profile          |     17/10/24       |          |    Pass       |
+| Articles         |     17/10/24       |          |    Pass       |
+| Article Detail   |            |          |           |
+| Add Article      |            |          |           |
+| Edit Article     |            |          |           |
+| FAQ              |            |          |           |
+| Add FAQ          |            |          |           |
+| Edit FAQ         |            |          |           |
+| Login            |   17/10/24         |          |    Pass       |
+| Register         |   17/10/24         |          |    Pass       |
+| Logout           |   17/10/24         |          |    Pass       |
+| Password Reset   |   17/10/24         |          |    Pass       |
+| 404 Error        |   17/10/24         |          |    Pass       |
+
 ### HTML Validation Test Results
 
 #### Summary Table
@@ -13,6 +37,8 @@ To test the markup validity [HTML Validator](https://validator.w3.org/) was used
 ## CSS Validation
 
 The CSS code of the website was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). The validation results are as follows:
+
+
 
 ## JSHint
 

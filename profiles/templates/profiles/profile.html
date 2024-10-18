@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_meta %}
-    <meta name="description" content="Manage your Botanic Labs account. Update personal information, view order history, and manage preferences to enhance your shopping experience."/>
+    <meta name="description" content="Manage your Botanic Labs account. Update personal information, view order history, and manage preferences to enhance your shopping experience.">
 {% endblock %}
 
 {% block extra_css %}
@@ -88,5 +88,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+    <script src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

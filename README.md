@@ -840,6 +840,7 @@ Upon completing the above steps to configure the deployed app your config varabl
 | Django Authentication Tutorial             | A mini walkthrough series that is creating a django recipe sharing website                                                    | [YouTube](https://www.youtube.com/watch?v=2sceEnAkb80&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=13)               | September 2024   |
 | CSS translateY() Function                  | Explanation and usage of the CSS `translateY()` function                                     | [Quackit](https://www.quackit.com/css/functions/css_translatey_function.cfm)                                         | September 2024   |
 | Creating Slugs in Django                   | How to create a slug in Django                                                               | [Stack Overflow](https://stackoverflow.com/questions/837828/how-do-i-create-a-slug-in-django)                         | September 2024   |
+| Showing Active Link in Django Navigation Bar Dropdown | How to show an active link in a Django navigation bar dropdown list | [Stack Overflow](https://stackoverflow.com/questions/46617375/how-do-i-show-an-active-link-in-a-django-navigation-bar-dropdown-list) | October 2024 |
 
 **Images**
 Product Images obtained from [Unsplash](https://unsplash.com/)

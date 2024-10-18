@@ -3,7 +3,7 @@
 {% load bag_tools %}
 
 {% block extra_meta %}
-    <meta name="description" content="Review the items in your shopping bag, check quantities, and proceed to checkout."/>
+    <meta name="description" content="Review the items in your shopping bag, check quantities, and proceed to checkout.">
 {% endblock %}
 
 {% block page_header %}
@@ -93,7 +93,7 @@
                 {% if bag_items %}
                     <table>
                         <tr>
-                            <td colspan="5" class="pt-5 text-right">
+                            <td class="pt-5 text-right">
                                 <p><strong>Bag Total: £{{ total|floatformat:2 }}</strong></p>
                                 <p>Delivery: £{{ delivery|floatformat:2 }}</p>
                                 <p class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></p>
@@ -105,7 +105,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="5" class="text-right">
+                            <td class="text-right">
                                 <div class="d-flex flex-column align-items-stretch">
                                     <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg mb-2">
                                         <span class="text-uppercase">Secure Checkout</span>
@@ -140,7 +140,7 @@
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 
-    <script type="text/javascript">
+    <script>
         // Update quantity on click
         $('.update-link').click(function(e) {
             var form = $(this).prev('.update-form');
