@@ -2,11 +2,14 @@
 
 /* source: https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css */
 .article-excerpt {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
-            line-clamp: 2; 
-    -webkit-box-orient: vertical;
+    display: block; /* Fallback for non-webkit browsers */
+    display: -webkit-box; /* Enables multi-line ellipsis in WebKit browsers */
+    height: 2.6em; /* Fallback for non-webkit, calculated as line-height * number of lines */
+    line-height: 1.3em; /* Height of each line */
+    -webkit-line-clamp: 2; /* Limits the text to 2 lines */
+    -webkit-box-orient: vertical; /* Required for the webkit-clamp */
+    overflow: hidden; /* Ensures that the content beyond the defined height is hidden */
+    text-overflow: ellipsis; /* Adds ellipsis at the end for supported browsers */
 }
 
 .card-img {
