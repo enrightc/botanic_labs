@@ -6,6 +6,11 @@ Automated testing was undertaken using a range of open-source developer tools in
 ## HTML Validation
 To test the markup validity [HTML Validator](https://validator.w3.org/) was used to assess markup validity and compliance with accessibility standards. THe following table shows the results for each page:
 
+
+
+
+
+**Summary Table**
 | Page             | Date       | Comments | Pass/Fail |
 |------------------|------------|----------|-----------|
 | Home             |    16/10/24        |          |    Pass       |
@@ -30,19 +35,34 @@ To test the markup validity [HTML Validator](https://validator.w3.org/) was used
 | Password Reset   |   17/10/24         |          |    Pass       |
 | 404 Error        |   17/10/24         |          |    Pass       |
 
-### HTML Validation Test Results
-
-#### Summary Table
-
 ## CSS Validation
 
 The CSS code of the website was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). The validation results are as follows:
 
 
+| CSS File      | Errors | Warnings                                                                                                                                       | Comments                                                                                                                        | Testing Date   |
+|---------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| articles.css  | None   | -webkit-box is a vendor extension<br>-webkit-line-clamp is a vendor extension<br>-webkit-box-orient is a vendor extension                      | These warnings relate to non-standard CSS properties for Webkit browsers. They can be safely ignored since they ensure compatibility with browsers like Chrome and Safari. Fallbacks have been provided for browsers that do not support Webkit. | 06 October 2024 |
+| stripe.css    | None   | -webkit-transition is a vendor extension                                                                                                       | This warning is related to the use of the non-standard CSS transition property for Webkit-based browsers. It can be ignored as it's necessary for smooth animation in browsers like Chrome and Safari. | 06 October 2024 |
+| faq.css       | None   | None                                                                                                                                           | No errors or warnings present.                                                                                                  | 06 October 2024 |
+| products.css  | None   | None                                                                                                                                           | No errors or warnings present.                                                                                                  | 06 October 2024 |
+| profile.css   | None   | None                                                                                                                                           | No errors or warnings present.                                                                                                  | 06 October 2024 |
+| base.css      | None   | -webkit-user-select is a vendor extension<br>-moz-user-select is a vendor extension<br>-ms-user-select is a vendor extension                   | These warnings refer to vendor-specific CSS extensions used to control text selection behaviour across different browsers. These properties can be safely ignored as they ensure consistent behaviour in Webkit, Firefox, and IE/Edge browsers. | 06 October 2024 |
 
 ## JSHint
+The JavaScript code was validated using [JSHint](https://jshint.com/). The results of the validation are as follows:
 
-### script.js Testing Report
+| Page               | Results                      | Comment                                                                                                                                                                              | Pass/Fail |
+|--------------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| checkout          | No errors or warnings         | There are 5 functions in this file.<br>The function with the largest signature takes 1 argument, while the median is 1.<br>Largest function has 13 statements, median is 5.<br>The most complex function has a cyclomatic complexity value of 3, while the median is 2. | Pass      |
+| Profile    | No errors or warnings         | There is only one function in this file.<br>It takes no arguments.<br>This function contains 4 statements.<br>Cyclomatic complexity number for this function is 2.                                                             | Pass      |
+| add_Article        | No errors or warnings         | There is only one function in this file.<br>It takes no arguments.<br>This function contains 2 statements.<br>Cyclomatic complexity number for this function is 1.                                                             | Pass      |
+| edit_article       | No errors or warnings         | There is only one function in this file.<br>It takes no arguments.<br>This function contains 2 statements.<br>Cyclomatic complexity number for this function is 1.                                                             | Pass      |
+| bag                | No errors or warnings         | There are 3 functions in this file.<br>The function with the largest signature takes 1 argument, while the median is 1.<br>Largest function has 5 statements, median is 2.<br>The most complex function has a cyclomatic complexity value of 1, while the median is 1. | Pass      |
+| add_product        | No errors or warnings         | There is only one function in this file.<br>It takes no arguments.<br>This function contains 2 statements.<br>Cyclomatic complexity number for this function is 1.                                                             | Pass      |
+| edit_product       | No errors or warnings         | There is only one function in this file.<br>It takes no arguments.<br>This function contains 2 statements.<br>Cyclomatic complexity number for this function is 1.                                                             | Pass      |
+| products           | No errors or warnings         | There are 2 functions in this file.<br>The function with the largest signature takes 1 argument, while the median is 0.5.<br>Largest function has 12 statements, median is 6.5.<br>The most complex function has a cyclomatic complexity value of 2, while the median is 1.5. | Pass      |
+
 
 ## Lighthouse Analysis
 
