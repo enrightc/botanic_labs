@@ -76,13 +76,14 @@
             <div class="col-4 mt-3">
               <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-group w-100">
-                    <input class="form-control border shadow-sm" type="text" name="q" placeholder="Search..."
-                      aria-label="Search our products">
-                    <div class="input-group-append">
-                        <button class="btn btn-dark shadow-sm ml-2" type="submit" aria-label="Search">
-                            <i class="fas fa-search" aria-hidden="true"></i>     
-                        </button>
-                    </div>
+                  <label for="search-input" class="sr-only">Search></label>
+                  <input id="search-input" class="form-control border shadow-sm" type="text" name="q" placeholder="Search..."
+                    aria-label="Search our products">
+                  <div class="input-group-append">
+                      <button class="btn btn-dark shadow-sm ml-2" type="submit" aria-label="Search">
+                          <i class="fas fa-search" aria-hidden="true"></i>     
+                      </button>
+                  </div>
                 </div>
               </form>
             </div>

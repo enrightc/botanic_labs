@@ -65,9 +65,49 @@ The JavaScript code was validated using [JSHint](https://jshint.com/). The resul
 
 **N.B.** A number of the JavaScript files were identified as having undefined variables, typically related to jQuery’s $ and stripe. This occurs because they are from external libraries that JSHint does not recognise. These are not actual errors in the code, but warnings from JSHint, as it does not have knowledge of the external libraries.  
 
+## Python Linter Test
+Python files that were created or edited for this project were validated using [CI Python Linter](https://pep8ci.herokuapp.com/). Any identied issues were rectified. Gitpod also has a built-in Python Linter which can be accessed by using the command `pyonth3 -m flake8`.
+
+All code edited and created for this project has passed the Python Linter validation tests. 
+
 ## Lighthouse Analysis
 
+| Page              | Performance |          | Accessibility |          | Best Practice |          | SEO  |          |
+|-------------------|-------------|----------|---------------|----------|---------------|----------|------|----------|
+|                   | Mobile (%)  | Desktop (%) | Mobile (%)    | Desktop (%) | Mobile (%)    | Desktop (%) | Mobile (%) | Desktop (%) |
+| **Home**          | 72          | 96       | 100             | 100       | 100           | 96      | 100  | 100      |
+| **Products**     | 63          | 80       | 96            | 96       | 100           | 100      |91  | 91      |
+| **Articles**        | 78          | 94       | 100            | 100       | 100           | 100      | 100  | 100      |
+| **Article**        | 80          | 93       | 95            | 95       | 100           | 100      | 100  | 100      |
+| **Article Management**      | 79          | 88       | 95            | 95       | 100           | 100      | 100  | 100      |
+| **Edit Article**       | 78          | 81       | 88            | 90       | 100           | 100      | 100  | 100      |
+| **Faq**        | 77          | 94       | 100            | 100       | 100           | 100       | 100  | 100      |
+| **New Faq**   | 74          | 81    | 95             | 95        | 96            | 100      | 100  | 100      |
+| **Edit Faq**       | 81          | 84       | 96            | 96       | 100           | 100      | 100  | 100      |
+| **Profile**| 74          | 75       | 94           | 94      | 100           | 100      | 100  | 100      |
+| **Profile**| 74          | 75       | 94           | 94      | 100           | 100      | 100  | 100      |
+| **Add Product**| 76          | 89       | 95          | 95      | 100           | 100      | 100  | 100      |
+| **Edit Product**| 78          | 87       | 92          | 92      | 96           | 96      | 100  | 100      |
+| **Bag**| 81          | 88       | 100          | 100      | 100           | 100      | 91  | 91     |
+| **checkout**| 74          | 87       | 89          | 89      | 81           | 100      | 100  | 100     |
+| **Confirmation**| 70          | 87       | 93          | 93      | 100           | 100      | 100  | 100     |
+| **Logout**| 85          | 96       | 95          | 95      | 100           | 100      | 90  | 90     |
+| **Register**| 83          | 96       | 91          | 91      | 100           | 100      | 90  | 90     |
+| **Log in**| 84          | 96       | 91          | 91      | 100           | 100      | 90  | 90     |
+| **404**| 85          | 96       | 95          | 95      | 96           | 96      | 90  | 100     |
+
+
+
 # 2.0 MANUAL TESTING
+## Browser Compatibility 
+-   Expected: Consistent appearance and functionality across major browsers.
+-   Testing: Test site on Chrome, Mozilla, Safari, and Edge browsers.
+-   Outcome: The site renders as expected with good responsiveness and compatibility across different browsers.
+
+## Responsiveness Test
+- Expected: Site should render appropriately on various devices with different screen sizes. 
+- Testing: Test responsiveness on iPhone 12, iPad 12, and desktop (1024px). 
+- Outcome: The site displays responsively across different devices, maintaining functionality and appearance as intended.
 
 ## Feature Testing:
 
