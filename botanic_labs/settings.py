@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # Debug settings
-DEBUG = True  # Set to False in production
+DEBUG = False  # Set to False in production
 
 # Uncomment for deployment:
-#DEBUG = 'DEVELOPMENMT' in os.environ
+DEBUG = 'DEVELOPMENMT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
@@ -67,13 +67,13 @@ INSTALLED_APPS = [
     'django_filters',
 ]
 
+# From: 
+# https://github.com/lqez/django-summernote/tree/main/django_summernote
 SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
 
 SUMMERNOTE_CONFIG = {
-    'iframe': False,
-    
-     'width': '100%',
-        'height': '480',
+    'width': '100%',
+    'height': '480',
 }
 
 MIDDLEWARE = [
