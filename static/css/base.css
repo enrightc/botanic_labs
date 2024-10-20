@@ -31,6 +31,10 @@ a {
     color: #000 !important;
 }
 
+.footer {
+    position: fixed;
+}
+
 /* -------------------------------- Navigation */
 
 /*  Main links (Home, Flowers, Articles, FAQs */
@@ -423,6 +427,11 @@ input[name='q']::placeholder {
     .main-nav.active {
         border-bottom: none;
     }
+    .dropdown-menu {
+        left: -76px;
+        background-color: transparent;
+        border: none;
+    }
 }
 
 
@@ -438,9 +447,7 @@ input[name='q']::placeholder {
     .nav-link p {
         font-size: 0.75rem;
     }
-    .dropdown-menu {
-        left: -76px;
-    }
+    
 }
 
 /* Padding on nav bar icons */
