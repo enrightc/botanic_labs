@@ -15,7 +15,7 @@ class ArticleForm(forms.ModelForm):
         widget=ArticleCustomClearableFileInput(attrs={
             'class': 'new-image border-black rounded-0'
         })
-        )
+    )
 
     class Meta:
         model = Article

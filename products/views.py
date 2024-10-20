@@ -157,6 +157,8 @@ def edit_product(request, product_id):
                 request,
                 'Failed to update product. '
                 'Please ensure the form is valid.'
+                ' Please either clear the current image or select a new one,' 
+                ' not both.”'
             )
 
     # If the request method is not POST,
