@@ -12,7 +12,7 @@ class ProductForm(forms.ModelForm):
     image = forms.ImageField(
         label='Image',
         required=False,
-         widget=CustomClearableFileInput(attrs={
+        widget=CustomClearableFileInput(attrs={
             'class': 'new-image border-black rounded-0'
         })
     )
@@ -24,5 +24,6 @@ class ProductForm(forms.ModelForm):
 
         self.fields['season'].choices = friendly_names
         for field_name, field in self.fields.items():
-            if field_name != 'image':  # Skip image field as its already set its class
+            # Skip image field as its already set its class
+            if field_name != 'image':
                 field.widget.attrs['class'] = 'border-black rounded-0'

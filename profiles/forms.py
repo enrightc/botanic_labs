@@ -43,8 +43,8 @@ class NameForm(forms.ModelForm):
         fields = (
             'first_name',
             'last_name',
-            'email'
-            ,)
+            'email',
+            )
 
     def __init__(self, *args, **kwargs):
         """
@@ -67,7 +67,6 @@ class NameForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
 
             # Adds styling classes to all inputs
-           
 
             # Removes labels from inputs
             self.fields[field].label = False

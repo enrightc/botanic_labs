@@ -60,7 +60,7 @@ def all_products(request):
         'search_term': query,
         'current_seasons': seasons,
         'all_seasons': all_seasons,  # All seasons for navigation
-        'current_sorting': current_sorting,      
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
@@ -157,7 +157,7 @@ def edit_product(request, product_id):
                 request,
                 'Failed to update product. '
                 'Please ensure the form is valid.'
-                ' Please either clear the current image or select a new one,' 
+                ' Please either clear the current image or select a new one,'
                 ' not both.”'
             )
 

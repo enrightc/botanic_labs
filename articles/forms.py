@@ -43,5 +43,6 @@ class ArticleForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
-            if field_name != 'image':  # Skip image field as its already set its class
+            # Skip image field as its already set its class
+            if field_name != 'image':
                 field.widget.attrs['class'] = 'border-black rounded-0'

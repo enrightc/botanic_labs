@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'django_filters',
 ]
 
-# From: 
+# From:
 # https://github.com/lqez/django-summernote/tree/main/django_summernote
 SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
 
