@@ -1,5 +1,17 @@
+.table-responsive tr {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 1.5rem;
+}
+
 .order-history {
-    max-height: 584px; /* height of profile form + submit button */
+    overscroll-behavior-y : contain;
+}
+
+.order-history {
+    max-height: 812px; /* height of profile form + submit button */
     overflow-y: auto;
 }
 
