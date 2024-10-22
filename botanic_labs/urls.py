@@ -30,3 +30,10 @@ urlpatterns = [
     path('articles/', include('articles.urls')),
     path('faq/', include('faq.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+"""
+handle 404 & 500 pages
+"""
+handler404 = 'home.views.error_404_view'
+handler500 = 'home.views.error_500_view'
