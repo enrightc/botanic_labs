@@ -22,6 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
+APPEND_SLASH = True
+
 # Debug settings
 DEBUG = False  # Set to False in production
 
