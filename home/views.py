@@ -22,3 +22,17 @@ def error_500_view(request):
     500 error
     """
     return render(request, 'home/500.html')
+
+
+def error_400_view(request, exception):
+    """
+    400 error
+    """
+    return render(request, 'home/400.html')
+
+
+def error_403_view(request):
+    """
+    403 error
+    """
+    return render(request, 'home/403.html')
