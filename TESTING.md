@@ -71,12 +71,18 @@ Python files that were created or edited for this project were validated using [
 All code edited and created for this project has passed the Python Linter validation tests. 
 
 ## Lighthouse Analysis
+For this project, Google’s Lighthouse tool was primarily used as a diagnostic aid to identify areas for improvement, rather than as a score-driven objective. Lighthouse is designed to highlight key areas like performance, accessibility, and best practices, but it’s important to understand that its score is not a definitive measure of a website’s overall quality. While it offers valuable suggestions, focusing solely on achieving a perfect score can lead to misguided priorities that may not align with the specific goals of the project.
+
+Key issues identified by Lighthouse were addressed, such as optimising image sizes and improving accessibility where feasible. However, the emphasis was on balancing practical performance enhancements with the real-world needs of the site’s users and functionality. The objective was not to chase perfect scores, but to ensure that the website is efficient, user-friendly, and meets essential accessibility standards.
+
+Render-Blocking Resources:
+In the performance review, Lighthouse flagged several third-party resources, such as Bootstrap, jQuery, and Google Fonts, as render-blocking elements that could potentially slow down the initial page load. These resources are essential for the core functionality and visual presentation of the website, and since they come from third-party CDNs, I do not have control over their optimisation. While these render-blocking issues were noted, removing or deferring them could compromise the site’s user experience and functionality. Given their importance, no action was taken to eliminate these resources as they are critical for the proper rendering and interactivity of the site.
 
 | Page              | Performance |          | Accessibility |          | Best Practice |          | SEO  |          |
 |-------------------|-------------|----------|---------------|----------|---------------|----------|------|----------|
 |                   | Mobile (%)  | Desktop (%) | Mobile (%)    | Desktop (%) | Mobile (%)    | Desktop (%) | Mobile (%) | Desktop (%) |
 | **Home**          | 72          | 96       | 100             | 100       | 100           | 96      | 100  | 100      |
-| **Products**     | 63          | 80       | 96            | 96       | 100           | 100      |91  | 91      |
+| **Products**     | 78          | 95       | 96            | 96       | 100           | 100      |91  | 91      |
 | **Articles**        | 78          | 94       | 100            | 100       | 100           | 100      | 100  | 100      |
 | **Article**        | 80          | 93       | 95            | 95       | 100           | 100      | 100  | 100      |
 | **Article Management**      | 79          | 88       | 95            | 95       | 100           | 100      | 100  | 100      |
@@ -89,8 +95,8 @@ All code edited and created for this project has passed the Python Linter valida
 | **Add Product**| 76          | 89       | 95          | 95      | 100           | 100      | 100  | 100      |
 | **Edit Product**| 78          | 87       | 92          | 92      | 96           | 96      | 100  | 100      |
 | **Bag**| 81          | 88       | 100          | 100      | 100           | 100      | 91  | 91     |
-| **checkout**| 74          | 87       | 89          | 89      | 81           | 100      | 100  | 100     |
-| **Confirmation**| 70          | 87       | 93          | 93      | 100           | 100      | 100  | 100     |
+| **checkout**| 74          | 98       | 89          | 89      | 81           | 100      | 100  | 100     |
+| **Confirmation**| 70          | 94       | 93          | 93      | 100           | 100      | 100  | 100     |
 | **Logout**| 85          | 96       | 95          | 95      | 100           | 100      | 90  | 90     |
 | **Register**| 83          | 96       | 91          | 91      | 100           | 100      | 90  | 90     |
 | **Log in**| 84          | 96       | 91          | 91      | 100           | 100      | 90  | 90     |

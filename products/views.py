@@ -11,6 +11,8 @@ from .models import Product, Season
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
+    result = 1 / 0 
+
     products = Product.objects.all()
     query = None
     seasons = None
@@ -125,62 +127,63 @@ def edit_product(request, product_id):
     - This view allows users to edit an existing product's details.
     - It checks if the form was submitted via POST or just loaded.
     """
-    if not request.user.is_superuser:
+    if request.user.is_authenticated:
+       
+        # Get the product object by its id or return a 404 error if not found
+        product = get_object_or_404(Product, pk=product_id)
+
+        # Check if the request is a POST (form submission)
+        if request.method == 'POST':
+            # Create a form instance with the POST data and any uploaded files
+            # 'instance=product' means the form will be
+            # pre-populated with the current product data
+            form = ProductForm(request.POST, request.FILES, instance=product)
+
+            # Validate the form data
+            if form.is_valid():
+                # If the form is valid, save the updated
+                # product information to the database
+                form.save()
+                request.session['show_bag_summary'] = False
+                # Display a success message to the user
+                messages.success(request, 'Successfully updated product!')
+                # Redirect the user to the product detail
+                return redirect(reverse('product_detail', args=[product.id]))
+            else:
+                # If the form is not valid, show an error message
+                messages.error(
+                    request,
+                    'Failed to update product. '
+                    'Please ensure the form is valid.'
+                    ' Please either clear the current image or select a new one,'
+                    ' not both.”'
+                )
+
+        # If the request method is not POST,
+        # show the form with the current product data for editing
+        else:
+            # Pre-populate the form with the product's current information
+            form = ProductForm(instance=product)
+            # Display a message to inform the user which product is being edited
+            messages.info(request, f'You are editing {product.name}')
+
+        # Set the template to use for rendering the form
+        template = 'products/edit_product.html'
+
+        # Prepare the context with the form and product to send to the template
+        context = {
+            'form': form,
+            'product': product,
+        }
+
+        # Render the edit product template with the context data
+        return render(request, template, context)
+    
+    else: 
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    # Get the product object by its id or return a 404 error if not found
-    product = get_object_or_404(Product, pk=product_id)
 
-    # Check if the request is a POST (form submission)
-    if request.method == 'POST':
-        # Create a form instance with the POST data and any uploaded files
-        # 'instance=product' means the form will be
-        # pre-populated with the current product data
-        form = ProductForm(request.POST, request.FILES, instance=product)
-
-        # Validate the form data
-        if form.is_valid():
-            # If the form is valid, save the updated
-            # product information to the database
-            form.save()
-            request.session['show_bag_summary'] = False
-            # Display a success message to the user
-            messages.success(request, 'Successfully updated product!')
-            # Redirect the user to the product detail
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            # If the form is not valid, show an error message
-            messages.error(
-                request,
-                'Failed to update product. '
-                'Please ensure the form is valid.'
-                ' Please either clear the current image or select a new one,'
-                ' not both.”'
-            )
-
-    # If the request method is not POST,
-    # show the form with the current product data for editing
-    else:
-        # Pre-populate the form with the product's current information
-        form = ProductForm(instance=product)
-        # Display a message to inform the user which product is being edited
-        messages.info(request, f'You are editing {product.name}')
-
-    # Set the template to use for rendering the form
-    template = 'products/edit_product.html'
-
-    # Prepare the context with the form and product to send to the template
-    context = {
-        'form': form,
-        'product': product,
-    }
-
-    # Render the edit product template with the context data
-    return render(request, template, context)
-
-
-@login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:

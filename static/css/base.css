@@ -430,7 +430,7 @@ input[name='q']::placeholder {
     .main-nav.active {
         border-bottom: none;
     }
-    .dropdown-menu {
+    .menu-products {
         left: -76px;
         background-color: transparent;
         border: none;

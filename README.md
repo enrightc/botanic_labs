@@ -153,11 +153,38 @@ To ensure **Botanic Labs** is able to meet the needs of its audience a variety o
 
 # 5.0   STRUCTURE
 ## 5.1 Frontend Framework
-Botanic Labs is built using **Bootstrap v4.188, ensuring a responsive and mobile-friendly design across all devices. 
+Botanic Labs is built using **Bootstrap v4.1**, ensuring a responsive and mobile-friendly design across all devices. 
 
 ## 5.2 Database
-The backend application connects to a Postgres database hosted on [Amazon Web Service](https://aws.amazon.com/). Below is a summary of the models used on Botanic Labs. A number of these are based on models provided by the Boutique Ado walkthrough (UserProfile, Category, Product, Order, OrderLineItem) as well as two original models (FAQs and Articles) created for this project.
+The backend application connects to a Postgres database hosted on [Amazon Web Service](https://aws.amazon.com/). Below is a summary of the models used on Botanic Labs. 
 
+THe Code Institute **Boutique Ado** walkthrough provided a foundation for the models used in Botanic Labs, particularly for the Products, category, UserProfile, Order and OrderLineItem models. Botanic Labs also uses two original models (FAQs and Articles) created specfically for it. 
+
+Since Botanic Labs is selling plant products the Product model was significanrly adapted to meet the specific needs of Botanic Labs.
+
+Here are the key areas where Botanic Labs Product model diverges from Boutique Ado:
+1. **Seasonality and Planting/Flowering Periods:**
+  - In Botanlic Labs it was necessary to include planting and flowering periods for each product. This was achieved this by adding fields such as planting_start, planting_end, flowering_start, and flowering_end. These fields use integer choices (representing months), along with MinValueValidator and MaxValueValidator to ensure valid month selection (1-12).
+
+  - It was setup this way so that users would be able to search for products by selecting specific planting or flowering months. For example, users could query products based on whether a specific month falls within these ranges. 
+  In Hindsight a better approach would have been to use Djangos built-in DateField. This way it would be working with actual date ranges instead of abstract month numbers and simplified the code. 
+
+  - A Season model was added which allows users to associate products with a specific season, as seasonality is important for plants.
+
+2. **Soil Drainage, Lifespan, Type and Light Exposure:**
+  - Key characteristcs were added with the intention of implemented more refined filters for product searching enaabling users to find products more suited to their needs. However, adding the filters on was beyond the scope of the current project but can be added later as the attributes are available. Each of these fields uses a choice system to allow users to select predefined options. For example, soil_drainage can be well_drained, poorly_drained, or moist, and lifespan can be annual, biennial, or perennial.
+
+3. **Recomendations**
+  - Botanic Labs uses three self-referencing foreign keys (recommendation_1, recommendation_2, and recommendation_3) to allow each product to recommend other related products. This feature offers additional upselling opportunities.
+
+4. **Removed Size Handling**
+	- The original walkthrough had a has_sizes field because it dealt with products like clothing. Since Botanic Labs  focuses on plants, this field wasn’t necessary and was omitted.
+
+5. **Custom Methods**
+  - Botanic Labs uses two custom methods, get_planting_period() and get_flowering_period(), which provide a user-friendly display of planting and flowering periods, using Django’s built-in get_FOO_display() functionality for choice fields. These methods help to display the product’s seasonal information on the front end.
+
+
+**Botanic Labs' Models**
 <details>
   <summary>Click to expand UserProfile</summary>
 
@@ -413,7 +440,7 @@ This iterative process allowed for flexibility in adapting to evolving project r
 
 <details>
   <summary>Checkout</summary>
-  <img src="botanic_labs/media/docs/wireframes/checkout.png" alt="Checkout page">
+  <img src="botanic_labs/media/docs/wireframes/checkout_wireframe.png" alt="Checkout page">
 </details>
 
 # 7.0 DESIGN
@@ -457,6 +484,255 @@ Accessibility is a fundamental aspect of the LidarFind project, ensuring that al
 
 # 8.0 FEATURES
 ## 8.2 Existing Features
+
+<details>
+  <summary>Home</summary>
+  The homepage of Botanic Labs introduces users to the main features of the site in a clean and inviting way:
+
+  **Hero Section:**
+
+  - Hero Image and Call-to-Action: The homepage greets users with a visually striking hero image and the tagline “Fill your garden with colour.” This sets the tone for the website, emphasising its focus on providing beautiful, colourful plants for users’ gardens. A clear and prominent “Shop Now” button immediately directs users to the product pages, encouraging them to begin shopping straight away.
+
+  **Search by Category:**
+
+  - Seasonal Categories: A key feature of the homepage is the ability to search by season. Users can quickly explore products suitable for different seasons (Spring, Summer, Autumn, and Winter). This is visually presented with season-specific images and clear buttons leading directly to relevant product listings. This feature helps users find plants and products that are ideal for specific times of the year, enhancing the user experience by providing targeted recommendations.
+
+  **all-to-Actions:**
+
+  - All Seasons Button: For users looking for a broader selection, the homepage also provides an “All Seasons” button, ensuring that users can access the full range of products available on the site.
+  Products Page (Admin view)
+  <img src="botanic_labs/media/docs/wireframes/home.jpg" alt="Home page">
+</details>
+
+<details>
+  <summary>Products</summary>
+  The Products page on Botanic Labs is designed to make it easy for users to browse and sort through the available plant products. Key features include:
+
+  **Filters:**
+
+  - Seasonal Filters: Visitors can filter products by season (Spring, Summer, Autumn, Winter) with distinct category badges. Users can explore season-specific items based on what’s    currently available or needed for their garden. Active filters are highlighted to let users know what they’ve selected.
+	
+  - Sorting Options: Users can organise the product listings by price, name, rating, or season. The sorting tool is quick and responsive, ensuring users can browse according to their preferences without hassle.
+
+  **Product Display:**
+
+  - Product Cards: Each product is presented in its own card with an image, name, price, and rating. If a product doesn’t have an image, a default placeholder ensures consistency in the layout. Products are easy to explore and compare visually.
+
+	- Season & Rating Tags: Each product card includes the season it’s associated with and a star rating (if available), giving users quick insights into its relevance and popularity.
+
+  **Admin Features:**
+
+  - Edit & Delete Options: Admins (superusers) have the ability to edit or delete products directly from the product card. The deletion option triggers a confirmation modal, ensuring accidental deletions are avoided.
+
+  **Layout & Navigation:**
+
+  - Responsive Design: The product grid adjusts to the user’s device, whether it’s mobile or desktop, ensuring a smooth and user-friendly experience across all screen sizes.
+  - Back-to-Top Button: A “Back to Top” button is provided for easy navigation, allowing users to quickly return to the top of the page after scrolling through a long list of products.
+
+  <img src="botanic_labs/media/docs/wireframes/products_page.png" alt="Products page">
+</details>
+
+<details>
+  <summary>Product Details</summary>
+  The Product Detail page on Botanic Labs gives users a detailed look at each product, with a focus on providing the most useful information in a clear, user-friendly format.
+
+  - Product Image and Zoom: A large image of the product is front and centre. Users can click on the image to see it in full size, or if there’s no image available, a default placeholder will be shown to keep things looking consistent.
+  - Price, Rating, and Season: The price is bold and easy to spot, with the product’s star rating (if there is one) displayed just underneath. There’s also a link to the season the product is associated with, making it easy to navigate to similar items for that season.
+  - Product Description and Key Features: The product’s description is displayed along with important details like its lifespan, type, light requirements, soil drainage, and both planting and flowering periods. These details help users quickly decide if the product fits their gardening needs.
+  - Quantity Selection: There’s a simple tool for choosing how many of the product the user wants to buy, with plus and minus buttons for quick adjustments.
+  - Add to Bag: The Add to Bag button is large and clear, allowing users to add the product to their shopping cart without any hassle. There’s also a Keep Shopping button to make it easy to continue browsing the product range.
+  - Recommendations: Below the main product details, there’s a section called “Other shoppers also bought”. This suggests related or complementary products, encouraging users to explore more items that might catch their interest.
+  - Admin Options: If an admin user is logged in, they’ll see options to quickly edit or delete the product directly from the page. This is a handy way to keep the store up-to-date without having to navigate through a lot of extra pages. The deletion option triggers a confirmation modal, ensuring accidental deletions are avoided.
+
+  <img src="botanic_labs/media/docs/wireframes/product_detail.png" alt="Add Product details">
+</details>
+
+<details>
+  <summary>Add Products</summary>
+  The Add Product page in Botanic Labs allows admin users to easily add new products to the inventory while maintaining a clean and intuitive interface.
+
+  - Product Management Section: The page starts with a clear heading for Product Management, making it easy for users to understand that they are in the right section for adding new items to the store.
+  - Form for Product Details: A form is provided for admin users to fill out the necessary details of a product. All fields are laid out clearly, allowing the user to input information like the product name, description, price, category, and more. The form utilises django-crispy-forms for a polished look and better user experience.
+  - Image Upload: Admin users can upload an image of the product. The form makes use of a custom image input widget, which includes a dynamic preview of the selected file. As soon as an image is selected, the user is notified of the file name that will be uploaded, providing immediate feedback.
+  - Cancel and Submit Buttons: At the bottom of the form, there are two buttons: one to Cancel the action and return to the main product page, and another to Add Product. This ensures that users can either save their changes or exit without making any unwanted additions to the product inventory.
+  <img src="botanic_labs/media/docs/wireframes/add_product.png" alt="Add Products page">
+</details>
+
+<details>
+  <summary>Edit Products</summary>
+  The Edit Product page is specifically for admin users at Botanic Labs to manage and update existing product listings. This page ensures that product details can be easily modified while maintaining a consistent and secure admin interface.
+
+  - Restricted Access: As with the add product page, only admin users have access to edit existing products. If non-admin users try to access the page, they are redirected with a message informing them of insufficient permissions.
+  - Pre-Populated Form: The form on the edit page is pre-populated with the existing product details, allowing admins to make changes as necessary. This includes fields for the product name, description, price, image, and more.
+  - Image Management: The page allows admins to either upload a new product image or keep the current one. The image section includes a preview of the current product image along with a clear option to remove the existing image before uploading a new one.
+  - Cancel and Submit: There are options to either Cancel and return to the product list or Update Product to save the changes.
+  <img src="botanic_labs/media/docs/wireframes/edit_product.png" alt="Edit products page">
+</details>
+
+<details>
+  <summary>Articles Listing</summary>
+  The Articles page offers a smooth, intuitive experience for users looking to read helpful and engaging content on gardening and plant care.
+
+  - Collection of Articles: The page features a collection of articles, displayed with a brief excerpt and image. Each article is presented in a card layout, making it visually appealing and easy to navigate.
+  - Dynamic Content: If there are no articles available, a message is displayed informing users that no articles have been found. This ensures the page remains user-friendly and adaptable, even when the content is limited.
+  - Article Excerpts: The page shows a concise summary of each article, encouraging users to click “Read More” to dive deeper into the content. This gives users a taste of the full article without overwhelming them with too much text at once.
+  - Visual Elements: Articles with images have a thumbnail displayed next to their excerpt, while articles without an image show a default placeholder. This keeps the layout consistent and ensures that every article looks polished, regardless of whether an image has been uploaded.
+
+  <img src="botanic_labs/media/docs/wireframes/Articles.png" alt="Articles page">
+</details>
+
+<details>
+  <summary>Article</summary>
+  The Article page is for showcasing the full article and has the following functionality:
+
+  - Article Presentation: Each article is displayed with a prominent title, publication date, author name, and a clear excerpt summarising the content. This ensures the user gets key information upfront, before diving into the full article content.
+	- Responsive Images: If an article includes an image, it is shown at the top of the page. The image adapts well to different screen sizes. If no image is uploaded, a placeholder image is used to maintain consistency in the layout.
+	- Admin Controls: Admin users are provided with easy-to-access controls to edit or delete the article directly from the detail page. These options appear next to the article content (only if the user logged in is a superuser), giving quick access to manage the article’s information. The deletion option triggers a confirmation modal, ensuring accidental deletions are avoided.
+	- Content Display: The main content of the article is displayed cleanly and clearly, utilising the Summernote WYSIWYG editor to manage complex formatting. The HTML content is rendered safely using Django’s |safe filter to prevent issues while maintaining flexibility.
+	- Navigation: Users can return to the full Articles list easily via a prominent “Back to Articles” button at the bottom of the page, ensuring smooth navigation throughout the site.
+
+  <img src="botanic_labs/media/docs/wireframes/article.png" alt="Article">
+</details>
+
+<details>
+  <summary>Article Management</summary>
+  The Article Management view on Botanic Labs provides admin users with a comprehensive interface for overseeing and managing all submitted articles.
+
+  - Admin-Only Access: This page is restricted to admin users only. Non-admin users attempting to access this page are redirected with an appropriate error message.
+  - Create New Articles: Admin users have the ability to add new articles directly from this page. A prominent “New Article” button is placed at the top right for easy access to the article creation form.
+  - Article List: All articles, whether published, drafts, or hidden, are listed here in a card-style layout. Each article shows its title, excerpt, publication date, and author, making it easy to review content at a glance.
+  - Status and Visibility Badges: Each article is marked with its current status (Published or Draft) and visibility (Public or Hidden), allowing admins to quickly assess whether the article is live or hidden from users.
+  - Admin Controls: Admin users can edit or delete articles directly from this view. The deletion option triggers a confirmation modal, ensuring accidental deletions are avoided.
+
+  <img src="botanic_labs/media/docs/wireframes/article_management.png" alt="Articles Management">
+</details>
+
+<details>
+  <summary>Edit Article</summary>
+  The Edit Article page in Botanic Labs is an admin-only feature designed to allow updates and improvements to existing articles.
+
+  - Admin-Only Access: As with all content management features, this page is restricted to admin users only, ensuring that only authorised personnel can make changes to articles.
+  - Pre-Populated Form: When an admin selects an article to edit, the form is pre-populated with the article’s existing content. This allows for seamless editing, as all current details are displayed and editable, including the title, content, excerpt, and image.
+  - Image Update Functionality: Admins can choose to update the article image. If a new image is selected, a preview of the filename is displayed before submission.
+  - Crispy Forms for Improved UX: The page uses Django Crispy Forms for enhanced form styling, improving the user experience by providing clean, well-organised fields.
+  - Form Validation: Django form validation is in place to ensure that all required fields are completed properly before submission.
+  - Update and Cancel Buttons: The page provides intuitive buttons to either update the article or cancel the changes and return to the main article management page.
+  <img src="botanic_labs/media/docs/wireframes/edit_article.png" alt="Edit Article">
+</details>
+
+<details>
+  <summary>Add Article</summary>
+  The Add Article page in Botanic Labs allows admin users to submit new articles for the site. Key features of the page include:
+
+  - Admin-Only Access: Like the rest of the content management system, this page is restricted to admin users. It ensures that only authorised personnel can submit new content.
+  - Crispy Forms: This page uses Django Crispy Forms to enhance the form presentation, ensuring a clean and user-friendly design.
+  - Form Submission: The form accepts all relevant fields for article submission, including the title, content, image, and other attributes like the image alt tag and status. The image field allows users to upload a custom image to accompany the article.
+  - CSRF Token for Security: The form is protected using CSRF tokens to prevent cross-site request forgery, ensuring that the data submitted is secure.
+  - Image Filename Display: After selecting an image, the filename is displayed to the user to confirm the upload. This functionality is achieved with jQuery, adapted from the Boutique Ado Walkthrough.
+  - Cancel Option: Users can easily cancel the submission by clicking the “Cancel” button, which redirects them back to the article listing without saving any changes.
+  <img src="botanic_labs/media/docs/wireframes/add_article.png" alt="Add Article">
+</details>
+
+<details>
+  <summary>FAQ</summary>
+  The FAQ page on Botanic Labs serves as a centralised resource for common gardening questions and helpful tips.
+
+  - Clear and Simple Layout: The FAQ page presents questions in an accordion-style format, allowing users to click and reveal answers easily. This clean layout ensures quick access to relevant information without overwhelming the visitor.
+  - Admin Control: Admin users have full control over the FAQs, with options to add, edit, and delete entries directly from the page. Admin-only controls are displayed beside each FAQ, allowing seamless management of the content. The deletion option triggers a confirmation modal, ensuring accidental deletions are avoided.
+	•	Interactive Design: By clicking on any question, the associated answer is displayed dynamically. This keeps the interface simple and efficient, ensuring users can focus on one question at a time.
+	•	No FAQs Available: If there are no FAQs yet, a message is displayed indicating that no entries are found, maintaining transparency for users browsing the page.
+	•	Call to Action: If users can’t find the answers they’re looking for, they are encouraged to reach out for further assistance, making sure that Botanic Labs remains helpful and responsive.
+  <img src="botanic_labs/media/docs/wireframes/faq.png" alt="FAQ">
+</details>
+
+<details>
+  <summary>Add FAQ</summary>
+  The Add FAQ page provides admin users with the functionality to add new frequently asked questions to Botanic Labs’ FAQ section.
+
+  - Form for Admin: This page allows administrators to input new FAQs into the system through a simple form. The form fields include both the question and the answer, with the answer field using the Summernote editor for rich text formatting. This makes it easier to provide detailed and visually formatted responses.
+  - Admin-Only Access: As with other administrative features, this page is restricted to admin users only. It ensures that only authorised individuals can add FAQs, maintaining the quality and accuracy of the content.
+  - Cancel and Add: After completing the form, admin users can either submit the FAQ or cancel to return to the FAQ overview page. The page uses clear and straightforward buttons for these actions, providing a user-friendly interface.
+  <img src="botanic_labs/media/docs/wireframes/add_article.png" alt="Add FAQ">
+</details>
+
+<details>
+  <summary>Edit FAQ</summary>
+  The Edit FAQ page allows admin users to modify existing FAQ entries to ensure they stay relevant, accurate, and up-to-date for users.
+
+  - Pre-filled Form: The page presents a form pre-populated with the existing FAQ content. Admins can easily edit both the question and answer fields, allowing for quick updates to any content. The Summernote editor is used for formatting the answers.
+  - Admin-Only Access: As with other management features, access to this page is restricted to admin users, ensuring only authorised personnel can modify FAQs. This helps maintain content integrity.
+  - Update or Cancel: Admins can choose to update the FAQ with the new information or cancel the edit and return to the FAQ overview page. The clear buttons provide a user-friendly interface for these options.
+  <img src="botanic_labs/media/docs/wireframes/edit_faq.png" alt="Edit FAQ">
+</details>
+
+<details>
+  <summary>Shopping Bag</summary>
+  The Shopping Bag page allows users to review the items they have added, adjust quantities, or remove products before proceeding to checkout. 
+
+  - Product Overview: Users can view the details of each product added to the bag, including the name, SKU, price, and an image of the product. This ensures transparency and accuracy before completing the purchase.
+  - Quantity Adjustment: Users can easily adjust the quantity of products they want to purchase directly from the bag page. The form allows users to increase or decrease the quantity, with real-time updates on the product’s subtotal.
+  - Remove Items: There’s a convenient option to remove items from the shopping bag using a simple button. This provides flexibility for users who may change their minds or want to modify their order.
+  - Order Summary: At the bottom of the page, users can see a summary of their order, including the Bag Total, Delivery, and Grand Total. If the total is below the free delivery threshold, users are informed of how much more they need to spend to qualify for free shipping.
+  - Checkout and Continue Shopping: The page provides clear call-to-action buttons for users to either proceed to checkout or continue shopping, allowing for a smooth and intuitive shopping experience.
+  <img src="botanic_labs/media/docs/wireframes/shopping_bag.png" alt="shopping bag">
+</details>
+
+<details>
+  <summary>Checkout</summary>
+  The Checkout page guides users through the final stages of their shopping experience, allowing them to review their order, fill out delivery details, and complete their payment. 
+
+  - Order Summary: Users can see a detailed breakdown of the items in their shopping bag, including product names, quantities, and subtotals. This ensures full transparency before completing the order.
+  - Delivery Details: A clear and easy-to-fill form collects essential information such as the user’s name, address, and contact details. For logged-in users, the form is pre-populated with saved details, saving time and improving user experience.
+  - Stripe Payment Integration: The payment section integrates with Stripe, allowing users to securely enter their card details. There’s a live feedback mechanism to alert users of any errors during payment submission.
+  - Form Validation: On form submission, the details are validated. If there are errors, the user receives a message to review their input. If everything is correct, the payment is processed securely through Stripe, and the user is directed to a success page.
+  - Responsive Feedback: Throughout the checkout process, users receive feedback such as warnings for empty shopping bags or confirmation messages upon successful payment. The process is designed to keep users informed and reassured at every step.
+
+  <img src="botanic_labs/media/docs/wireframes/checkout.png" alt="shopping bag">
+</details>
+
+<details>
+  <summary>Order Confirmation</summary>
+  The Order Confirmation page is designed to give users a clear overview of their recent purchase, ensuring that they have all the important information at hand. 
+
+  - Thank You Message: At the top, a personalised thank-you message confirms that the order has been placed successfully, and users are informed that a confirmation email has been sent to their provided email address.
+  - Order Information: The section provides the order number, which users can reference for any future communications regarding their purchase. Additionally, it includes the order date, offering clarity on when the transaction was completed.
+  - Order Details: This segment lists each item purchased, the quantity of each product, and the price per item. It’s a concise way for users to double-check their order and ensure everything is correct.
+	- Delivery Information: All the shipping details are displayed, including the recipient’s name, address, phone number, and any other relevant information. This section reassures users that their order is being shipped to the right place.
+  - Billing Information: The page also provides a breakdown of the order’s financial details, including the total cost of the products, the delivery charge, and the grand total. This transparent display ensures that users know exactly what they’ve paid.
+  - Navigation Options: After reviewing their order, users can either return to their profile or browse for more products, with a convenient link that directs them to explore more items on the website.
+
+  <img src="botanic_labs/media/docs/wireframes/order_confirmation.png" alt="order condirmation">
+
+  With the order complete and email confirmation is also sent to the shopper:
+
+  <img src="botanic_labs/media/docs/wireframes/email_confirmation.png" alt="Email condirmation">
+
+</details>
+
+<details>
+  <summary>Profile Page</summary>
+  <img src="botanic_labs/media/docs/wireframes/profile.png" alt="profile page">
+</details>
+
+<details>
+  <summary>Log out</summary>
+  <img src="botanic_labs/media/docs/wireframes/log_out.png" alt="Log out">
+</details>
+
+<details>
+  <summary>Log in</summary>
+  <img src="botanic_labs/media/docs/wireframes/log_in.png" alt="Log in">
+</details>
+
+<details>
+  <summary>Register</summary>
+  <img src="botanic_labs/media/docs/wireframes/register.png" alt="Register">
+</details>
+
+<details>
+  <summary>404 Error Page</summary>
+  <img src="botanic_labs/media/docs/wireframes/404.png" alt="404 page">
+</details>
 
 ## 8.3 Future Features
 It is hoped that **Botanic Labs** will continute to be expanded upon in the future to enhance user experience and streamline the shopping process. Here are some potential additions:
@@ -833,6 +1109,8 @@ Upon completing the above steps to configure the deployed app your config varabl
 | **Topic**                                  | **Description**                                                                              | **Source**                                                                                                           | **Accessed**     |
 |--------------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|------------------|
 | Boutieque Ado ecommerce website            | Walkthrough guide                                                                             | Code Institute                                                                                                       | September 2024   | 
+| Django Field Choices                       | Guide on using field choices in Django models                                                 | [GeeksforGeeks](https://www.geeksforgeeks.org/how-to-use-django-field-choices/)                                      | September 2024   |
+| Limiting the Maximum Value in a Django Model | Stack Overflow post on limiting the max value in a numeric field                              | [Stack Overflow](https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model/12026867#12026867) | September 2024   |
 | Ignoring Errors in Python                  | Guide on how to ignore errors using Flake8                                                    | [Flake8 Documentation](https://flake8.pycqa.org/en/3.1.1/user/ignoring-errors.html)                                   | September 2024   |
 | Ignoring Pyflakes Errors                   | Solution for ignoring "imported but unused" errors in `__init__.py` files                     | [Stack Overflow](https://stackoverflow.com/questions/8427701/how-to-ignore-pyflakes-errors-imported-but-unused-in-init-py-files) | September 2024   |
 | Limiting Text Length in CSS                | CSS techniques to limit text to a specific number of lines                                    | [Stack Overflow](https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css)                  | September 2024   |
