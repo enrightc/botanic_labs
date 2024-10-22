@@ -1,14 +1,43 @@
 # BOTANIC LABS TESTING
 
+![Am I Responsive](media/AmIResponsive.jpg)
+
+Back to [README.md](README.md).
+
+## Contents
+1. [Automated Testing](#10-automated-testing)
+   - [HTML Validation](#html-validation)
+   - [CSS Validation](#css-validation)
+   - [JSHint](#jshint)
+   - [Python Linter Test](#python-linter-test)
+   - [Lighthouse Analysis](#lighthouse-analysis)
+2. [Manual Testing](#20-manual-testing)
+   - [General Feature Testing](#general-feature-testing)
+   - [Home Page](#home-page)
+   - [Products Page](#products-page)
+   - [Products Detail Page](#products-detail-page)
+   - [Shopping Bag](#shopping-bag)
+   - [Checkout](#checkout)
+   - [User Account](#user-account)
+   - [Articles](#articles)
+   - [FAQ](#faq)
+   - [Errors](#errors)
+   - [Toast Notifications](#toast-notifications)
+   - [Authentication Permissions](#authentication-permissions)
+3. [Browser Compatibility](#browser-compatibility)
+4. [Responsiveness Test](#responsiveness-test)
+5. [Bugs](#bugs)
+   - [Duplicate ID in custom_clearable_file_input](#duplicate-id-in-custom_clearable_file_input)
+   - [User Profile Not Attached to Orders in Webhook Handling](#user-profile-not-attached-to-orders-in-webhook-handling)
+   - [AttributeError When Using .split() on a NoneType Object in Product Recommendations](#attributeerror-when-using-split-on-a-nonetype-object-in-product-recommendations)
+   - [Issue with Form Submission Using CKEditor](#issue-with-form-submission-using-ckeditor)
+   - [500 Error Page Logo and Favicon Not Loading](#bug-report-500-error-page-logo-and-favicon-not-loading)
+
 # 1.0 AUTOMATED TESTING
 Automated testing was undertaken using a range of open-source developer tools including Google Lighthouse Analysis, HTML, CSS and JavaScript validation. These tests assessed the applications quality, performance, accessibility and adherence to web standards. Any identified issues were addressed to enhance the websites usability and overall user experience.
 
 ## HTML Validation
 To test the markup validity [HTML Validator](https://validator.w3.org/) was used to assess markup validity and compliance with accessibility standards. THe following table shows the results for each page:
-
-
-
-
 
 **Summary Table**
 | Page             | Date       | Comments | Pass/Fail |
@@ -106,6 +135,220 @@ In the performance review, Lighthouse flagged several third-party resources, suc
 
 # 2.0 MANUAL TESTING
 ## Feature Testing:
+For each feature the expected outcomes and actual outcomes are clearly defined for each feature, making it easy to assess whether the application meets the requirements. This process makes it easier to identify and address any issues or discrepancies that may arise and also serves as a reference point for other developers to understand the expected behaviour of a feature. The results are recorded in the following tables:
+
+<details>
+  <summary>General Feature Testing</summary>
+| Feature                   | Expected Outcome                                                             | Testing Procedure                                                       | Actual Outcome                                                                                      |
+|---------------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Responsive Design          | Website displays correctly across all devices and screen sizes               | Test on various devices and screen sizes                                | The website was responsive and usable on all tested devices.                                         |
+| Navigation                 | All navigation links function, and dropdowns are operational                 | Test each navigation link and dropdown menu                             | Navigation was smooth, and all links/buttons worked as expected.                                     |
+| Navbar - sticky            | Navbar remains visible at the top when scrolling                             | Scroll down the page and confirm the navbar stays at the top            | The navbar remained sticky and visible at the top of the page when scrolling.                        |
+| Navbar - logo              | Logo functions as a link to the homepage                                     | Navigate away from the homepage, click the logo, and confirm it redirects to the homepage | Clicking the brand logo redirected to the homepage as expected.                                      |
+| Navbar - Responsiveness    | Navbar links collapse into a hamburger menu on smaller devices               | Test on a mobile device to ensure the navbar collapses and all links are functional | The navbar collapsed as expected, and all links worked correctly on smaller devices.                 |
+| Navbar - logged out        | Shows 'Register' and 'Sign In' links in account dropdown                     | Log out and check the account dropdown menu for 'Register' and 'Sign In' | The 'Register' and 'Sign In' links appeared correctly for logged-out users.                          |
+| Navbar - logged in (non-admin) | Shows 'My Account' and 'Sign Out' links in account dropdown                | Log in as a non-admin user and check the account dropdown for 'My Profile' and 'Sign Out' | The 'My Profile' and 'Sign Out' links appeared correctly for logged-in non-admin users.              |
+| Navbar - logged in (admin)    | Shows 'Product Management', 'Article Management', 'My Profile' and 'Sign Out' links in account dropdown | Log in as an admin and confirm 'Site Management', 'My Profile', and 'Sign Out' are available | The admin-specific links were displayed correctly in the navbar for the admin user.                  |
+| Navbar - bag (empty)       | Bag icon appears black with £0 when bag is empty                            | Check the navbar when the bag is empty                                  | The bag icon appeared black with £0, indicating an empty bag as expected.                           |
+| Navbar - bag (contents)    | Bag icon appears blue and shows the correct total when items are added      | Add items to the bag and check the navbar                               | The bag icon appeared blue, showing the correct total after items were added.                       |
+| Navbar - search box (no contents) | Submits search and redirects to products page with a message if no search term is entered | Click on the search icon with an empty search box                       | The search box redirected to the products page and displayed an error message when no search term was entered. |
+| Navbar - search box (contents)    | Submits search and redirects to products page with results; displays search term on page | Enter a search term, click the search icon, and check the results and displayed term | The search returned relevant results and displayed the search term on the products page.             |
+| Navbar - search box dropdown | On medium or smaller screens, the search icon reveals a dropdown search bar | Use dev tools to simulate a medium or small screen, click the search icon, enter a search term, and submit | The search box dropdown appeared on smaller screens, and the search functionality worked as expected. |
+| Search Functionality       | Provides relevant results when searching                                     | Use various queries in the search bar                                   | The search returned relevant results for all test queries.                                           |
+| Delivery Banner            | Shows delivery banner with correct text and amount                           | Verify the text and amount on the delivery banner                       | The delivery banner showed the correct amount and free delivery threshold.                           |
+| Favicon                    | Displays favicon in the browser tab                                          | Confirm the favicon appears in the browser tab                          | The favicon appeared correctly in the browser tab.                                                   |
+| Footer                     | All footer links are functional                                              | Test each link in the footer                                            | All footer links were functional and led to the correct pages.                                       |
+| Footer - contents          | Displays social links, informational links, 'About Us' text, disclaimer, and personal links | Review footer content for completeness                                 | The footer displayed all expected content, including social and informational links.                  |
+| Footer - responsive        | Stacks content on smaller screens and adjusts margins appropriately          | Simulate various screen sizes with dev tools                            | The footer stacked correctly and margins adjusted as expected on smaller screens.                    |
+| Footer - Hover on links    | Shows hover effect with smooth transition on links                           | Hover over each link in the footer                                      | Hover effect worked smoothly across all links in the footer.                                         |
+| Footer - social            | Opens social media links in a new tab                                        | Click each social link and confirm they open in a new tab               | All social media links opened in new tabs as expected.                                               |
+| Footer - More Info links   | Directs to the correct pages                                                 | Click on 'More Info' links and confirm they lead to the correct pages   | All 'More Info' links directed to the correct pages.                                                 |
+</details>
+
+
+<details>
+  <summary>Home page</summary>
+
+| Feature            | Expected Outcome                       | Testing Procedure             | Actual Outcome                                                                                    |
+|--------------------|----------------------------------------|-------------------------------|--------------------------------------------------------------------------------------------------|
+| Hero Section       | Displays image and CTA button          | Verify hero section content   | The hero section displayed the image and CTA button correctly as expected.                        |
+| Season Categories  | Links to correct product pages         | Test each season category link| Each season category link directed to the correct product page as expected.                       |
+| Shop Now Button    | Takes user to the products page, displaying all products   | Click on "Shop Now" button and check that all products are displayed | The "Shop Now" button correctly directed to the products page and displayed all products.          |
+| All Seasons Button | Takes user to the products page, displaying all products   | Click on "All Seasons" button and check that all products are displayed | The "All Seasons" button directed to the products page and displayed all products as expected.     |
+</details>
+
+
+<details>
+  <summary>Products page</summary>
+  
+  | Feature                 | Expected Outcome                                    | Testing Procedure                    | Actual Outcome                                                                                    |
+|-------------------------|-----------------------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------|
+| Product Listing          | All products displayed correctly                    | Verify product cards and information | All product cards and information displayed correctly as expected.                                |
+| Sorting                  | Products sort correctly                             | Test all sorting options             | All sorting options worked as expected, sorting the products correctly.                           |
+| Filtering                | Products filter by season                           | Test season filtering                | Season filtering worked correctly, displaying products matching the selected season.              |
+| Product Cards            | Link to correct product pages                       | Click on various product cards       | Product cards linked to the correct product detail pages as expected.                             |
+| Delete Button (admin only)   | Opens confirmation modal, deletes product if confirmed | For superusers, click delete and confirm in modal | The delete button opened the confirmation modal and successfully deleted the product when confirmed. |
+| Edit Button  (admin only)    | Takes user to the edit product page                 | For superusers, click edit and verify redirection | The edit button redirected to the edit product page correctly as expected.                        |​
+</details>
+
+
+<details>
+  <summary>Products detail page</summary>
+  
+  | Feature             | Expected Outcome                               | Testing Procedure                       | Actual Outcome                                                                                 |
+|---------------------|------------------------------------------------|-----------------------------------------|------------------------------------------------------------------------------------------------|
+| Product Information | All details are correct                        | Verify product information              | Product information displayed correctly, including all necessary details.                       |
+| Image               | Full-size view functions                       | Test image enlargement feature          | Image enlargement feature worked as expected, showing the full-size image on click.             |
+| Quantity Selector   | Increments/decrements correctly                | Test quantity selection                 | The quantity selector incremented and decremented the product quantity as expected.             |
+| Add to Bag Button   | Adds product to bag                            | Test adding products to bag             | The product was added to the bag successfully when the button was clicked.                      |
+| Toast Notification  | Shows success message with bag summary when product added to bag | Add product and check toast           | Toast notification appeared correctly with a success message and updated bag summary.           |
+| Recommendations     | Displays related products                      | Verify recommended products             | Related products were displayed as expected in the recommendation section.                      |
+| Keep Shopping Button | Returns user to the all products page         | Click the button and verify redirection | Keep Shopping button redirected the user back to the all products page correctly.               |
+| Edit Button (admin only)        | Takes superuser to the edit product page       | For superusers, click edit and verify redirection | Edit button redirected superuser to the edit product page as expected.                           |
+| Delete Button (admin only)      | Opens confirmation modal, deletes product if confirmed | For superusers, click delete and confirm in modal | Confirmation modal opened, and product was successfully deleted upon confirmation.              |​
+
+</details>
+
+
+<details>
+  <summary>Shopping bag</summary>
+  
+  | Feature            | Expected Outcome                               | Testing Procedure                    | Actual Outcome                                                                                  |
+|--------------------|------------------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------|
+| increase/decrease Quantity    | Updates product quantities                     | Modify quantities in bag             | Product quantities successfully updated as expected.                                             |
+| Remove Item        | Removes items from bag                         | Remove items from bag                | Items were successfully removed from the bag when clicked.                                       |
+| Update button    | Updates the product quantities                     | Modify quantities in bag             | The quantities were updated correctly after using the update button.                             |
+| Delivery Threshold | Applies free delivery over threshold           | Test with orders above/below threshold | Free delivery applied as expected when the order total exceeded the threshold.                   |
+| Toast Notifications| Shows correct messages for add/update/remove actions | Verify toasts for add/update/remove | Toast notifications displayed appropriate messages for add, update, and remove actions.          |
+| Update Button      | Updates the shopping cart totals               | Change quantities, click update, and verify totals | The cart totals updated successfully after modifying quantities and clicking the update button. |
+| Secure Checkout Button | Takes user to the checkout page            | Click the button and verify redirection to checkout | The secure checkout button redirected the user to the checkout page without issues.              |
+| Keep Shopping Button | Returns user to the all products page        | Click the button and verify redirection | Keep shopping button redirected back to the all products page as expected.                       |​
+
+</details>
+
+<details>
+  <summary>Checkout</summary>
+  
+  | Feature            | Expected Outcome                                  | Testing Procedure                   | Actual Outcome                                                                                   |
+|--------------------|---------------------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------------|
+| Checkout Form      | All fields function correctly, any saved information correctly displayed                     | Test all form fields                | All form fields functioned correctly, and saved information was displayed as expected.            |
+| Save Info          | Saves info for logged-in users                    | Test saving delivery information    | Delivery information was saved for logged-in users without issues.                               |
+| Payment Processing | Processes payments correctly                      | Test with Stripe test cards         | Payment processing worked correctly with Stripe test cards.                                       |
+| Order Confirmation | Displays correct order details                    | Verify order confirmation page      | The order confirmation page displayed all details correctly after purchase.                      |
+| Confirmation Email | Sends email with correct info                     | Check email after order             | Confirmation email was received with the correct order details.                                   |
+| Toast Notification | Shows success message                             | Verify toast after successful order | Toast notification appeared with the success message after completing the order.                  |
+| Complete Order Button | Completes the order and displays confirmation  | Click button, verify order completion and confirmation | The order was successfully completed, and the confirmation page displayed as expected.           |
+| Adjust Bag Button  | Returns user to their shopping bag                | Click button and verify redirection to bag | The button redirected back to the shopping bag page without any issues.                         |​
+
+</details>
+
+<details>
+  <summary>User Account</summary>
+
+  | Feature            | Expected Outcome                            | Testing Procedure                    | Actual Outcome                                                                                   |
+|--------------------|---------------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------|
+| Registration       | Creates new account                         | Test registration process            | New accounts were successfully created via the registration form.                                |
+| Email Verification | Sends and processes verification            | Verify email and confirmation process| Verification emails were received and processed correctly.                                        |
+| Login              | Logs in user correctly                      | Test with correct/incorrect credentials | Users were able to log in successfully with correct credentials; incorrect credentials showed error messages. |
+| Logout             | Logs out user correctly                     | Test logout process                  | Users were logged out successfully, and redirected to the home page as expected.                 |
+| Profile            | Updates personal information                | Test updating profile info           | Profile information was updated successfully in the profile section.                             |
+| Order History      | Displays correct orders                     | Verify order history in profile      | Order history was displayed correctly in the user profile.                                        |
+| Password Reset     | Resets password successfully                | Test password reset process          | The password reset process worked as expected, with password reset emails sent and confirmed.     |​
+
+</details>
+
+<details>
+  <summary>Articles</summary>
+  
+| Feature          | Expected Outcome                            | Testing Procedure                | Actual Outcome                                                                                   |
+|------------------|---------------------------------------------|----------------------------------|--------------------------------------------------------------------------------------------------|
+| Article Listing  | Displays all published articles             | Verify article list page         | All published articles were displayed correctly on the articles list page.                       |
+| Article Detail   | Shows correct article content               | Test individual article pages    | Individual articles displayed their correct content and format.                                  |
+| Admin Controls   | Add/Edit/Delete for superusers              | Test admin article management    | Admin users were able to add, edit, and delete articles as expected.                             |
+| Toast Notifications | Shows correct messages                    | Verify toasts for article actions | Correct toast notifications were displayed for adding, editing, and deleting articles.           |​
+
+</details>
+
+<details>
+  <summary>FAQ</summary>
+  
+  ## FAQ
+
+| Feature           | Expected Outcome                           | Testing Procedure                | Actual Outcome                                                                                   |
+|-------------------|--------------------------------------------|----------------------------------|--------------------------------------------------------------------------------------------------|
+| FAQ Listing       | Displays all FAQs                          | Verify FAQ page content          | All FAQs were displayed correctly on the FAQ page.                                                |
+| FAQ Accordion     | Expands/collapses answers                  | Test FAQ interaction             | FAQ answers expanded and collapsed smoothly as expected.                                          |
+| Admin Controls    | Add/Edit/Delete for superusers             | Test admin FAQ management        | Admin users were able to add, edit, and delete FAQs successfully.                                 |
+| Toast Notifications | Shows correct messages                   | Verify toasts for FAQ actions    | Correct toast notifications were displayed for FAQ-related actions like adding, editing, and deleting. |​
+
+</details>
+
+<details>
+  <summary>Errors</summary>
+	| Feature           | Expected Outcome                            | Testing Procedure                | Actual Outcome                                                                                       |
+|-------------------|---------------------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------|
+| 404 Page          | Displays for non-existent URLs              | Test with invalid URL            | 404 error page displayed as expected when accessing non-existent URLs.                               |
+| 500 Page          | Displays for server errors                  | Intentionally cause server error | The 500 error page was triggered successfully by adding a divide-by-zero error in the products view, and displayed as expected when navigating to the products page |
+</details>
+
+<details>
+  <summary>Toast Notifications</summary>
+
+  | Feature               | Expected Outcome                             | Testing Procedure                     | Actual Outcome                                                                                      |
+|-----------------------|----------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Add to Bag            | Shows success with bag summary               | Add product to bag                    | Bag updated successfully, toast message displayed with correct bag summary.                         |
+| Update Bag            | Shows success without bag summary            | Update bag quantities                 | Bag updated successfully, toast message displayed without the bag summary.                          |
+| Remove from Bag       | Shows success without bag summary            | Remove item from bag                  | Item removed successfully, toast message displayed without the bag summary.                         |
+| Checkout Success      | Shows order confirmation                     | Complete checkout process             | Order placed successfully, confirmation page and email displayed as expected.                       |
+| User Registration     | Shows welcome message                        | Register new user                     | User registered successfully, welcome message displayed.                                             |
+| User Login            | Shows welcome back message                   | Log in as user                        | User logged in successfully, welcome back message displayed.                                         |
+| User Logout           | Shows logout confirmation                    | Log out as user                       | User logged out successfully, confirmation message displayed.                                        |
+| Profile Update        | Shows success message                        | Update user profile                   | Profile updated successfully, success message displayed.                                             |
+| Admin Product Actions | Shows appropriate messages                   | Perform admin product actions         | Product added, edited, and deleted successfully with appropriate success and error messages displayed. |
+| Admin Article Actions | Shows appropriate messages                   | Perform admin article actions         | Articles added, edited, and deleted successfully with appropriate messages.                          |
+| Admin FAQ Actions     | Shows appropriate messages                   | Perform admin FAQ actions             | FAQ added, edited, and deleted successfully with appropriate messages.                               |
+</details>
+
+<details>
+  <summary>Authenication Permissions</summary>
+
+
+
+1. **Access Pages as an Unauthenticated User**
+
+| Feature                                      | Test Procedure                                                                 | Expected Outcome                                                                          | Actual Outcome           |
+|----------------------------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------|
+| Access Add Product page as unauthenticated user | Attempt to access `/products/add/` without logging in                           | Redirected to login page with message: "Please log in to access this feature."            | Worked as expected       |
+| Access Add Article page as unauthenticated user | Attempt to access `/articles/add/` without logging in                           | Redirected to login page with message: "Please log in to access this feature."            | Worked as expected       |
+| Access Admin Articles page as unauthenticated user | Attempt to access `/admin_articles/` without logging in                         | Redirected to login page with message: "Please log in to access this feature."            | Worked as expected       |
+| Access Edit FAQ page as unauthenticated user | Attempt to access `/faq/edit/<id>` without logging in                           | Redirected to login page with message: "Please log in to access this feature."            | Worked as expected       |
+| Delete FAQ as unauthenticated user           | Attempt to access `/faq/delete/<id>` without logging in                         | Redirected to login page with message: "Please log in to access this feature."            | Worked as expected       |
+| Access Edit Product page as unauthenticated user | Attempt to access `/products/edit/<id>` without logging in                      | Redirected to login page with message: "Please log in to access this feature."            | Worked as expected       |
+
+2. **Access Pages as an Authenticated Non-Superuser**
+
+| Feature                                      | Test Procedure                                                                 | Expected Outcome                                                                          | Actual Outcome           |
+|----------------------------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------|
+| Access Add Product page as non-superuser     | Log in as a regular user and attempt to access `/products/add/`                  | Redirected to home page with message: "Sorry, only store owners can do that."             | Worked as expected       |
+| Access Add Article page as non-superuser     | Log in as a regular user and attempt to access `/articles/add/`                  | Redirected to home page with message: "Sorry, only store owners can do that."             | Worked as expected       |
+| Access Admin Articles page as non-superuser  | Log in as a regular user and attempt to access `/admin_articles/`                | Redirected to home page with message: "Sorry, only store owners can do that."             | Worked as expected       |
+| Access Edit FAQ page as non-superuser        | Log in as a regular user and attempt to access `/faq/edit/<id>`                  | Redirected to home page with message: "Sorry, only store owners can do that."             | Worked as expected       |
+| Delete FAQ as non-superuser                  | Log in as a regular user and attempt to delete an FAQ at `/faq/delete/<id>`      | Redirected to home page with message: "Sorry, only store owners can do that."             | Worked as expected       |
+| Access Edit Product page as non-superuser    | Log in as a regular user and attempt to access `/products/edit/<id>`             | Redirected to home page with message: "Sorry, only store owners can do that."             | Worked as expected       |
+
+3. **Access Pages as a Superuser**
+
+| Feature                                      | Test Procedure                                                                 | Expected Outcome                                                                          | Actual Outcome           |
+|----------------------------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------|
+| Access Add Product page as superuser         | Log in as a superuser and attempt to access `/products/add/`                     | Able to access the page and add a product successfully                                   | Worked as expected       |
+| Access Add Article page as superuser         | Log in as a superuser and attempt to access `/articles/add/`                     | Able to access the page and add an article successfully                                  | Worked as expected       |
+| Access Admin Articles page as superuser      | Log in as a superuser and attempt to access `/admin_articles/`                   | Able to access the admin articles page successfully                                      | Worked as expected       |
+| Access Edit FAQ page as superuser            | Log in as a superuser and attempt to access `/faq/edit/<id>`                     | Able to edit the FAQ successfully                                                        | Worked as expected       |
+| Delete FAQ as superuser                      | Log in as a superuser and attempt to delete an FAQ at `/faq/delete/<id>`         | Able to delete the FAQ successfully                                                      | Worked as expected       |
+| Access Edit Product page as superuser        | Log in as a superuser and attempt to access `/products/edit/<id>`                | Able to edit the product successfully                                                    | Worked as expected       |
+
+</details>
+
 
 
 ## Browser Compatibility 
@@ -117,7 +360,6 @@ In the performance review, Lighthouse flagged several third-party resources, suc
 - Expected: Site should render appropriately on various devices with different screen sizes. 
 - Testing: Test responsiveness on iPhone 12, iPad 12, and desktop (1024px). 
 - Outcome: The site displays responsively across different devices, maintaining functionality and appearance as intended.
-
 
 
 # BUGS

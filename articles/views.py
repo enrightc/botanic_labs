@@ -50,7 +50,6 @@ def admin_articles_view(request):
         return redirect(reverse('home'))
 
 
-# Django will check whether the user is logged in before executing the view.
 def add_article(request):
     """ View to create a new article """
     if not request.user.is_authenticated:

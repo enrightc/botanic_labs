@@ -1,13 +1,63 @@
 # BOTANIC LABS
-# 1.0  OVERVIEW
-# 2.0  INTRODUCTION
-Botanic Labs is a flower website dedicated to helping people make the most of their garden space. Whether you're a seasoned gardener or a complete beginner, Botanic Labs offers a friendly interface to explore, purchase, and learn about a wide variety of plants. Our focus on seasonal blooms ensures that you can find the perfect plant for your garden, no matter the time of year.
 
-# 3.0  USER EXPERIENCE
-## 3.1 Strategy
+![Am I Responsive](media/AmIResponsive.jpg)
+
+# Table of Contents
+
+1. [Introduction](#10-introduction)
+2. [User Experience](#20-user-experience)
+   - [Strategy](#21-strategy)
+     - [Project Rationale](#211-project-rationale)
+     - [Target Audience](#212-target-audience)
+     - [Project Goals](#213-project-goals)
+       - [Website Owner Goals](#website-owner-goals)
+       - [External User Goals](#external-user-goals)
+   - [User Stories](#214-user-stories)
+3. [Scope](#30-scope)
+   - [Key Feature Breakdown](#key-feature-breakdown)
+4. [Structure](#40-structure)
+   - [Frontend Framework](#41-frontend-framework)
+   - [Database](#42-database)
+   - [Database Schema](#43-database-schema)
+   - [User Journey](#44-user-journey)
+5. [Skeleton](#50-skeleton)
+   - [Wireframes](#51-wireframes)
+6. [Design](#60-design)
+   - [Colour Scheme](#61-colour-scheme)
+   - [Fonts](#fonts)
+   - [Accessibility](#accessibility)
+7. [Features](#70-features)
+   - [Existing Features](#71-existing-features)
+   - [Future Features](#72-future-features)
+8. [Technology Used](#80-technology-used)
+   - [Languages](#languages)
+   - [Frameworks](#frameworks)
+   - [Libraries](#libraries)
+   - [Database](#database)
+   - [Services](#services)
+   - [Other Tools](#other-tools)
+9. [Testing](#90-testing)
+10. [Deployment](#100-deployment)
+    - [Live Deployment](#live-deployment)
+    - [Local Deployment](#local-deployment)
+    - [Deployment to Heroku](#deployment-to-heroku)
+    - [AWS Setup for Static and Media Files](#aws-setup-for-static-and-media-files)
+    - [Stripe Payments Setup](#setting-up-stripe-payments)
+    - [Emails Setup](#setting-up-emails-on-the-deployed-site)
+    - [Heroku Config Variables](#heroku-config-variables)
+11. [References](#110-references)
+12. [Acknowledgements](#120-acknowledgements)
+
+# 1.0  INTRODUCTION
+Botanic Labs is a eCommerce flower website dedicated to helping people make the most of their garden space. Whether you're a seasoned gardener or a complete beginner, Botanic Labs offers a friendly interface to explore, purchase, and learn about a wide variety of plants. Our focus on seasonal blooms ensures that you can find the perfect plant for your garden, no matter the time of year.
+
+You can view the deployed site [here](https://botanic-labs-d446513705ac.herokuapp.com/)
+
+# 2.0  USER EXPERIENCE
+## 2.1 Strategy
 This section outlines the fundamental reasons behind the creation of **Botanic Labs** and how it aims to address specific needs within the gardening community. It delves into the rationale for the project, identifying the gaps and opportunities within existing platforms. This section also highlights the target audience, their goals, and the broader objectives of the website. By understanding these strategic elements, users can better appreciate the purpose and intended impact of **Botanic Labs**..
 
-### 3.1.1 Project Rationale
+### 2.1.1 Project Rationale
 While many gardening websites offer plants and gardening products, few provide a comprehensive, engaging platform that caters to both seasoned gardeners and beginners. Botanic Labs was conceived to fill this gap, offering an inspiring and interactive space where users can explore, purchase, and learn about plants tailored to their specific needs and garden spaces.
 
 Botanic Labs aims to inspire customers to enhance their gardens by providing a wide range of plants suited for every season. The platform encourages user engagement through resources such as blogs and FAQs. These resources provide valuable advice and insights, creating a sense of shared enthusiasm and support among gardening enthusiasts.
@@ -19,11 +69,11 @@ Botanic Labs addresses several key needs:
 	- Educational Resources: The inclusion of articles and FAQs provides users with a robust knowledge base on gardening practices, plant care, and garden design. This information allows customers to make informed decisions, leading to healthier gardens and greater satisfaction with their purchases.
 	- Personalised Shopping Experience: The seasonality filter enables users to find plants that align with specific seasonal requirements, making it easier to choose plants that will thrive in their gardens. This focus on personalisation ensures that users have a more relevant and satisfying shopping experience.
 
-## 3.1.2 Target Audience
+## 2.1.2 Target Audience
 **Botanic Labs** is designed to attract a diverse range of customers who are looking for a fresh, contemporary take on garden products. With its trendy appeal and user-friendly platform, Botanic Labs caters to both beginners and advanced gardeners, making gardening accessible and enjoyable for everyone.
 
-## 3.1.3 Project Goals
-### Website Owner Goals
+## 2.1.3 Project Goals
+## Website Owner Goals
 **Increase Sales and Revenue:**
 The primary goal for Botanic Labs as a business is to increase sales of plants and gardening products. By offering a selection of high-quality, seasonal plants and providing a seamless shopping experience, the website aims to boost revenue through online sales.
 **Build Brand Recognition and Loyalty:**
@@ -37,7 +87,7 @@ To meet the diverse needs of its customers, Botanic Labs aims to continually exp
 **Promote Sustainable Gardening Practices:**
 Botanic Labs is committed to promoting environmentally friendly gardening practices. The goal is to educate customers about sustainable options through articles and offer products that align with these principles, contributing to a healthier environment.
 
-### External User Goals
+## External User Goals
 **Find the Right Plants for Their Garden:**
 Users visit Botanic Labs with the goal of finding plants that suit their specific garden conditions and preferences. Whether they are looking for seasonal blooms, plants for a particular light exposure, or options for small urban spaces, the platform aims to provide tailored plant recommendations.
 **Learn and Improve Gardening Skills:**
@@ -47,7 +97,7 @@ Users expect a straightforward and convenient shopping experience. Botanic Labs 
 **Support Sustainable and Ethical Choices:**
 Many users are conscious of their environmental impact and look for sustainable and ethical gardening options. Botanic Labs offers products and advice that support eco-friendly practices, helping users make choices that align with their values.
 
-## 3.1.4 User Stories
+## 2.1.4 User Stories
 
 | Role             | User Story Description                                                                                   |
 |------------------|----------------------------------------------------------------------------------------------------------|
@@ -79,7 +129,7 @@ Many users are conscious of their environmental impact and look for sustainable 
 |                  | View reports on sales and popular products for informed business decisions.                                |
 |                  | Manage user accounts and permissions to provide the right access levels.                                   |
 
-# 4.0   SCOPE
+# 3.0   SCOPE
 To ensure **Botanic Labs** is able to meet the needs of its audience a variety of features designed to enhance user experience, engagement and functionality have been considered. At a minimum the following features have been deemed essential to meet the needs of different types of users and ensure the website is comprehensive and user friendly.
 
 | **Feature**                                                            | **Difficulty** | **Importance** |
@@ -151,11 +201,11 @@ To ensure **Botanic Labs** is able to meet the needs of its audience a variety o
 - **Wishlist (Future Addition):** Enables users to save products for later, encouraging return visits. (Importance: 2)
 - **Advanced Filtering:** Provides additional search options based on soil type and light exposure for precise results. (Importance: 3)
 
-# 5.0   STRUCTURE
-## 5.1 Frontend Framework
+# 4.0   STRUCTURE
+## 4.1 Frontend Framework
 Botanic Labs is built using **Bootstrap v4.1**, ensuring a responsive and mobile-friendly design across all devices. 
 
-## 5.2 Database
+## 4.2 Database
 The backend application connects to a Postgres database hosted on [Amazon Web Service](https://aws.amazon.com/). Below is a summary of the models used on Botanic Labs. 
 
 THe Code Institute **Boutique Ado** walkthrough provided a foundation for the models used in Botanic Labs, particularly for the Products, category, UserProfile, Order and OrderLineItem models. Botanic Labs also uses two original models (FAQs and Articles) created specfically for it. 
@@ -302,7 +352,7 @@ Here are the key areas where Botanic Labs Product model diverges from Boutique A
 
 </details>
 
-## 5.3 Database Schema
+## 4.3 Database Schema
 To create a clear visual representation of the database, I used **Lucid Chart** to build a Entity-Relationship Diagram (ERD). This diagram served as a reference throughout the development process, providing a clear visual representation of the database structure and the relationship between components of the website. Through the development process I continuously updated the ERD to ensure it aligned with the overall design of Bontanic Labs. 
 
 ![Entity-relationship Diagram](botanic_labs/media/docs/wireframes/Database_ER_diagram.jpeg)
@@ -334,7 +384,7 @@ Although at this stage wishlist and review functionality has not yet been implem
 
 Overall, the ERD for Botanic Labs provides a solid foundation for current features while allowing for future growth by adding wishlists and reviews functionality. It enables a personalised shopping experience, straightforward content management, and flexible product handling, ensuring that both user and admin needs are effectively met.
 
-## 5.4 User Journey
+## 4.4 User Journey
 
 This section outlines a typical user experience through the website, from landing on the homepage to logging out.
 
@@ -410,8 +460,8 @@ The below diagram illustrates the user journey through Botanic Labs.
 
 ![Entity-relationship Diagram](botanic_labs/media/docs/wireframes/userflow.jpg)
 
-# 6.0  SKELETON
-## 6.1 Wireframes
+# 5.0  SKELETON
+## 5.1 Wireframes
 Prior to commencing the website coding process, wireframes were produced for each page using Figma - a design tool used for creating user interfaces, prototypes, and wireframes. These wireframes served as the initial blueprints, providing a visual roadmap for the website's layout and structure.
 
 It's important to note that while the final web pages evolved from these early plans, some deviations were intentionally made to enhance the user experience and align better with the project's goals.
@@ -443,9 +493,9 @@ This iterative process allowed for flexibility in adapting to evolving project r
   <img src="botanic_labs/media/docs/wireframes/checkout_wireframe.png" alt="Checkout page">
 </details>
 
-# 7.0 DESIGN
+# 6.0 DESIGN
 
-## 7.1 Colour Scheme
+## 6.1 Colour Scheme
 
 For Botanic Labs, a minimalistic approach was chosen to create a calm and visually appealing environment fitting with the natural vibe of gardening. The focus is on keeping it simple and elegant, so users can explore the site without feeling overwhelmed. The colour scheme is low-key but engaging, letting the products themselves take centre stage.
 
@@ -482,8 +532,8 @@ Accessibility is a fundamental aspect of the LidarFind project, ensuring that al
 
 **Font Selection:** Emphasising simplicity and readability, the fonts chosen are clear and easy to read. This choice ensures that the content remains legible for users with different visual abilities, fostering an inclusive user experience.
 
-# 8.0 FEATURES
-## 8.2 Existing Features
+# 7.0 FEATURES
+## 7.1 Existing Features
 
 <details>
   <summary>Home</summary>
@@ -745,7 +795,7 @@ This error page is triggered when a user attempts to access a restricted area wi
   <img src="botanic_labs/media/docs/wireframes/error_pages.png" alt="404 page">
 </details>
 
-## 8.3 Future Features
+## 7.2 Future Features
 It is hoped that **Botanic Labs** will continute to be expanded upon in the future to enhance user experience and streamline the shopping process. Here are some potential additions:
 
 1. **Reviews and Ratings:** Enabling users to leave reviews and rate products would provide valuable insights for others. This feature would help customers make more informed decisions based on the experiences of fellow gardeners.
@@ -754,9 +804,7 @@ It is hoped that **Botanic Labs** will continute to be expanded upon in the futu
 
 3. **Refined Filtering Options:** While currently users can filter by season, I aim to expand this to include additional attributes like lifespan, type, light exposure, soil drainage, planting period, and flowering period. These refined filters would empower users to tailor their searches and find products that best suit their unique garden conditions.
 
-<div style="border: 1px solid #ddd; padding: 15px; border-radius: 5px; background-color: #fff;">
-
-#### Feature Experimentation with Django Filters
+**Feature Experimentation with Django Filters**
 
 During development, I experimented with Django Filters to explore advanced filtering capabilities. The idea was to let users refine their product searches based on multiple attributes, providing a more precise and personalised shopping experience.
 
@@ -776,9 +824,9 @@ As the feature wasn’t fully refined, I chose to exclude it from the final vers
 
 In future iterations, I plan to revisit and refine these features, with the `filter-experiments` branch serving as a foundation. This setup allows me to continue enhancing Botanic Labs' filtering capabilities without affecting the main project’s stability.
 
-</div>
 
-# 9.0 TECHNOLOGY USED
+
+# 8.0 TECHNOLOGY USED
 
 **Languages** 
   - HTML: For structuring the content on the web pages.
@@ -830,10 +878,10 @@ In future iterations, I plan to revisit and refine these features, with the `fil
     code).
   - Lucidchart: To create ERD and user journey diagrams. 
 
-# 10.0 TESTING
+# 9.0 TESTING
 Please see [TESTING.md](TESTING.md).
 
-# 11.0 DEPLOYMENT
+# 10.0 DEPLOYMENT
 
 ## Live deployment
 Botanic Labs is deployed live to [Heroku](https://botanic-labs-d446513705ac.herokuapp.com/).
@@ -1114,7 +1162,7 @@ Upon completing the above steps to configure the deployed app your config varabl
 | EMAIL_HOST_USER       | Email address (from your email account)                               |
 | EMAIL_HOST_PASSWORD   | Email app password (from your email account)                          |
 
-# 12.0 REFERENCES
+# 11.0 REFERENCES
 
 **Resources**
 | **Topic**                                  | **Description**                                                                              | **Source**                                                                                                           | **Accessed**     |
@@ -1143,7 +1191,7 @@ Product Images obtained from [Unsplash](https://unsplash.com/)
 - Content generated by ChatGPT
 
 
-## 13.0 Acknowledgements
+## 12.0 Acknowledgements
 heartfelt thank you to my course facilitators, Amy and Lewis, for always being on hand with inspiration and speedy responses to my questions.
 
 I’m also incredibly grateful to my mentor, Anton, for his guidance in planning and keeping the project on track. A special thank you to Student Support for their invaluable help in troubleshooting the many bugs that came up along the way.

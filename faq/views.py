@@ -21,7 +21,6 @@ def faqs(request):
     return render(request, 'faq/faq.html', context)
 
 
-# Django will check whether the user is logged in before executing the view.
 def add_faq(request):
     """ View to create a new faq """
     if not request.user.is_authenticated:
@@ -61,7 +60,6 @@ def add_faq(request):
         return redirect(reverse('home'))
 
 
-# Django will check whether the user is logged in before executing the view.
 def delete_faq(request, id):
     """ Delete a FAQ """
     if not request.user.is_authenticated:
