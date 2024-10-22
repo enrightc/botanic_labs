@@ -31,7 +31,7 @@ def error_400_view(request, exception):
     return render(request, 'home/400.html')
 
 
-def error_403_view(request):
+def error_403_view(request, exception):
     """
     403 error
     """
