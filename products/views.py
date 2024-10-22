@@ -92,31 +92,37 @@ def product_detail(request, product_id):
 
 def add_product(request):
     """ Add a product to the store """
-    if not request.user.is_superuser:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
+        
+        if request.method == 'POST':
+            form = ProductForm(request.POST, request.FILES)
+            if form.is_valid():
+                product = form.save()
+                request.session['show_bag_summary'] = False
+                messages.success(request, 'Successfully added product!')
+                return redirect(reverse('product_detail', args=[product.id]))
+            else:
+                messages.error(
+                    request,
+                    'Failed to add product. '
+                    'Please ensure the form is valid.'
+                )
+        else:
+            form = ProductForm()
+        template = 'products/add_product.html'
+        context = {
+            'form': form,
+        }
+
+        return render(request, template, context)
+
+    else:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            product = form.save()
-            request.session['show_bag_summary'] = False
-            messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(
-                request,
-                'Failed to add product. '
-                'Please ensure the form is valid.'
-            )
-    else:
-        form = ProductForm()
-    template = 'products/add_product.html'
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
 
 
 def edit_product(request, product_id):
@@ -125,7 +131,11 @@ def edit_product(request, product_id):
     - This view allows users to edit an existing product's details.
     - It checks if the form was submitted via POST or just loaded.
     """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+            messages.error(request, 'Please log in to access this feature.')
+            return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
        
         # Get the product object by its id or return a 404 error if not found
         product = get_object_or_404(Product, pk=product_id)
@@ -184,12 +194,18 @@ def edit_product(request, product_id):
 
 def delete_product(request, product_id):
     """ Delete a product from the store """
-    if not request.user.is_superuser:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
+
+        product = get_object_or_404(Product, pk=product_id)
+        product.delete()
+        request.session['show_bag_summary'] = False  # disable bag summary
+        messages.success(request, 'Product deleted!')
+        return redirect(reverse('products'))
+
+    else:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    request.session['show_bag_summary'] = False  # disable bag summary
-    messages.success(request, 'Product deleted!')
-    return redirect(reverse('products'))

@@ -32,7 +32,11 @@ def article(request, slug):
 
 def admin_articles_view(request):
     """ View to allow admin to manage articles """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
     
         articles = Article.objects.all()
         context = {
@@ -49,7 +53,11 @@ def admin_articles_view(request):
 # Django will check whether the user is logged in before executing the view.
 def add_article(request):
     """ View to create a new article """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
         
         if request.method == 'POST':
             form = ArticleForm(request.POST, request.FILES)
@@ -87,7 +95,11 @@ def edit_article(request, slug):
     """
     View to allow admin to edit an article
     """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
         
         # Get the article object by its slug or return a 404 error if not found
         article = get_object_or_404(Article, slug=slug)
@@ -141,7 +153,11 @@ def edit_article(request, slug):
 
 def delete_article(request, slug):
     """ Delete a article from the store """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
         
         article = get_object_or_404(Article, slug=slug)
         article.delete()

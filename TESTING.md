@@ -24,7 +24,7 @@ To test the markup validity [HTML Validator](https://validator.w3.org/) was used
 | Profile          |     17/10/24       |          |    Pass       |
 | Articles         |     17/10/24       |          |    Pass       |
 | Article Detail   |   19/10/24         |  ![font-optical-sizing](botanic_labs/media/docs/wireframes/optical_font_sizing.jpg) The above error was recorded multiple times throughout the content block rendered by summernote. It seems the HTML validator does not recognise the CSS property 'font-optical-sizing'. Having checked the website across multiple browsers and screen sizes it is working correctly therefore this particularly error has been ignored. In the future I will experimenth with other WYSIWYG text editors.        |     Pass      |
-| Add Article      |  19/10/24        | During HTML validation, several warnings and errors were encountered due to the implementation of the Summernote widget. These errors mainly include: Use of obsolete attributes like frameborder on iframe. Attributes such as maxlength, cols, rows, height, and width being incorrectly applied to <div> elements and invalid properties such as font-optical-sizing.Despite these validation warnings, they do not affect the functionality or performance of the website. Summernote’s rendering works as expected, and these validation issues are related to how Summernote generates its HTML structure, which is beyond the control of the project code. Given that Summernote is a widely used and maintained WYSIWYG editor, these warnings are safe to ignore unless a strict HTML validation is required for the project.  |           |
+| Add Article      |  19/10/24        | During HTML validation, several warnings and errors were encountered due to the implementation of the Summernote widget. These errors mainly include: Use of obsolete attributes like frameborder on iframe. Attributes such as maxlength, cols, rows, height, and width being incorrectly applied to <div> elements and invalid properties such as font-optical-sizing.Despite these validation warnings, they do not affect the functionality or performance of the website. Summernote’s rendering works as expected, and these validation issues are related to how Summernote generates its HTML structure, which is beyond the control of the project code. Given that Summernote is a widely used and maintained WYSIWYG editor, these warnings are safe to ignore. |           |
 | Edit Article     |    19/10/24        |   As "Add Article"       |           |
 | FAQ              |     19/10/24       |   As "Add Article"       |           |
 | Add FAQ          |    19/10/24        |   As "Add Article"       |           |
@@ -105,6 +105,9 @@ In the performance review, Lighthouse flagged several third-party resources, suc
 
 
 # 2.0 MANUAL TESTING
+## Feature Testing:
+
+
 ## Browser Compatibility 
 -   Expected: Consistent appearance and functionality across major browsers.
 -   Testing: Test site on Chrome, Mozilla, Safari, and Edge browsers.
@@ -115,7 +118,6 @@ In the performance review, Lighthouse flagged several third-party resources, suc
 - Testing: Test responsiveness on iPhone 12, iPad 12, and desktop (1024px). 
 - Outcome: The site displays responsively across different devices, maintaining functionality and appearance as intended.
 
-## Feature Testing:
 
 
 # BUGS
@@ -173,3 +175,24 @@ Issue: After implementing CKEditor, the form was not submitting correctly when a
 Cause: The issue stemmed from CKEditor not properly updating the content of the hidden textarea field when submitting the form. As a result, the form's content field appeared empty, causing validation errors.
 
 Solution: The issue was resolved by switching to Summernote, a different rich text editor that integrates better with Django forms, preventing the submission issues encountered with CKEditor.
+
+## Bug Report: 500 Error Page Logo and Favicon Not Loading
+
+Issue: During testing of the 500 error page, both the site logo and the favicon were returning 404 errors and not displaying correctly. The issue occurred because the page was searching for these files in the wrong location, specifically within the “products” directory, which caused the paths to the files to be incorrect.
+
+Cause: The incorrect file paths for the favicon and logo on the 500 error page were causing the browser to look in a specific directory that did not contain the files, resulting in the 404 error.
+
+Solution:
+
+To resolve this issue:
+
+	1.	Custom Error Handlers: I created custom handlers for both the 404 and 500 error pages. This involved setting up corresponding views for each error type.
+	2.	Views and URLs: The views for the 404 and 500 error pages were then referenced and specified in the main urls.py file, ensuring that the custom error templates are properly rendered.
+	3.	Relocation of Templates: I moved the 404 and 500 error templates to the correct folder structure: home > templates > home, ensuring that Django could properly locate and render these templates without path conflicts.
+
+Outcome: After making these changes, the 500 error page now displays correctly with the logo and favicon loading without any 404 errors.
+
+Acknowledgment:
+
+Solution inspired by the GitHub repository: The Games Pit
+Contributed by GitHub user: HollyT85

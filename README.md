@@ -730,8 +730,19 @@ Accessibility is a fundamental aspect of the LidarFind project, ensuring that al
 </details>
 
 <details>
-  <summary>404 Error Page</summary>
-  <img src="botanic_labs/media/docs/wireframes/404.png" alt="404 page">
+  <summary>Error Pages</summary>
+  To improve user experience and provide clear communication in the event of an issue, the following custom error pages have been implemented:
+
+  - 404 Error - Page Not Found:
+This error page is displayed when a user attempts to access a non-existent page, typically due to a typo in the URL or following a broken link. The 404 page informs the user that the requested page could not be found and offers navigation links to help them find what they’re looking for, such as links to the homepage, product catalogue, or other key sections.
+  - 500 Error - Server-Side Error:
+A custom 500 error page is in place to handle server-side issues, such as when something goes wrong with the application itself. This page informs the user that a problem occurred on our end and reassures them that the issue will be resolved as soon as possible. It also provides navigation back to other areas of the site, ensuring that users are not left stranded.
+  - 400 Error - Bad Request:
+Although this error is rare due to comprehensive form validation across the site, a 400 error page has been implemented as a fallback to catch any malformed requests. This ensures that any invalid user input is handled with a clear message, maintaining a professional user experience.
+  - 403 Error - Forbidden Access:
+This error page is triggered when a user attempts to access a restricted area without the required permissions. While the site’s authentication system actively prevents unauthorised access and typically redirects users to the homepage or login page, the 403 error page acts as a fallback. It informs users that they do not have permission to view the requested page, reinforcing security and maintaining a professional user experience.
+
+  <img src="botanic_labs/media/docs/wireframes/error_pages.png" alt="404 page">
 </details>
 
 ## 8.3 Future Features

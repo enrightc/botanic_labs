@@ -24,7 +24,11 @@ def faqs(request):
 # Django will check whether the user is logged in before executing the view.
 def add_faq(request):
     """ View to create a new faq """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+            messages.error(request, 'Please log in to access this feature.')
+            return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
         
         if request.method == 'POST':
             form = FaqForm(request.POST, request.FILES)
@@ -60,7 +64,11 @@ def add_faq(request):
 # Django will check whether the user is logged in before executing the view.
 def delete_faq(request, id):
     """ Delete a FAQ """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+
+    if request.user.is_superuser:
         
         faq = get_object_or_404(Faq, id=id)
         faq.delete()
@@ -77,7 +85,11 @@ def edit_faq(request, id):
     """
     View to allow admin to edit an FAQ
     """
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
+        
+    if request.user.is_superuser:
         
         faq = get_object_or_404(Faq, id=id)
 
