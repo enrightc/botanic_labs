@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = False  # Set to False in production
 
 # Uncomment for deployment:
-DEBUG = 'DEVELOPMENMT' in os.environ
+# DEBUG = 'DEVELOPMENMT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
