@@ -11,8 +11,6 @@ from .models import Product, Season
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
-    result = 1 / 0 
-
     products = Product.objects.all()
     query = None
     seasons = None
