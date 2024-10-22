@@ -126,7 +126,6 @@ header {
 /* navigation */
 .dropdown-menu a:focus, .dropdown-menu a:active {
     outline: none;
-    background-color: transparent;
     color: inherit;
   }
 
@@ -442,6 +441,9 @@ input[name='q']::placeholder {
 @media (max-width: 480px) {
     .nav-link {
         padding: .5rem 0.25rem;
+    }
+    .dropdown-menu {
+        left: -76px;
     }
 }
 
