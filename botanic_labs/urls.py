@@ -38,4 +38,4 @@ handle 404 & 500 pages
 handler404 = 'home.views.error_404_view'
 handler500 = 'home.views.error_500_view'
 handler403 = 'home.views.error_403_view'
-handler000 = 'home.views.error_400_view'
+handler400 = 'home.views.error_400_view'
