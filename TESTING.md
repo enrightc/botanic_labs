@@ -32,6 +32,9 @@ Back to [README.md](README.md).
    - [AttributeError When Using .split() on a NoneType Object in Product Recommendations](#attributeerror-when-using-split-on-a-nonetype-object-in-product-recommendations)
    - [Issue with Form Submission Using CKEditor](#issue-with-form-submission-using-ckeditor)
    - [500 Error Page Logo and Favicon Not Loading](#bug-report-500-error-page-logo-and-favicon-not-loading)
+   - [Order Confirmation Page Accessible After Logout](#bug-report-order-confirmation-page-accessible-after-logout)
+   - [Horizontal Scroll on Homepage for Product Seasons](#bug-report-horizontal-scroll-on-homepage-for-product-seasons)
+   - [Admin Interface Requires Trailing Slash](#bug-report-admin-interface-requires-trailing-slash)
 
 # 1.0 AUTOMATED TESTING
 Automated testing was undertaken using a range of open-source developer tools including Google Lighthouse Analysis, HTML, CSS and JavaScript validation. These tests assessed the applications quality, performance, accessibility and adherence to web standards. Any identified issues were addressed to enhance the websites usability and overall user experience.
