@@ -139,6 +139,7 @@ For each feature the expected outcomes and actual outcomes are clearly defined f
 
 <details>
   <summary>General Feature Testing</summary>
+
 | Feature                   | Expected Outcome                                                             | Testing Procedure                                                       | Actual Outcome                                                                                      |
 |---------------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | Responsive Design          | Website displays correctly across all devices and screen sizes               | Test on various devices and screen sizes                                | The website was responsive and usable on all tested devices.                                         |
@@ -285,7 +286,8 @@ For each feature the expected outcomes and actual outcomes are clearly defined f
 
 <details>
   <summary>Errors</summary>
-	| Feature           | Expected Outcome                            | Testing Procedure                | Actual Outcome                                                                                       |
+
+| Feature           | Expected Outcome                            | Testing Procedure                | Actual Outcome                                                                                       |
 |-------------------|---------------------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------|
 | 404 Page          | Displays for non-existent URLs              | Test with invalid URL            | 404 error page displayed as expected when accessing non-existent URLs.                               |
 | 500 Page          | Displays for server errors                  | Intentionally cause server error | The 500 error page was triggered successfully by adding a divide-by-zero error in the products view, and displayed as expected when navigating to the products page |

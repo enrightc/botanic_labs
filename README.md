@@ -544,12 +544,12 @@ Accessibility is a fundamental aspect of the LidarFind project, ensuring that al
   <summary>Navbar</summary>
   The Botanic Labs navigation bar is designed to be clean and user-friendly across both desktop and mobile. It includes several key features:
 
-	•	Logo: The company logo—a simple, elegant flower silhouette—is featured at the top of every page. Clicking on the logo always brings users back to the homepage, providing an easy way to reset navigation.
-	•	Search Functionality: On mobile, users can tap the search icon to open a dropdown with a search bar, making it easy to find products without navigating away from the current page. On desktop, the search bar is built directly into the navigation for quicker access.
-	•	Account Links: The nav bar changes based on whether the user is logged in. If they’re not, they’ll see options to log in or register. Logged-in users will get links to their profile and logout, and superusers (admin-level) will see additional options like product and article management.
-	•	Shopping Bag: The shopping bag icon updates in real-time to show the total value of items in the cart. It’s visible across the site, so users can always keep track of their total. Clicking it takes users to the shopping bag page to review or adjust their orders.
-	•	Product Categories: Under the “Flowers” dropdown, users can browse all products or filter by price, rating, or season. This gives users a quick way to explore products based on their needs.
-	•	Other Key Sections: The navigation also features links to the “Articles” and “FAQ” sections, helping users find additional gardening tips and frequently asked questions.
+  - Logo: The company logo—a simple, elegant flower silhouette—is featured at the top of every page. Clicking on the logo always brings users back to the homepage, providing an easy way to reset navigation.
+  - Search Functionality: On mobile, users can tap the search icon to open a dropdown with a search bar, making it easy to find products without navigating away from the current page. On desktop, the search bar is built directly into the navigation for quicker access.
+  - Account Links: The nav bar changes based on whether the user is logged in. If they’re not, they’ll see options to log in or register. Logged-in users will get links to their profile and logout, and superusers (admin-level) will see additional options like product and article management.
+  - Shopping Bag: The shopping bag icon updates in real-time to show the total value of items in the cart. It’s visible across the site, so users can always keep track of their total. Clicking it takes users to the shopping bag page to review or adjust their orders.
+  - Product Categories: Under the “Flowers” dropdown, users can browse all products or filter by price, rating, or season. This gives users a quick way to explore products based on their needs.
+  - Other Key Sections: The navigation also features links to the “Articles” and “FAQ” sections, helping users find additional gardening tips and frequently asked questions.
 
 Right now, if a user adds items to their cart and closes the browser, the contents will be there when they return. However, if they log out or clear their cache, the cart resets. In the future, I’d like to implement a feature where logged-in users can keep their cart contents even after logging out, to improve the overall experience.
 
@@ -558,9 +558,10 @@ Right now, if a user adds items to their cart and closes the browser, the conten
 
   <details>
   <summary>Notifications</summary>
-	•	Success Messages: When a user completes an action successfully, such as adding a product to the cart or submitting a form, a green success notification appears at the top of the page. This message reassures users that their action has been processed correctly.
-	•	Error Messages: If something goes wrong, for example, if a form submission fails or an unauthorised action is attempted, a  error message is displayed. This immediate feedback helps users understand what went wrong and how they can correct it.
-	•	Info Messages: Informational messages are used for less critical updates, such as notifying users about a product they’re viewing or when they’re editing certain content.
+
+  - Success Messages: When a user completes an action successfully, such as adding a product to the cart or submitting a form, a green success notification appears at the top of the page. This message reassures users that their action has been processed correctly.
+  - Error Messages: If something goes wrong, for example, if a form submission fails or an unauthorised action is attempted, a  error message is displayed. This immediate feedback helps users understand what went wrong and how they can correct it.
+  - Info Messages: Informational messages are used for less critical updates, such as notifying users about a product they’re viewing or when they’re editing certain content.
 
 
   <img src="botanic_labs/media/docs/wireframes/notifications.png" alt="Notifications">
@@ -578,7 +579,7 @@ Right now, if a user adds items to their cart and closes the browser, the conten
 
   - Seasonal Categories: A key feature of the homepage is the ability to search by season. Users can quickly explore products suitable for different seasons (Spring, Summer, Autumn, and Winter). This is visually presented with season-specific images and clear buttons leading directly to relevant product listings. This feature helps users find plants and products that are ideal for specific times of the year, enhancing the user experience by providing targeted recommendations.
 
-  **all-to-Actions:**
+  **Call-to-Actions:**
 
   - All Seasons Button: For users looking for a broader selection, the homepage also provides an “All Seasons” button, ensuring that users can access the full range of products available on the site.
   Products Page (Admin view)
