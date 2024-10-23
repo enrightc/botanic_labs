@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -97,7 +96,7 @@ def add_product(request):
         return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-        
+
         if request.method == 'POST':
             form = ProductForm(request.POST, request.FILES)
             if form.is_valid():
@@ -132,11 +131,10 @@ def edit_product(request, product_id):
     - It checks if the form was submitted via POST or just loaded.
     """
     if not request.user.is_authenticated:
-            messages.error(request, 'Please log in to access this feature.')
-            return redirect(reverse('account_login'))
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-       
         # Get the product object by its id or return a 404 error if not found
         product = get_object_or_404(Product, pk=product_id)
 
@@ -163,7 +161,8 @@ def edit_product(request, product_id):
                     request,
                     'Failed to update product. '
                     'Please ensure the form is valid.'
-                    ' Please either clear the current image or select a new one,'
+                    ' Please either clear the current '
+                    'image or select a new one,'
                     ' not both.”'
                 )
 
@@ -172,7 +171,7 @@ def edit_product(request, product_id):
         else:
             # Pre-populate the form with the product's current information
             form = ProductForm(instance=product)
-            # Display a message to inform the user which product is being edited
+            # Display message to inform the user which product is being edited
             messages.info(request, f'You are editing {product.name}')
 
         # Set the template to use for rendering the form
@@ -186,8 +185,8 @@ def edit_product(request, product_id):
 
         # Render the edit product template with the context data
         return render(request, template, context)
-    
-    else: 
+
+    else:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 

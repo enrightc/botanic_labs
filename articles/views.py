@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 from .models import Article
 from .forms import ArticleForm
@@ -37,7 +36,7 @@ def admin_articles_view(request):
         return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-    
+
         articles = Article.objects.all()
         context = {
             'articles': articles,
@@ -57,7 +56,7 @@ def add_article(request):
         return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-        
+
         if request.method == 'POST':
             form = ArticleForm(request.POST, request.FILES)
             if form.is_valid():
@@ -84,7 +83,7 @@ def add_article(request):
         }
 
         return render(request, template, context)
-    
+
     else:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -99,7 +98,7 @@ def edit_article(request, slug):
         return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-        
+
         # Get the article object by its slug or return a 404 error if not found
         article = get_object_or_404(Article, slug=slug)
 
@@ -123,14 +122,15 @@ def edit_article(request, slug):
                 # If the form is not valid, show an error message
                 messages.error(
                     request,
-                    'Failed to update article. Please ensure the form is valid.')
+                    'Failed to update article. '
+                    'Please ensure the form is valid.')
 
         # If the request method is not POST,
         # show the form with the current product data for editing
         else:
             # Pre-populate the form with the articles current information
             form = ArticleForm(instance=article)
-            # Display a message to inform the user which product is being edited
+            # Display message to inform the user which product is being edited
             messages.info(request, f'You are editing {article.title}')
 
         # Set the template to use for rendering the form
@@ -157,13 +157,11 @@ def delete_article(request, slug):
         return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-        
         article = get_object_or_404(Article, slug=slug)
         article.delete()
         request.session['show_bag_summary'] = False
         messages.success(request, 'Article deleted!')
         return redirect(reverse('admin_articles_view'))
-    
     else:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

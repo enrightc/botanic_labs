@@ -3,7 +3,6 @@ from django.shortcuts import (
     reverse, get_object_or_404
 )
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 from .models import Faq
 from .forms import FaqForm
@@ -24,24 +23,25 @@ def faqs(request):
 def add_faq(request):
     """ View to create a new faq """
     if not request.user.is_authenticated:
-            messages.error(request, 'Please log in to access this feature.')
-            return redirect(reverse('account_login'))
+        messages.error(request, 'Please log in to access this feature.')
+        return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-        
+
         if request.method == 'POST':
             form = FaqForm(request.POST, request.FILES)
             if form.is_valid():
                 # Create faq instance but don't save to DB yet
                 faq = form.save(commit=False)
                 faq.save()  # Now save the faq form
-                request.session['add_to_bag'] = False  # Disable the bag summary
+                request.session['add_to_bag'] = False
                 request.session['show_bag_summary'] = False
                 messages.success(request, 'Successfully added FAQ!')
                 return redirect(reverse('faq'))
             else:
                 messages.error(
-                    request, 'Failed to add FAQ. Please ensure the form is valid.'
+                    request, 'Failed to add FAQ. '
+                    'Please ensure the form is valid.'
                 )
         else:
             form = FaqForm()
@@ -67,7 +67,7 @@ def delete_faq(request, id):
         return redirect(reverse('account_login'))
 
     if request.user.is_superuser:
-        
+
         faq = get_object_or_404(Faq, id=id)
         faq.delete()
         request.session['show_bag_summary'] = False
@@ -86,9 +86,9 @@ def edit_faq(request, id):
     if not request.user.is_authenticated:
         messages.error(request, 'Please log in to access this feature.')
         return redirect(reverse('account_login'))
-        
+
     if request.user.is_superuser:
-        
+
         faq = get_object_or_404(Faq, id=id)
 
         if request.method == 'POST':
@@ -96,7 +96,7 @@ def edit_faq(request, id):
 
             if form.is_valid():
                 form.save()
-                request.session['show_bag_summary'] = False  # disable bag summary
+                request.session['show_bag_summary'] = False
                 messages.success(request, 'FAQ updated!')
                 return redirect(reverse('faq'))
             else:

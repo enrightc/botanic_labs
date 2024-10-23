@@ -76,26 +76,31 @@ Botanic Labs addresses several key needs:
 ## Website Owner Goals
 **Increase Sales and Revenue:**
 The primary goal for Botanic Labs as a business is to increase sales of plants and gardening products. By offering a selection of high-quality, seasonal plants and providing a seamless shopping experience, the website aims to boost revenue through online sales.
+
 **Build Brand Recognition and Loyalty:**
 Botanic Labs seeks to establish itself as a trusted and recognised brand in the gardening market. By providing excellent customer service, quality products, and valuable content, the goal is to build strong brand loyalty and encourage repeat customers.
+
 **Grow the User Base:**
 Expanding the reach of Botanic Labs is crucial. The goal is to attract a growing number of users, both beginner and experienced gardeners.
+
 **Enhance User Engagement:**
 Increasing user engagement on the platform is a key objective. By providing new content in the form of articles and FAQs Botanic Labs aims to create a resource of all levels of gardeners.
+
 **Expand Product Offerings:**
 To meet the diverse needs of its customers, Botanic Labs aims to continually expand its range of products, including new plant varieties, gardening tools, and accessories. This will cater to different tastes and garden sizes, enhancing the overall shopping experience.
+
 **Promote Sustainable Gardening Practices:**
 Botanic Labs is committed to promoting environmentally friendly gardening practices. The goal is to educate customers about sustainable options through articles and offer products that align with these principles, contributing to a healthier environment.
 
 ## External User Goals
 **Find the Right Plants for Their Garden:**
 Users visit Botanic Labs with the goal of finding plants that suit their specific garden conditions and preferences. Whether they are looking for seasonal blooms, plants for a particular light exposure, or options for small urban spaces, the platform aims to provide tailored plant recommendations.
+
 **Learn and Improve Gardening Skills:**
 Many users, especially beginners, seek to learn more about gardening. Botanic Labs offers educational resources such as articles and FAQs to help users gain knowledge and improve their gardening skills, ensuring they can grow and maintain a beautiful garden.
+
 **Access Quality Products Easily:**
 Users expect a straightforward and convenient shopping experience. Botanic Labs aims to provide a user-friendly website where customers can easily browse, filter, and purchase high-quality plants and gardening products, ensuring a smooth and satisfying experience.
-**Support Sustainable and Ethical Choices:**
-Many users are conscious of their environmental impact and look for sustainable and ethical gardening options. Botanic Labs offers products and advice that support eco-friendly practices, helping users make choices that align with their values.
 
 ## 2.1.4 User Stories
 
@@ -534,6 +539,34 @@ Accessibility is a fundamental aspect of the LidarFind project, ensuring that al
 
 # 7.0 FEATURES
 ## 7.1 Existing Features
+
+
+
+<details>
+  <summary>Navbar</summary>
+  The Botanic Labs navigation bar is designed to be clean and user-friendly across both desktop and mobile. It includes several key features:
+
+	•	Logo: The company logo—a simple, elegant flower silhouette—is featured at the top of every page. Clicking on the logo always brings users back to the homepage, providing an easy way to reset navigation.
+	•	Search Functionality: On mobile, users can tap the search icon to open a dropdown with a search bar, making it easy to find products without navigating away from the current page. On desktop, the search bar is built directly into the navigation for quicker access.
+	•	Account Links: The nav bar changes based on whether the user is logged in. If they’re not, they’ll see options to log in or register. Logged-in users will get links to their profile and logout, and superusers (admin-level) will see additional options like product and article management.
+	•	Shopping Bag: The shopping bag icon updates in real-time to show the total value of items in the cart. It’s visible across the site, so users can always keep track of their total. Clicking it takes users to the shopping bag page to review or adjust their orders.
+	•	Product Categories: Under the “Flowers” dropdown, users can browse all products or filter by price, rating, or season. This gives users a quick way to explore products based on their needs.
+	•	Other Key Sections: The navigation also features links to the “Articles” and “FAQ” sections, helping users find additional gardening tips and frequently asked questions.
+
+Right now, if a user adds items to their cart and closes the browser, the contents will be there when they return. However, if they log out or clear their cache, the cart resets. In the future, I’d like to implement a feature where logged-in users can keep their cart contents even after logging out, to improve the overall experience.
+
+  <img src="botanic_labs/media/docs/wireframes/navbar.png" alt="Nav bar">
+  </details>
+
+  <details>
+  <summary>Notifications</summary>
+	•	Success Messages: When a user completes an action successfully, such as adding a product to the cart or submitting a form, a green success notification appears at the top of the page. This message reassures users that their action has been processed correctly.
+	•	Error Messages: If something goes wrong, for example, if a form submission fails or an unauthorised action is attempted, a  error message is displayed. This immediate feedback helps users understand what went wrong and how they can correct it.
+	•	Info Messages: Informational messages are used for less critical updates, such as notifying users about a product they’re viewing or when they’re editing certain content.
+
+
+  <img src="botanic_labs/media/docs/wireframes/notifications.png" alt="Notifications">
+  </details>
 
 <details>
   <summary>Home</summary>

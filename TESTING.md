@@ -362,7 +362,7 @@ For each feature the expected outcomes and actual outcomes are clearly defined f
 - Outcome: The site displays responsively across different devices, maintaining functionality and appearance as intended.
 
 
-# BUGS
+# BUGS (RESOLVED)
 ### Duplicate ID in custom_clearable_file_input
 
 Issue:
@@ -438,3 +438,26 @@ Acknowledgment:
 
 Solution inspired by the GitHub repository: The Games Pit
 Contributed by GitHub user: HollyT85
+
+
+# BUGS (UNRESOLVED)
+## Bug Report: Order Confirmation Page Accessible After Logout
+
+Issue:
+After a user completes a purchase and views the order confirmation page, they can still access the confirmation page after logging out by pasting the URL into the browser. This exposes sensitive data such as the user’s email address, which should no longer be accessible once the user has logged out.
+
+Steps to Reproduce:
+
+	1.	Complete a purchase and reach the order confirmation page.
+	2.	Copy the URL.
+	3.	Log out of the account.
+	4.	Paste the copied URL into the browser.
+	5.	The confirmation page, containing the user’s email and order details, is displayed.
+
+Previous Attempts to Resolve:
+
+	1.	User Authentication Check: An initial attempt to fix the bug involved checking if the user is authenticated. However, this still allowed authenticated users who didn’t own the order to access the page.
+	2.	Order Ownership Check: Added a check to verify that only the owner of the order could access the confirmation page, but it did not fully resolve the issue.
+
+  Outcome:
+  This issue still persists in Botanic Labs and could not be resolved within the scope of this project. It was noted that this issue also exists in Boutique Ado and a number of other student projects.
