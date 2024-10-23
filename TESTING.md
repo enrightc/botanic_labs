@@ -463,3 +463,8 @@ Previous Attempts to Resolve:
 
   Outcome:
   This issue still persists in Botanic Labs and could not be resolved within the scope of this project. It was noted that this issue also exists in Boutique Ado and a number of other student projects.
+
+## Bug Report: Horizontal Scroll on Homepage for Product Seasons
+On the homepage, users can select products by season through a horizontally scrollable div. While this works fine on touch devices where users can swipe, those using a mouse with a scroll wheel must hold the “Shift” key to scroll horizontally. This could be unintuitive for some users on desktop and laptop devices.
+
+However, this is not so much of a bug, as everything functions as intended. It’s more of a comment to make users aware of this behaviour. Additionally, this issue will only affect users on large devices who manually reduce the screen size. Otherwise, all the season cards are visible by default, so horizontal scrolling is not required in those cases. For users on smaller devices, the ability to swipe makes this less of a concern.
