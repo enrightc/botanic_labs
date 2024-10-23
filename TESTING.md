@@ -95,7 +95,7 @@ The JavaScript code was validated using [JSHint](https://jshint.com/). The resul
 **N.B.** A number of the JavaScript files were identified as having undefined variables, typically related to jQuery’s $ and stripe. This occurs because they are from external libraries that JSHint does not recognise. These are not actual errors in the code, but warnings from JSHint, as it does not have knowledge of the external libraries.  
 
 ## Python Linter Test
-Python files that were created or edited for this project were validated using [CI Python Linter](https://pep8ci.herokuapp.com/). Any identied issues were rectified. Gitpod also has a built-in Python Linter which can be accessed by using the command `pyonth3 -m flake8`.
+Python files that were created or edited for this project were validated using [CI Python Linter](https://pep8ci.herokuapp.com/). Any identied issues were rectified. Gitpod also has a built-in Python Linter which can be accessed by using the command `python3 -m flake8`.
 
 All code edited and created for this project has passed the Python Linter validation tests. 
 

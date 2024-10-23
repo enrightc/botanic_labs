@@ -431,7 +431,7 @@ input[name='q']::placeholder {
     }
     .menu-products {
         left: -76px;
-        background-color: transparent;
+        background-color: #FAF7F2;
         border: none;
     }
 }
