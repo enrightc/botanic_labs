@@ -468,3 +468,17 @@ Previous Attempts to Resolve:
 On the homepage, users can select products by season through a horizontally scrollable div. While this works fine on touch devices where users can swipe, those using a mouse with a scroll wheel must hold the “Shift” key to scroll horizontally. This could be unintuitive for some users on desktop and laptop devices.
 
 However, this is not so much of a bug, as everything functions as intended. It’s more of a comment to make users aware of this behaviour. Additionally, this issue will only affect users on large devices who manually reduce the screen size. Otherwise, all the season cards are visible by default, so horizontal scrolling is not required in those cases. For users on smaller devices, the ability to swipe makes this less of a concern.
+
+## Bug Report: Admin Interface Requires Trailing Slash
+
+Issue:
+When attempting to access the Django admin interface on the deployed site, users are required to manually add the trailing slash (/admin/). If the slash is omitted (i.e., /admin), the request is caught by the 404 error handler, and the admin page does not load. Users can only access the admin interface if they manually include the trailing slash in the URL.
+
+Cause:
+The issue seems to stem from URL handling on the deployed server, where Django does not automatically append the trailing slash when accessing the /admin route. As a result, the server interprets /admin as a different path and triggers the 404 error.
+
+Impact:
+This bug primarily affects users attempting to access the admin interface without a trailing slash. While this is a minor inconvenience, it could cause confusion for users unfamiliar with the need for the trailing slash and lead to unnecessary frustration.
+
+Solution:
+Currently, users can access the Django admin interface by manually adding the trailing slash (/admin/). However, further investigation is needed to determine if automatic redirection to /admin/ can be implemented to improve the user experience.
