@@ -49,20 +49,18 @@
 12. [Acknowledgements](#120-acknowledgements)
 
 # 1.0  INTRODUCTION
-Botanic Labs is a eCommerce flower website dedicated to helping people make the most of their garden space. Whether you're a seasoned gardener or a complete beginner, Botanic Labs offers a friendly interface to explore, purchase, and learn about a wide variety of plants. Our focus on seasonal blooms ensures that you can find the perfect plant for your garden, no matter the time of year.
+Botanic Labs  is an eCommerce platform designed for plant enthusiasts of all experience levels. Whether you’re a seasoned gardener or a complete beginner, our aim is to help you make the most of your garden space. With a user-friendly interface, Botanic Labs makes it easy to explore, purchase, and learn about a wide variety of plants. Our focus on seasonal blooms ensures that you can always find the perfect plant for your garden, no matter the time of year.
 
 You can view the deployed site [here](https://botanic-labs-d446513705ac.herokuapp.com/)
 
 # 2.0  USER EXPERIENCE
 ## 2.1 Strategy
-This section outlines the fundamental reasons behind the creation of **Botanic Labs** and how it aims to address specific needs within the gardening community. It delves into the rationale for the project, identifying the gaps and opportunities within existing platforms. This section also highlights the target audience, their goals, and the broader objectives of the website. By understanding these strategic elements, users can better appreciate the purpose and intended impact of **Botanic Labs**..
+The Botanic Labs project was built to fill a gap in the gardening eCommerce space, creating a platform that not only offers a wide range of plants but also provides an engaging, educational experience. We wanted to design a site that meets the needs of all gardeners, from those just starting to those with years of experience.
 
 ### 2.1.1 Project Rationale
-While many gardening websites offer plants and gardening products, few provide a comprehensive, engaging platform that caters to both seasoned gardeners and beginners. Botanic Labs was conceived to fill this gap, offering an inspiring and interactive space where users can explore, purchase, and learn about plants tailored to their specific needs and garden spaces.
+While many sites sell plants, very few offer an experience that both educates and inspires users to grow their knowledge. Botanic Labs bridges that gap, offering an easy-to-use interface, helpful resources like blog posts and FAQs, and a product catalogue that covers all seasons. This seasonal focus ensures that gardeners can find the right plants for any time of year, streamlining the process and making it more enjoyable.
 
-Botanic Labs aims to inspire customers to enhance their gardens by providing a wide range of plants suited for every season. The platform encourages user engagement through resources such as blogs and FAQs. These resources provide valuable advice and insights, creating a sense of shared enthusiasm and support among gardening enthusiasts.
-
-The platform includes a search filter based on seasonality, which allows users to quickly locate plants suitable for particular times of the year. This feature streamlines the shopping experience, helping customers find plants that align with their gardening plans and seasonal needs.
+Our mission is to build a community of plant lovers by sharing expert advice and providing the tools needed to create beautiful gardens.
 
 Botanic Labs addresses several key needs:
   - Inspiring Purchase and Engagement: By offering a wide selection of plants along with informative content, Botanic Labs motivates users to explore and purchase plants while furthering their gardening knowledge. This approach not only enhances the shopping experience but also encourages users to engage with the platform regularly.

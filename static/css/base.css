@@ -430,7 +430,7 @@ input[name='q']::placeholder {
         border-bottom: none;
     }
     .menu-products {
-        left: -76px;
+        left: 000;
         background-color: #FAF7F2;
         border: none;
     }
@@ -443,7 +443,10 @@ input[name='q']::placeholder {
         padding: .5rem 0.25rem;
     }
     .dropdown-menu {
-        left: -76px;
+        left:-80px;
+    }
+    .dropdown-search {
+        left:0px;
     }
 }
 
