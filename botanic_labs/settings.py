@@ -34,7 +34,8 @@ ALLOWED_HOSTS = [
     '8000-enrightc-botaniclabs-06zgkf4n10j.ws.codeinstitute-ide.net',
     'botanic-labs.herokuapp.com',
     'botanic-labs-d446513705ac.herokuapp.com',
-    'localhost'
+    'localhost',
+    '.railway.app',
 ]
 
 # Allows admin login
