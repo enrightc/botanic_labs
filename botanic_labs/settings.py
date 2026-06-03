@@ -41,7 +41,8 @@ ALLOWED_HOSTS = [
 # Allows admin login
 CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com",
-    "https://*.codeinstitute-ide.net"
+    "https://*.codeinstitute-ide.net",
+    'https://botaniclabs-production.up.railway.app'
 ]
 
 # Application definition
